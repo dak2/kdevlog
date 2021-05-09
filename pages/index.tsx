@@ -1,9 +1,10 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
+import Head from 'next/head';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
+import { httpRequest } from '../utils/api';
+import { CMS_API_KEY, CMS_URL } from '../utils/const';
+import Link from 'next/link';
+import Date from '../components/date';
 
 export default function Home({ allPostsData }) {
   return (
@@ -21,28 +22,30 @@ export default function Home({ allPostsData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
+          {allPostsData.map(({ id, createdAt, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`}>
                 <a>{title}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={date} />
+                <Date dateString={createdAt} />
               </small>
             </li>
           ))}
         </ul>
       </section>
     </Layout>
-  )
+  );
 }
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
+export const getStaticProps = async () => {
+  const res = await httpRequest(CMS_URL, CMS_API_KEY);
+  const data = await res.contents;
+
   return {
     props: {
-      allPostsData
-    }
-  }
-}
+      allPostsData: data,
+    },
+  };
+};
