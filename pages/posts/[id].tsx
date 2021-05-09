@@ -2,7 +2,7 @@ import Layout from '../../components/layout';
 import { httpRequest } from '../../utils/api';
 import { CMS_API_KEY, CMS_URL } from '../../utils/const';
 import Head from 'next/head';
-import Date from '../../components/date';
+import { FormatedCreatedAt } from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 
 export default function Post({ postData }) {
@@ -14,7 +14,7 @@ export default function Post({ postData }) {
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={postData.createdAt} />
+          <FormatedCreatedAt dateString={postData.createdAt} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>

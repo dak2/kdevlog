@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
 import { httpRequest } from '../utils/api';
 import { CMS_API_KEY, CMS_URL } from '../utils/const';
 import Link from 'next/link';
-import Date from '../components/date';
+import { FormatedCreatedAt } from '../components/date';
 
 export default function Home({ allPostsData }) {
   return (
@@ -12,24 +11,19 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, createdAt, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={createdAt} />
-              </small>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {allPostsData.map(({ id, createdAt, title, body }) => (
+        <div>
+          <Link href={`/posts/${id}`}>
+            <h2 className="cursor-pointer text-2xl mb-2 text-blue-800">
+              <a>{title}</a>
+            </h2>
+          </Link>
+          <small className="text-gray-500">
+            <FormatedCreatedAt dateString={createdAt} />
+          </small>
+          <div dangerouslySetInnerHTML={{ __html: `${body}` }}></div>
+        </div>
+      ))}
     </Layout>
   );
 }
