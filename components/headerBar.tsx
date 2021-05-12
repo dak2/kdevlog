@@ -1,13 +1,14 @@
 import Link from 'next/link';
+import ThemeChanger from './ThemeChanger';
 
 const HeaderBar = () => {
   return (
-    <div className="flex mb-20">
-      <h1 className="mr-56">Kdevlog</h1>
-      <div className="flex ml-40">
-        <Link href="/">
-          <a className="mr-10">{'Home'}</a>
-        </Link>
+    <div className="flex mb-40">
+      <Link href="/">
+        <h1 className="text-2xl	font-bold	mr-80 cursor-pointer">Kdevlog</h1>
+      </Link>
+      <div className="flex ml-60">
+        <ThemeChanger />
         <Link href="/profile">
           <a className="mr-10">{'Profile'}</a>
         </Link>

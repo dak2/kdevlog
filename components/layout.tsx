@@ -10,7 +10,7 @@ export const siteTitle = 'Kdevlog';
 
 export default function Layout({ children, home }) {
   return (
-    <div className="max-w-4xl mt-12 mx-auto mb-24">
+    <div className="max-w-4xl relative top-10 mx-auto mb-24">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={siteTitle} />

@@ -14,7 +14,7 @@ export default function Home({ allPostsData }) {
       {allPostsData.map(({ id, createdAt, title, body }) => (
         <div>
           <Link href={`/posts/${id}`}>
-            <h2 className="cursor-pointer text-2xl mb-2 text-blue-800">
+            <h2 className="cursor-pointer text-2xl mb-2 text-blue-800 dark:text-gray-400">
               <a>{title}</a>
             </h2>
           </Link>
