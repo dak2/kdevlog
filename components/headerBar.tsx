@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import User from './User';
+import Contact from './Contact';
 import ThemeChanger from './ThemeChanger';
 
 const HeaderBar = () => {
@@ -10,10 +12,14 @@ const HeaderBar = () => {
       <div className="flex ml-60">
         <ThemeChanger />
         <Link href="/profile">
-          <a className="mr-10">{'Profile'}</a>
+          <a className="ml-3">
+            <User />
+          </a>
         </Link>
         <Link href="/contact">
-          <a className="mr-10">{'contact'}</a>
+          <a className="ml-3">
+            <Contact />
+          </a>
         </Link>
       </div>
     </div>
