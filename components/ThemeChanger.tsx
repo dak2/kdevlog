@@ -59,7 +59,7 @@ const ThemeChanger = () => {
           toggle
         </label>
       </div>
-      <div className="text-xs dark:text-yellow-200">
+      <div className="text-xs dark:text-yellow-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
