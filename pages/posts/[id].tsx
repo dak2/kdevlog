@@ -4,8 +4,23 @@ import { CMS_API_KEY, CMS_URL } from '../../utils/const';
 import Head from 'next/head';
 import { FormatedCreatedAt } from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
+import marked from 'marked';
+import hljs, { matchLanguages } from '../../utils/my-highlight';
+import 'highlight.js/styles/ocean.css';
+import { useEffect } from 'react';
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+  silent: false,
+});
 
 export default function Post({ postData }) {
+  matchLanguages(postData.tags[0].name);
+  useEffect(() => {
+    hljs.initHighlighting();
+    hljs.initHighlighting.called = false;
+  });
   return (
     <Layout home={null}>
       <Head>
@@ -16,7 +31,7 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <FormatedCreatedAt dateString={postData.createdAt} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div dangerouslySetInnerHTML={{ __html: marked(postData.body) }} />
       </article>
     </Layout>
   );
@@ -30,7 +45,6 @@ export const getStaticPaths = async () => {
   for (let path of paths) {
     newPaths.push({ params: { id: path } });
   }
-  console.log('paths', newPaths);
 
   return { paths: newPaths, fallback: false };
 };
@@ -42,7 +56,6 @@ export const getStaticProps = async (context) => {
     `https://kdevlog.microcms.io/api/v1/posts/${id}`,
     CMS_API_KEY,
   );
-  console.log('res', res);
   const blog = await res;
 
   return {

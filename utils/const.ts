@@ -3,4 +3,3 @@ export const CMS_API_KEY = {
 };
 
 export const CMS_URL = `https://kdevlog.microcms.io/api/v1/posts`;
-

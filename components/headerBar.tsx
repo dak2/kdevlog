@@ -11,7 +11,7 @@ const HeaderBar = () => {
       </Link>
       <div className="flex ml-60">
         <ThemeChanger />
-        <Link href="/profile">
+        {/* <Link href="/profile">
           <a className="ml-3">
             <User />
           </a>
@@ -20,7 +20,7 @@ const HeaderBar = () => {
           <a className="ml-3">
             <Contact />
           </a>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
