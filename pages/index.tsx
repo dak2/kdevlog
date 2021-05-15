@@ -11,7 +11,7 @@ export default function Home({ allPostsData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      {allPostsData.map(({ id, createdAt, title, body }) => (
+      {allPostsData.map(({ id, createdAt, title, tags }) => (
         <div>
           <Link href={`/posts/${id}`}>
             <h2 className="cursor-pointer text-2xl mb-2 text-blue-800 dark:text-gray-400">
@@ -21,7 +21,13 @@ export default function Home({ allPostsData }) {
           <small className="text-gray-500">
             <FormatedCreatedAt dateString={createdAt} />
           </small>
-          <div dangerouslySetInnerHTML={{ __html: `${body}` }}></div>
+          <div>
+            {tags.map((tag) => (
+              <p className="p-1	text-sm	inline-block mr-2 bg-gray-400 rounded-md">
+                {tag.name}
+              </p>
+            ))}
+          </div>
         </div>
       ))}
     </Layout>
