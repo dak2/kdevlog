@@ -12,7 +12,7 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       {allPostsData.map(({ id, createdAt, title, tags }) => (
-        <div>
+        <div className="mb-12">
           <Link href={`/posts/${id}`}>
             <h2 className="cursor-pointer text-2xl mb-2 text-blue-800 dark:text-gray-400">
               <a>{title}</a>
@@ -23,7 +23,7 @@ export default function Home({ allPostsData }) {
           </small>
           <div>
             {tags.map((tag) => (
-              <p className="p-1	text-sm	inline-block mr-2 bg-gray-400 rounded-md">
+              <p className="p-1	text-sm	inline-block mr-2 bg-gray-500 rounded-md">
                 {tag.name}
               </p>
             ))}
