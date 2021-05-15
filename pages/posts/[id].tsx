@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { FormatedCreatedAt } from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
 import marked from 'marked';
-import hljs, { matchLanguages } from '../../utils/my-highlight';
+import hljs, { registLanguage } from '../../utils/myHighlight';
 import 'highlight.js/styles/ocean.css';
 import { useEffect } from 'react';
 
@@ -16,7 +16,7 @@ marked.setOptions({
 });
 
 export default function Post({ postData }) {
-  matchLanguages(postData.tags[0].name);
+  registLanguage(postData.tags[0].name);
   useEffect(() => {
     hljs.initHighlighting();
     hljs.initHighlighting.called = false;
