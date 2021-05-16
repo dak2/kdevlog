@@ -4,11 +4,11 @@ import ThemeChanger from './ThemeChanger';
 
 const HeaderBar = () => {
   return (
-    <div className="flex mb-40">
+    <div className="flex mb-40 justify-start">
       <Link href="/">
-        <h1 className="text-2xl	font-bold	mr-80 cursor-pointer">Kdevlog</h1>
+        <h1 className="text-2xl	font-bold	mr-96 cursor-pointer">Kdevlog</h1>
       </Link>
-      <div className="flex ml-60">
+      <div className="flex ml-64">
         <ThemeChanger />
         <a href="https://github.com/dak2">
           <GithubIcon />
