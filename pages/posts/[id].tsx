@@ -1,11 +1,10 @@
 import Layout from '../../components/layout';
-import { httpRequest } from '../../utils/api';
-import { CMS_API_KEY, CMS_URL } from '../../utils/const';
+import { httpRequest } from '../../lib/api';
+import { CMS_API_KEY, CMS_URL } from '../../lib/const';
 import Head from 'next/head';
 import { FormatedCreatedAt } from '../../components/date';
-import utilStyles from '../../styles/utils.module.css';
 import marked from 'marked';
-import hljs, { registLanguage } from '../../utils/myHighlight';
+import hljs, { registLanguage } from '../../lib/myHighlight';
 import 'highlight.js/styles/ocean.css';
 import { useEffect } from 'react';
 
@@ -27,8 +26,10 @@ export default function Post({ postData }) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className="text-3xl font-extrabold	tracking-tighter my-4">
+          {postData.title}
+        </h1>
+        <div className="text-gray-400">
           <FormatedCreatedAt dateString={postData.createdAt} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: marked(postData.body) }} />

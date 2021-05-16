@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
-import { httpRequest } from '../utils/api';
-import { CMS_API_KEY, CMS_URL } from '../utils/const';
+import { httpRequest } from '../lib/api';
+import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
 import { FormatedCreatedAt } from '../components/date';
 
