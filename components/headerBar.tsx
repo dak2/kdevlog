@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import User from './User';
-import Contact from './Contact';
+import GithubIcon from './GithubIcon';
 import ThemeChanger from './ThemeChanger';
 
 const HeaderBar = () => {
@@ -11,16 +10,9 @@ const HeaderBar = () => {
       </Link>
       <div className="flex ml-60">
         <ThemeChanger />
-        {/* <Link href="/profile">
-          <a className="ml-3">
-            <User />
-          </a>
-        </Link>
-        <Link href="/contact">
-          <a className="ml-3">
-            <Contact />
-          </a>
-        </Link> */}
+        <a href="https://github.com/dak2">
+          <GithubIcon />
+        </a>
       </div>
     </div>
   );
