@@ -23,9 +23,16 @@ export default function Home({ allPostsData }) {
           </small>
           <div>
             {tags.map((tag) => (
-              <p className="p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
-                {tag.name}
-              </p>
+              <Link
+                href={{
+                  pathname: '/archives/tags/[params]',
+                  query: { params: `${tag.name}` },
+                }}
+              >
+                <p className="cursor-pointer p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                  {tag.name}
+                </p>
+              </Link>
             ))}
           </div>
         </div>
