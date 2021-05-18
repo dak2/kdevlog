@@ -4,12 +4,7 @@
 
 html {
   background-color: #f3f4f6;
-  font-family: 'Dosis', sans-serif;
-  font-family: 'KoHo', sans-serif;
-  font-family: 'Noto Sans HK', sans-serif;
-  font-family: 'Prompt', sans-serif;
-  font-family: 'Roboto Mono', monospace;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .toggle-checkbox {
