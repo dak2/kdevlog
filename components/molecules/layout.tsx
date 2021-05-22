@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import Link from 'next/link';
 import HeaderBar from './headerBar';
-import Footer from './footer';
+import Footer from '../atoms/footer';
 
 export const siteTitle = 'Kdevlog';
 

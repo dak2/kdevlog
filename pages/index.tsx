@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle } from '../components/molecules/layout';
 import { httpRequest } from '../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
-import { FormatedCreatedAt } from '../components/date';
+import { FormatedCreatedAt } from '../components/atoms/date';
 
 export default function Home({ allPostsData }) {
   return (

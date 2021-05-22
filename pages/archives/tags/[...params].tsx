@@ -1,9 +1,10 @@
-import Layout, { siteTitle } from '../../../components/layout';
+import Layout, { siteTitle } from '../../../components/molecules/layout';
 import { httpRequest } from '../../../lib/api';
 import Link from 'next/link';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../../components/date';
+import { FormatedCreatedAt } from '../../../components/atoms/date';
+import TagIcon from '../../../components/atoms/tagIcon';
 
 export default function Tags({ allPostsData, tagName }) {
   return (
@@ -11,7 +12,10 @@ export default function Tags({ allPostsData, tagName }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <h2>{tagName}</h2>
+      <div className="flex mb-10">
+        <TagIcon tagName={tagName} />
+        <h2 className="ml-2 font-bold">{tagName}</h2>
+      </div>
       {allPostsData.map(({ id, createdAt, title, tags }) => (
         <div className="mb-12">
           <Link href={`/posts/${id}`}>
