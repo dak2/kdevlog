@@ -11,6 +11,7 @@ export default function Tags({ allPostsData, tagName }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <h2>{tagName}</h2>
       {allPostsData.map(({ id, createdAt, title, tags }) => (
         <div className="mb-12">
           <Link href={`/posts/${id}`}>
@@ -49,11 +50,13 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const tag = context.params.params[0];
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
-  const blog = await res.contents;
+  const allPosts = await res.contents;
+  const posts = groupedPostsByTag(allPosts, tag);
+  console.log('posts', posts);
 
   return {
     props: {
-      allPostsData: blog,
+      allPostsData: posts,
       tagName: tag,
       revalidate: 60,
     },
@@ -65,4 +68,11 @@ const getTags = (contents) => {
     .flatMap((content) => content.tags)
     .map((tag) => tag.name);
   return [...new Set(tags)];
+};
+
+const groupedPostsByTag = (posts, tag_name) => {
+  console.log('tag_name', tag_name);
+  return posts.filter((post) => {
+    return post.tags.some((tag) => tag.name === tag_name);
+  });
 };
