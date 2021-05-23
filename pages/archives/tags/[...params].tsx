@@ -106,5 +106,9 @@ const toUpperCaseTag = (tag: string) => {
     return 'Ruby';
   } else if (tag.includes('react')) {
     return 'React';
+  } else if (tag.includes('aws')) {
+    return 'AWS';
+  } else if (tag.includes('docker')) {
+    return 'Docker';
   }
 };
