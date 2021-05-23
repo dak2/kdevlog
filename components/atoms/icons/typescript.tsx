@@ -1,4 +1,4 @@
-const GithubIcon = () => {
+const TypeScript = () => {
   return (
     <svg viewBox="0 0 128 128">
       <g id="original">
@@ -14,4 +14,4 @@ const GithubIcon = () => {
   );
 };
 
-export default GithubIcon;
+export default TypeScript;

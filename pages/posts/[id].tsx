@@ -15,7 +15,7 @@ marked.setOptions({
 });
 
 export default function Post({ postData }) {
-  registLanguage(postData.tags[0].name);
+  registLanguage(postData.tags[0].name.toLowerCase().replace(/\s+/g, ''));
   useEffect(() => {
     hljs.initHighlighting();
     hljs.initHighlighting.called = false;

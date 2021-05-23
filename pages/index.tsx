@@ -26,7 +26,9 @@ export default function Home({ allPostsData }) {
               <Link
                 href={{
                   pathname: '/archives/tags/[params]',
-                  query: { params: `${tag.name}` },
+                  query: {
+                    params: `${tag.name.toLowerCase().replace(/\s+/g, '')}`,
+                  },
                 }}
               >
                 <p className="cursor-pointer p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">

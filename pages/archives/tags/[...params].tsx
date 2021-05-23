@@ -28,9 +28,18 @@ export default function Tags({ allPostsData, tagName }) {
           </small>
           <div>
             {tags.map((tag) => (
-              <p className="p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
-                {tag.name}
-              </p>
+              <Link
+                href={{
+                  pathname: '/archives/tags/[params]',
+                  query: {
+                    params: `${tag.name.toLowerCase().replace(/\s+/g, '')}`,
+                  },
+                }}
+              >
+                <p className="cursor-pointer p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                  {tag.name}
+                </p>
+              </Link>
             ))}
           </div>
         </div>
@@ -43,8 +52,11 @@ export const getStaticPaths = async () => {
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
   const contents = await res.contents;
   const tags = getTags(contents);
+  const toLowerCaseTags = tags.map((tag: string) =>
+    tag.toLowerCase().replace(/\s+/g, ''),
+  );
   const newPaths = [];
-  for (let tag of tags) {
+  for (let tag of toLowerCaseTags) {
     newPaths.push({ params: { params: [tag] } });
   }
 
@@ -52,11 +64,10 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const tag = context.params.params[0];
+  const tag = toUpperCaseTag(context.params.params[0]);
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
   const allPosts = await res.contents;
   const posts = groupedPostsByTag(allPosts, tag);
-  console.log('posts', posts);
 
   return {
     props: {
@@ -75,8 +86,25 @@ const getTags = (contents) => {
 };
 
 const groupedPostsByTag = (posts, tag_name) => {
-  console.log('tag_name', tag_name);
   return posts.filter((post) => {
     return post.tags.some((tag) => tag.name === tag_name);
   });
+};
+
+const toUpperCaseTag = (tag: string) => {
+  if (tag.includes('rubyonrails')) {
+    return 'Ruby on Rails';
+  } else if (tag.includes('typescript')) {
+    return 'TypeScript';
+  } else if (tag.includes('javascript')) {
+    return 'JavaScript';
+  } else if (tag.includes('go')) {
+    return 'Go';
+  } else if (tag.includes('rust')) {
+    return 'Rust';
+  } else if (tag.includes('ruby')) {
+    return 'Ruby';
+  } else if (tag.includes('react')) {
+    return 'React';
+  }
 };
