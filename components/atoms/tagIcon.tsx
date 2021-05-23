@@ -51,7 +51,7 @@ const TagIcon = (props: Props) => {
         <Rust />
       </div>
     );
-  } else if (tagName === 'RubyOnRails') {
+  } else if (tagName === 'Ruby on Rails') {
     return (
       <div className="w-5">
         <RubyOnRails />
