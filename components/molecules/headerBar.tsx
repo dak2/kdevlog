@@ -4,7 +4,7 @@ import ThemeChanger from '../atoms/themeChanger';
 
 const HeaderBar = () => {
   return (
-    <div className="flex mb-40 justify-start">
+    <div className="flex mb-32 justify-start">
       <Link href="/">
         <h1 className="text-2xl	font-bold	mr-96 cursor-pointer">Kdevlog</h1>
       </Link>
