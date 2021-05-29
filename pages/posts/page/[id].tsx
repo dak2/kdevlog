@@ -1,12 +1,13 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/molecules/layout';
-import { httpRequest } from '../lib/api';
-import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
-import { FormatedCreatedAt } from '../components/atoms/date';
-import Pagination from '../components/molecules/pagination';
+import Head from 'next/head';
+import Layout, { siteTitle } from '../../../components/molecules/layout';
+import Pagination from '../../../components/molecules/pagination';
+import { FormatedCreatedAt } from '../../../components/atoms/date';
+import { httpRequest } from '../../../lib/api';
+import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
+import { range, PER_PAGE } from '../../../lib/const';
 
-export default function Home({ allPostsData, totalCount }) {
+export default function PostsPageId({ allPostsData, totalCount }) {
   return (
     <Layout home>
       <Head>
@@ -32,7 +33,7 @@ export default function Home({ allPostsData, totalCount }) {
                   },
                 }}
               >
-                <p className="cursor-pointer p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                <p className="cursor-pointer p-1 text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
                   {tag.name}
                 </p>
               </Link>
@@ -45,15 +46,27 @@ export default function Home({ allPostsData, totalCount }) {
   );
 }
 
-export const getStaticProps = async () => {
+export const getStaticPaths = async () => {
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
-  const data = await res.contents;
+  const paths = range(1, Math.ceil(res.totalCount / PER_PAGE)).map(
+    (repo) => `/posts/page/${repo}`,
+  );
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+  const res = await httpRequest(
+    `https://kdevlog.microcms.io/api/v1/posts?offset=${(id - 1) * 5}&limit=5`,
+    CMS_API_KEY,
+  );
+  const posts = await res;
 
   return {
     props: {
-      allPostsData: data,
-      revalidate: 60,
-      totalCount: res.totalCount,
+      allPostsData: posts.contents,
+      totalCount: posts.totalCount,
     },
   };
 };
