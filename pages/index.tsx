@@ -58,6 +58,7 @@ export default function Home({ allPostsData, totalCount }) {
 export const getStaticProps = async () => {
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
   const data = await res.contents;
+  console.log('data', data);
 
   return {
     props: {

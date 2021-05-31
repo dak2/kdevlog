@@ -10,3 +10,15 @@ export const PER_PAGE = 10;
 // range of pagenation
 export const range = (start, end) =>
   [...Array(end - start + 1)].map((_, i) => start + i);
+
+// regist language for apply hilightjs
+export const RegistLanguages = [
+  'ruby',
+  'javascript',
+  'typescript',
+  'go',
+  'rust',
+  'c',
+  'cpp',
+  'shell',
+];
