@@ -1,10 +1,10 @@
-import Layout, { siteTitle } from '../../../components/molecules/layout';
+import Layout, { siteTitle } from '../../../components/molecules/Layout';
 import { httpRequest } from '../../../lib/api';
 import Link from 'next/link';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../../components/atoms/date';
-import TagIcon from '../../../components/atoms/tagIcon';
+import { FormatedCreatedAt } from '../../../components/atoms/Date';
+import TagIcon from '../../../components/atoms/TagIcon';
 
 export default function Tags({ allPostsData, tagName }) {
   return (

@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
 import Link from 'next/link';
-import HeaderBar from './headerBar';
-import Footer from '../atoms/footer';
+import HeaderBar from './HeaderBar';
+import Footer from '../atoms/Footer';
 
 export const siteTitle = 'Kdevlog';
 

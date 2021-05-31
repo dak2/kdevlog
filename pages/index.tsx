@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/molecules/layout';
+import Layout, { siteTitle } from '../components/molecules/Layout';
 import { httpRequest } from '../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
-import { FormatedCreatedAt } from '../components/atoms/date';
-import Pagination from '../components/molecules/pagination';
+import { FormatedCreatedAt } from '../components/atoms/Date';
+import Pagination from '../components/molecules/Pagination';
 
 export default function Home({ allPostsData, totalCount }) {
   return (
