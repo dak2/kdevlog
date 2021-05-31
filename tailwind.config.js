@@ -4,12 +4,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkgrey: '#374151'
+        darkgrey: '#374151',
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    function ({ addUtilities }) {
+      const extendUnderline = {
+        '.underline': {
+          textDecoration: 'underline',
+          'text-decoration-color': 'white',
+        },
+      };
+      addUtilities(extendUnderline);
+    },
+  ],
+};

@@ -15,7 +15,7 @@ const Pagination = ({ totalCount }) => {
       return <Left />;
     } else {
       return (
-        <a href={`/posts/page/${prevPageId}`} className="hover:text-indigo-500">
+        <a href={`/posts/page/${prevPageId}`}>
           <Left />
         </a>
       );
@@ -27,7 +27,7 @@ const Pagination = ({ totalCount }) => {
       return <Right />;
     } else {
       return (
-        <a href={`/posts/page/${nextPageId}`} className="hover:text-indigo-500">
+        <a href={`/posts/page/${nextPageId}`}>
           <Right />
         </a>
       );
@@ -39,10 +39,7 @@ const Pagination = ({ totalCount }) => {
       {prevPage()}
       <ul>
         {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
-          <li
-            key={index}
-            className="mx-1.5 w-6 text-center hover:text-indigo-500"
-          >
+          <li key={index} className="mx-1.5 w-6 text-center hover:underline">
             <Link href={`/posts/page/${number}`}>
               <a>{number}</a>
             </Link>
