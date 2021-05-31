@@ -2,8 +2,8 @@ import { FormatedToday } from './date';
 
 const Footer = () => {
   return (
-    <div className="mt-28">
-      ©︎ <FormatedToday date={new Date()} /> kdevlog.com
+    <div className="mt-12">
+      <FormatedToday date={new Date()} />
     </div>
   );
 };

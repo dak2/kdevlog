@@ -1,10 +1,14 @@
-import { parseISO, format } from 'date-fns'
+import { parseISO, format } from 'date-fns';
 
 export function FormatedCreatedAt({ dateString }) {
-  const date = parseISO(dateString)
-  return <time dateTime={dateString}>{format(date, 'yyyy-MM-dd')}</time>
+  const date = parseISO(dateString);
+  return <p>{format(date, 'yyyy-MM-dd')}</p>;
 }
 
 export function FormatedToday({ date }) {
-  return <time dateTime={date}>{format(date, 'yyyy')}</time>
+  return (
+    <p className="inline-block text-xs">
+      {`© ${format(date, 'yyyy')} Kdevlog.com`}
+    </p>
+  );
 }

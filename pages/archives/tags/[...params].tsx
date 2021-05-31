@@ -8,7 +8,7 @@ import TagIcon from '../../../components/atoms/tagIcon';
 
 export default function Tags({ allPostsData, tagName }) {
   return (
-    <Layout home>
+    <Layout home={null}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -16,34 +16,44 @@ export default function Tags({ allPostsData, tagName }) {
         <TagIcon tagName={tagName} />
         <h2 className="ml-2 font-bold">{tagName}</h2>
       </div>
-      {allPostsData.map(({ id, createdAt, title, tags }) => (
-        <div className="mb-12">
-          <Link href={`/posts/${id}`}>
-            <h2 className="cursor-pointer text-2xl mb-2 text-blue-800 dark:text-gray-400">
-              <a>{title}</a>
-            </h2>
-          </Link>
-          <small className="text-gray-500">
-            <FormatedCreatedAt dateString={createdAt} />
-          </small>
-          <div>
-            {tags.map((tag) => (
-              <Link
-                href={{
-                  pathname: '/archives/tags/[params]',
-                  query: {
-                    params: `${tag.name.toLowerCase().replace(/\s+/g, '')}`,
-                  },
-                }}
-              >
-                <p className="cursor-pointer p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
-                  {tag.name}
-                </p>
+      <ul>
+        {allPostsData.map(({ id, createdAt, title, tags }, postIndex) => (
+          <li key={postIndex}>
+            <div className="mb-12">
+              <Link href={`/posts/${id}`}>
+                <h2 className="cursor-pointer text-2xl mb-2 text-blue-800 dark:text-gray-400">
+                  <a>{title}</a>
+                </h2>
               </Link>
-            ))}
-          </div>
-        </div>
-      ))}
+              <small className="text-gray-500">
+                <FormatedCreatedAt dateString={createdAt} />
+              </small>
+              <div>
+                <ul>
+                  {tags.map((tag, tagIndex) => (
+                    <li key={tagIndex}>
+                      <Link
+                        href={{
+                          pathname: '/archives/tags/[params]',
+                          query: {
+                            params: `${tag.name
+                              .toLowerCase()
+                              .replace(/\s+/g, '')}`,
+                          },
+                        }}
+                      >
+                        <p className="cursor-pointer p-1 text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                          {tag.name}
+                        </p>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </Layout>
   );
 }
