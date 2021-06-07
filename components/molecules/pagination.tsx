@@ -9,9 +9,10 @@ const Pagination = ({ totalCount }) => {
   const currentPageId = router.query.id ? Number(router.query.id) : '';
   const prevPageId = currentPageId ? currentPageId - 1 : '';
   const nextPageId = currentPageId ? currentPageId + 1 : '';
+  const pagenationList = range(1, Math.ceil(totalCount / PER_PAGE));
 
   const prevPage = () => {
-    if (currentPageId == 1) {
+    if (pagenationList.length <= 1) {
       return <Left />;
     } else {
       return (
@@ -23,7 +24,7 @@ const Pagination = ({ totalCount }) => {
   };
 
   const nextPage = () => {
-    if (currentPageId == Math.ceil(totalCount / PER_PAGE)) {
+    if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
       return <Right />;
     } else {
       return (
@@ -38,7 +39,7 @@ const Pagination = ({ totalCount }) => {
     <div className="flex justify-start">
       {prevPage()}
       <ul>
-        {range(1, Math.ceil(totalCount / PER_PAGE)).map((number, index) => (
+        {pagenationList.map((number, index) => (
           <li key={index} className="mx-1.5 w-6 text-center hover:underline">
             <Link href={`/posts/page/${number}`}>
               <a>{number}</a>

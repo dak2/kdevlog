@@ -27,7 +27,7 @@ export default function Home({ allPostsData, totalCount }) {
               <div>
                 <ul>
                   {tags.map((tag, tagIndex) => (
-                    <li key={tagIndex}>
+                    <li key={tagIndex} className="inline-block">
                       <Link
                         href={{
                           pathname: '/archives/tags/[params]',
@@ -38,7 +38,7 @@ export default function Home({ allPostsData, totalCount }) {
                           },
                         }}
                       >
-                        <p className="cursor-pointer p-1	text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md">
                           {tag.name}
                         </p>
                       </Link>
@@ -58,7 +58,6 @@ export default function Home({ allPostsData, totalCount }) {
 export const getStaticProps = async () => {
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
   const data = await res.contents;
-  console.log('data', data);
 
   return {
     props: {

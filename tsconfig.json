@@ -22,7 +22,10 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/**/*.ts",
+    "**/*.tsx",
+    "**/**/*.tsx",
+    "**/**/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

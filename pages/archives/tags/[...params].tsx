@@ -5,8 +5,9 @@ import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
 import { FormatedCreatedAt } from '../../../components/atoms/Date';
 import TagIcon from '../../../components/atoms/TagIcon';
+import Pagination from '../../../components/molecules/Pagination';
 
-export default function Tags({ allPostsData, tagName }) {
+export default function Tags({ allPostsData, tagName, totalCount }) {
   return (
     <Layout home={null}>
       <Head>
@@ -31,7 +32,7 @@ export default function Tags({ allPostsData, tagName }) {
               <div>
                 <ul>
                   {tags.map((tag, tagIndex) => (
-                    <li key={tagIndex}>
+                    <li key={tagIndex} className="inline-block">
                       <Link
                         href={{
                           pathname: '/archives/tags/[params]',
@@ -42,7 +43,7 @@ export default function Tags({ allPostsData, tagName }) {
                           },
                         }}
                       >
-                        <p className="cursor-pointer p-1 text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md">
                           {tag.name}
                         </p>
                       </Link>
@@ -54,6 +55,7 @@ export default function Tags({ allPostsData, tagName }) {
           </li>
         ))}
       </ul>
+      <Pagination totalCount={totalCount} />
     </Layout>
   );
 }
@@ -84,6 +86,7 @@ export const getStaticProps = async (context) => {
       allPostsData: posts,
       tagName: tag,
       revalidate: 60,
+      totalCount: res.totalCount,
     },
   };
 };
