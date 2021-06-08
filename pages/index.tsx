@@ -5,15 +5,21 @@ import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
 import { FormatedCreatedAt } from '../components/atoms/Date';
 import Pagination from '../components/molecules/Pagination';
+import { PostType } from '../lib/type';
 
-export default function Home({ allPostsData, totalCount }) {
+type PropsType = {
+  allPosts: PostType[];
+  totalCount: number;
+};
+
+const postLists = (props: PropsType) => {
   return (
     <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <ul>
-        {allPostsData.map(({ id, createdAt, title, tags }, postIndex) => (
+        {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
@@ -50,9 +56,30 @@ export default function Home({ allPostsData, totalCount }) {
           </li>
         ))}
       </ul>
-      <Pagination totalCount={totalCount} />
+      <Pagination totalCount={props.totalCount} />
     </Layout>
   );
+};
+
+const noPosts = () => {
+  return (
+    <Layout home={true}>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <div className="grid justify-items-center pt-64">
+        <h1 className="text-5xl mb-10 font-bold">記事はありません</h1>
+      </div>
+    </Layout>
+  );
+};
+
+export default function Home(props: PropsType) {
+  if (props.allPosts.length > 0) {
+    return postLists(props);
+  } else {
+    return noPosts;
+  }
 }
 
 export const getStaticProps = async () => {
@@ -61,7 +88,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      allPostsData: data,
+      allPosts: data,
       revalidate: 60,
       totalCount: res.totalCount,
     },

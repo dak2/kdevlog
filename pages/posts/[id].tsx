@@ -7,15 +7,14 @@ import marked from 'marked';
 import hljs, { registLanguage } from '../../lib/myHighlight';
 import 'highlight.js/styles/ocean.css';
 import { useEffect } from 'react';
+import { PostType } from '../../lib/type';
 
-marked.setOptions({
-  gfm: true,
-  breaks: true,
-  silent: false,
-});
+type PropsType = {
+  post: PostType;
+};
 
-export default function Post({ postData }) {
-  registLanguage(postData.tags[0].name.toLowerCase().replace(/\s+/g, ''));
+const postDetail = (post: PostType) => {
+  registLanguage(post.tags[0].name.toLowerCase().replace(/\s+/g, ''));
   useEffect(() => {
     hljs.initHighlighting();
     hljs.initHighlighting.called = false;
@@ -23,19 +22,42 @@ export default function Post({ postData }) {
   return (
     <Layout home={null}>
       <Head>
-        <title>{postData.title}</title>
+        <title>{post.title}</title>
       </Head>
       <article>
         <h1 className="text-3xl font-extrabold	tracking-tighter my-4">
-          {postData.title}
+          {post.title}
         </h1>
         <div className="text-gray-400">
-          <FormatedCreatedAt dateString={postData.createdAt} />
+          <FormatedCreatedAt dateString={post.createdAt} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: marked(postData.body) }} />
+        <div dangerouslySetInnerHTML={{ __html: marked(post.body) }} />
       </article>
     </Layout>
   );
+};
+
+const noPost = () => {
+  <Layout home={null}>
+    <h1 className="text-3xl font-extrabold	tracking-tighter my-4">
+      記事がありません。
+    </h1>
+  </Layout>;
+};
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+  silent: false,
+});
+
+export default function Post(props: PropsType) {
+  const post = props.post;
+  if (post) {
+    return postDetail(post);
+  } else {
+    return noPost;
+  }
 }
 
 export const getStaticPaths = async () => {
@@ -57,11 +79,11 @@ export const getStaticProps = async (context) => {
     `https://kdevlog.microcms.io/api/v1/posts/${id}`,
     CMS_API_KEY,
   );
-  const blog = await res;
+  const content = await res;
 
   return {
     props: {
-      postData: blog,
+      post: content,
       revalidate: 60,
     },
   };

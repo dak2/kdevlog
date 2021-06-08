@@ -6,19 +6,26 @@ import Head from 'next/head';
 import { FormatedCreatedAt } from '../../../components/atoms/Date';
 import TagIcon from '../../../components/atoms/TagIcon';
 import Pagination from '../../../components/molecules/Pagination';
+import { PostType } from '../../../lib/type';
 
-export default function Tags({ allPostsData, tagName, totalCount }) {
+type PropsType = {
+  allPosts: PostType[];
+  tagName: string;
+  totalCount: number;
+};
+
+const postLists = (props: PropsType) => {
   return (
     <Layout home={null}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <div className="flex mb-10">
-        <TagIcon tagName={tagName} />
-        <h2 className="ml-2 font-bold">{tagName}</h2>
+        <TagIcon tagName={props.tagName} />
+        <h2 className="ml-2 font-bold">{props.tagName}</h2>
       </div>
       <ul>
-        {allPostsData.map(({ id, createdAt, title, tags }, postIndex) => (
+        {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
@@ -55,9 +62,30 @@ export default function Tags({ allPostsData, tagName, totalCount }) {
           </li>
         ))}
       </ul>
-      <Pagination totalCount={totalCount} />
+      <Pagination totalCount={props.totalCount} />
     </Layout>
   );
+};
+
+const noPosts = () => {
+  return (
+    <Layout home={true}>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <div className="grid justify-items-center pt-64">
+        <h1 className="text-5xl mb-10 font-bold">記事はありません</h1>
+      </div>
+    </Layout>
+  );
+};
+
+export default function Tags(props: PropsType) {
+  if (props.allPosts.length > 0) {
+    return postLists(props);
+  } else {
+    return noPosts;
+  }
 }
 
 export const getStaticPaths = async () => {
@@ -83,7 +111,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      allPostsData: posts,
+      allPosts: posts,
       tagName: tag,
       revalidate: 60,
       totalCount: res.totalCount,

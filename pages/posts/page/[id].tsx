@@ -6,15 +6,21 @@ import { FormatedCreatedAt } from '../../../components/atoms/Date';
 import { httpRequest } from '../../../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import { range, PER_PAGE } from '../../../lib/const';
+import { PostType } from '../../../lib/type';
 
-export default function PostsPageId({ allPostsData, totalCount }) {
+type PropsType = {
+  allPosts: PostType[];
+  totalCount: number;
+};
+
+const postLists = (props: PropsType) => {
   return (
     <Layout home={null}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <ul>
-        {allPostsData.map(({ id, createdAt, title, tags }, postIndex) => (
+        {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
@@ -28,7 +34,7 @@ export default function PostsPageId({ allPostsData, totalCount }) {
               <div>
                 <ul>
                   {tags.map((tag, tagIndex) => (
-                    <li key={tagIndex}>
+                    <li key={tagIndex} className="inline-block">
                       <Link
                         href={{
                           pathname: '/archives/tags/[params]',
@@ -39,7 +45,7 @@ export default function PostsPageId({ allPostsData, totalCount }) {
                           },
                         }}
                       >
-                        <p className="cursor-pointer p-1 text-sm	inline-block mr-2 text-white bg-gray-500 rounded-md">
+                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md">
                           {tag.name}
                         </p>
                       </Link>
@@ -51,9 +57,30 @@ export default function PostsPageId({ allPostsData, totalCount }) {
           </li>
         ))}
       </ul>
-      <Pagination totalCount={totalCount} />
+      <Pagination totalCount={props.totalCount} />
     </Layout>
   );
+};
+
+const noPosts = () => {
+  return (
+    <Layout home={true}>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <div className="grid justify-items-center pt-64">
+        <h1 className="text-5xl mb-10 font-bold">記事はありません</h1>
+      </div>
+    </Layout>
+  );
+};
+
+export default function PostsPageId(props: PropsType) {
+  if (props.allPosts.length > 0) {
+    return postLists(props);
+  } else {
+    return noPosts;
+  }
 }
 
 export const getStaticPaths = async () => {
@@ -68,14 +95,14 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
   const res = await httpRequest(
-    `https://kdevlog.microcms.io/api/v1/posts?offset=${(id - 1) * 5}&limit=5`,
+    `https://kdevlog.microcms.io/api/v1/posts?offset=${(id - 1) * 5}&limit=10`,
     CMS_API_KEY,
   );
   const posts = await res;
 
   return {
     props: {
-      allPostsData: posts.contents,
+      allPosts: posts.contents,
       totalCount: posts.totalCount,
     },
   };
