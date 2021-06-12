@@ -22,7 +22,9 @@ const postLists = (props: PropsType) => {
       </Head>
       <div className="flex mb-10">
         <TagIcon tagName={props.tagName} />
-        <h2 className="ml-2 font-bold">{props.tagName}</h2>
+        <h2 className="text-2xl ml-2 font-bold text-gray-500 dark:text-gray-200">
+          {props.tagName}
+        </h2>
       </div>
       <ul>
         {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
