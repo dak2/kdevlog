@@ -23,7 +23,7 @@ const postLists = (props: PropsType) => {
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
-                <h2 className="cursor-pointer font-mono	text-2xl mb-2 text-blue-800 dark:text-gray-400">
+                <h2 className="cursor-pointer text-2xl mb-2 text-blue-800 dark:text-gray-400">
                   <a>{title}</a>
                 </h2>
               </Link>
