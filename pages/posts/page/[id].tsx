@@ -24,11 +24,11 @@ const postLists = (props: PropsType) => {
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
-                <h2 className="cursor-pointer font-mono	text-2xl mb-2 text-blue-800 dark:text-gray-400">
+                <h2 className="cursor-pointer font-mono	text-2xl mb-2 text-darkorange dark:text-yellow-300">
                   <a>{title}</a>
                 </h2>
               </Link>
-              <small className="text-gray-500">
+              <small className="text-gray-500 dark:text-gray-200">
                 <FormatedCreatedAt dateString={createdAt} />
               </small>
               <div>

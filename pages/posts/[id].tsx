@@ -14,7 +14,9 @@ type PropsType = {
 };
 
 const postDetail = (post: PostType) => {
-  registLanguage(post.tags[0].name.toLowerCase().replace(/\s+/g, ''));
+  if (post.tags.length > 0) {
+    registLanguage(post.tags[0].name.toLowerCase().replace(/\s+/g, ''));
+  }
   useEffect(() => {
     hljs.initHighlighting();
     hljs.initHighlighting.called = false;
@@ -25,10 +27,10 @@ const postDetail = (post: PostType) => {
         <title>{post.title}</title>
       </Head>
       <article>
-        <h1 className="text-3xl font-extrabold	tracking-tighter my-4">
+        <h1 className="text-3xl text-darkorange dark:text-yellow-300 font-extrabold	tracking-tighter my-4">
           {post.title}
         </h1>
-        <div className="text-gray-400">
+        <div className="text-gray-400 dark:text-gray-200">
           <FormatedCreatedAt dateString={post.createdAt} />
         </div>
         <div dangerouslySetInnerHTML={{ __html: marked(post.body) }} />

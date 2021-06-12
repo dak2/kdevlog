@@ -36,7 +36,7 @@ const Pagination = ({ totalCount }) => {
   };
 
   return (
-    <div className="flex justify-start">
+    <div className="flex justify-start text-gray-500 dark:text-gray-200">
       {prevPage()}
       <ul>
         {pagenationList.map((number, index) => (

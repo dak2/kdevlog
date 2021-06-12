@@ -28,7 +28,7 @@ const ThemeChanger = () => {
 
   return (
     <div className="flex">
-      <div className="mr-2 text-xs text-red-500 dark:text-white">
+      <div className="mr-2 text-xs text-darkorange dark:text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
