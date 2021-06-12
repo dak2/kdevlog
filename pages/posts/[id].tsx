@@ -76,6 +76,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
+  console.log('id', id);
 
   const res = await httpRequest(
     `https://kdevlog.microcms.io/api/v1/posts/${id}`,

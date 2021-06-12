@@ -10,11 +10,11 @@ const Ruby = () => {
         y2="2426.892"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#FB7655"></stop>
-        <stop offset="0" stop-color="#FB7655"></stop>
-        <stop offset=".41" stop-color="#E42B1E"></stop>
-        <stop offset=".99" stop-color="#900"></stop>
-        <stop offset="1" stop-color="#900"></stop>
+        <stop offset="0" stopColor="#FB7655"></stop>
+        <stop offset="0" stopColor="#FB7655"></stop>
+        <stop offset=".41" stopColor="#E42B1E"></stop>
+        <stop offset=".99" stopColor="#900"></stop>
+        <stop offset="1" stopColor="#900"></stop>
       </linearGradient>
       <path
         fill="url(#a)"
@@ -29,10 +29,10 @@ const Ruby = () => {
         y2="2441.685"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#871101"></stop>
-        <stop offset="0" stop-color="#871101"></stop>
-        <stop offset=".99" stop-color="#911209"></stop>
-        <stop offset="1" stop-color="#911209"></stop>
+        <stop offset="0" stopColor="#871101"></stop>
+        <stop offset="0" stopColor="#871101"></stop>
+        <stop offset=".99" stopColor="#911209"></stop>
+        <stop offset="1" stopColor="#911209"></stop>
       </linearGradient>
       <path
         fill="url(#b)"
@@ -47,10 +47,10 @@ const Ruby = () => {
         y2="2402.655"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#871101"></stop>
-        <stop offset="0" stop-color="#871101"></stop>
-        <stop offset=".99" stop-color="#911209"></stop>
-        <stop offset="1" stop-color="#911209"></stop>
+        <stop offset="0" stopColor="#871101"></stop>
+        <stop offset="0" stopColor="#871101"></stop>
+        <stop offset=".99" stopColor="#911209"></stop>
+        <stop offset="1" stopColor="#911209"></stop>
       </linearGradient>
       <path
         fill="url(#c)"
@@ -65,12 +65,12 @@ const Ruby = () => {
         y2="2402.644"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset=".23" stop-color="#E57252"></stop>
-        <stop offset=".46" stop-color="#DE3B20"></stop>
-        <stop offset=".99" stop-color="#A60003"></stop>
-        <stop offset="1" stop-color="#A60003"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset=".23" stopColor="#E57252"></stop>
+        <stop offset=".46" stopColor="#DE3B20"></stop>
+        <stop offset=".99" stopColor="#A60003"></stop>
+        <stop offset="1" stopColor="#A60003"></stop>
       </linearGradient>
       <path
         fill="url(#d)"
@@ -85,12 +85,12 @@ const Ruby = () => {
         y2="2432.757"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset=".23" stop-color="#E4714E"></stop>
-        <stop offset=".56" stop-color="#BE1A0D"></stop>
-        <stop offset=".99" stop-color="#A80D00"></stop>
-        <stop offset="1" stop-color="#A80D00"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset=".23" stopColor="#E4714E"></stop>
+        <stop offset=".56" stopColor="#BE1A0D"></stop>
+        <stop offset=".99" stopColor="#A80D00"></stop>
+        <stop offset="1" stopColor="#A80D00"></stop>
       </linearGradient>
       <path
         fill="url(#e)"
@@ -105,12 +105,12 @@ const Ruby = () => {
         y2="2473.401"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset=".18" stop-color="#E46342"></stop>
-        <stop offset=".4" stop-color="#C82410"></stop>
-        <stop offset=".99" stop-color="#A80D00"></stop>
-        <stop offset="1" stop-color="#A80D00"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset=".18" stopColor="#E46342"></stop>
+        <stop offset=".4" stopColor="#C82410"></stop>
+        <stop offset=".99" stopColor="#A80D00"></stop>
+        <stop offset="1" stopColor="#A80D00"></stop>
       </linearGradient>
       <path
         fill="url(#f)"
@@ -125,11 +125,11 @@ const Ruby = () => {
         y2="2518.077"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset=".54" stop-color="#C81F11"></stop>
-        <stop offset=".99" stop-color="#BF0905"></stop>
-        <stop offset="1" stop-color="#BF0905"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset=".54" stopColor="#C81F11"></stop>
+        <stop offset=".99" stopColor="#BF0905"></stop>
+        <stop offset="1" stopColor="#BF0905"></stop>
       </linearGradient>
       <path
         fill="url(#g)"
@@ -144,11 +144,11 @@ const Ruby = () => {
         y2="2424.153"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset="0" stop-color="#fff"></stop>
-        <stop offset=".31" stop-color="#DE4024"></stop>
-        <stop offset=".99" stop-color="#BF190B"></stop>
-        <stop offset="1" stop-color="#BF190B"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset="0" stopColor="#fff"></stop>
+        <stop offset=".31" stopColor="#DE4024"></stop>
+        <stop offset=".99" stopColor="#BF190B"></stop>
+        <stop offset="1" stopColor="#BF190B"></stop>
       </linearGradient>
       <path fill="url(#h)" d="M3.802 100.034l8.586-15.659-6.946-18.655z"></path>
       <path
@@ -164,16 +164,16 @@ const Ruby = () => {
         y2="2514.739"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#BD0012"></stop>
-        <stop offset="0" stop-color="#BD0012"></stop>
-        <stop offset=".07" stop-color="#fff"></stop>
-        <stop offset=".17" stop-color="#fff"></stop>
-        <stop offset=".27" stop-color="#C82F1C"></stop>
-        <stop offset=".33" stop-color="#820C01"></stop>
-        <stop offset=".46" stop-color="#A31601"></stop>
-        <stop offset=".72" stop-color="#B31301"></stop>
-        <stop offset=".99" stop-color="#E82609"></stop>
-        <stop offset="1" stop-color="#E82609"></stop>
+        <stop offset="0" stopColor="#BD0012"></stop>
+        <stop offset="0" stopColor="#BD0012"></stop>
+        <stop offset=".07" stopColor="#fff"></stop>
+        <stop offset=".17" stopColor="#fff"></stop>
+        <stop offset=".27" stopColor="#C82F1C"></stop>
+        <stop offset=".33" stopColor="#820C01"></stop>
+        <stop offset=".46" stopColor="#A31601"></stop>
+        <stop offset=".72" stopColor="#B31301"></stop>
+        <stop offset=".99" stopColor="#E82609"></stop>
+        <stop offset="1" stopColor="#E82609"></stop>
       </linearGradient>
       <path
         fill="url(#i)"
@@ -188,11 +188,11 @@ const Ruby = () => {
         y2="2416.039"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#8C0C01"></stop>
-        <stop offset="0" stop-color="#8C0C01"></stop>
-        <stop offset=".54" stop-color="#990C00"></stop>
-        <stop offset=".99" stop-color="#A80D0E"></stop>
-        <stop offset="1" stop-color="#A80D0E"></stop>
+        <stop offset="0" stopColor="#8C0C01"></stop>
+        <stop offset="0" stopColor="#8C0C01"></stop>
+        <stop offset=".54" stopColor="#990C00"></stop>
+        <stop offset=".99" stopColor="#A80D0E"></stop>
+        <stop offset="1" stopColor="#A80D0E"></stop>
       </linearGradient>
       <path
         fill="url(#j)"
@@ -207,10 +207,10 @@ const Ruby = () => {
         y2="2465.217"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#7E110B"></stop>
-        <stop offset="0" stop-color="#7E110B"></stop>
-        <stop offset=".99" stop-color="#9E0C00"></stop>
-        <stop offset="1" stop-color="#9E0C00"></stop>
+        <stop offset="0" stopColor="#7E110B"></stop>
+        <stop offset="0" stopColor="#7E110B"></stop>
+        <stop offset=".99" stopColor="#9E0C00"></stop>
+        <stop offset="1" stopColor="#9E0C00"></stop>
       </linearGradient>
       <path
         fill="url(#k)"
@@ -225,10 +225,10 @@ const Ruby = () => {
         y2="2497.199"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#79130D"></stop>
-        <stop offset="0" stop-color="#79130D"></stop>
-        <stop offset=".99" stop-color="#9E120B"></stop>
-        <stop offset="1" stop-color="#9E120B"></stop>
+        <stop offset="0" stopColor="#79130D"></stop>
+        <stop offset="0" stopColor="#79130D"></stop>
+        <stop offset=".99" stopColor="#9E120B"></stop>
+        <stop offset="1" stopColor="#9E120B"></stop>
       </linearGradient>
       <path
         fill="url(#l)"
@@ -246,10 +246,10 @@ const Ruby = () => {
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#A80D00"></stop>
-        <stop offset="0" stop-color="#A80D00"></stop>
-        <stop offset=".99" stop-color="#7E0E08"></stop>
-        <stop offset="1" stop-color="#7E0E08"></stop>
+        <stop offset="0" stopColor="#A80D00"></stop>
+        <stop offset="0" stopColor="#A80D00"></stop>
+        <stop offset=".99" stopColor="#7E0E08"></stop>
+        <stop offset="1" stopColor="#7E0E08"></stop>
       </radialGradient>
       <path
         fill="url(#m)"
@@ -263,10 +263,10 @@ const Ruby = () => {
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#A30C00"></stop>
-        <stop offset="0" stop-color="#A30C00"></stop>
-        <stop offset=".99" stop-color="#800E08"></stop>
-        <stop offset="1" stop-color="#800E08"></stop>
+        <stop offset="0" stopColor="#A30C00"></stop>
+        <stop offset="0" stopColor="#A30C00"></stop>
+        <stop offset=".99" stopColor="#800E08"></stop>
+        <stop offset="1" stopColor="#800E08"></stop>
       </radialGradient>
       <path
         fill="url(#n)"
@@ -281,11 +281,11 @@ const Ruby = () => {
         y2="2427.506"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#8B2114"></stop>
-        <stop offset="0" stop-color="#8B2114"></stop>
-        <stop offset=".43" stop-color="#9E100A"></stop>
-        <stop offset=".99" stop-color="#B3100C"></stop>
-        <stop offset="1" stop-color="#B3100C"></stop>
+        <stop offset="0" stopColor="#8B2114"></stop>
+        <stop offset="0" stopColor="#8B2114"></stop>
+        <stop offset=".43" stopColor="#9E100A"></stop>
+        <stop offset=".99" stopColor="#B3100C"></stop>
+        <stop offset="1" stopColor="#B3100C"></stop>
       </linearGradient>
       <path
         fill="url(#o)"
@@ -300,11 +300,11 @@ const Ruby = () => {
         y2="2497.045"
         gradientTransform="matrix(1 0 0 -1 -47.5 2517)"
       >
-        <stop offset="0" stop-color="#B31000"></stop>
-        <stop offset="0" stop-color="#B31000"></stop>
-        <stop offset=".44" stop-color="#910F08"></stop>
-        <stop offset=".99" stop-color="#791C12"></stop>
-        <stop offset="1" stop-color="#791C12"></stop>
+        <stop offset="0" stopColor="#B31000"></stop>
+        <stop offset="0" stopColor="#B31000"></stop>
+        <stop offset=".44" stopColor="#910F08"></stop>
+        <stop offset=".99" stopColor="#791C12"></stop>
+        <stop offset="1" stopColor="#791C12"></stop>
       </linearGradient>
       <path
         fill="url(#p)"
