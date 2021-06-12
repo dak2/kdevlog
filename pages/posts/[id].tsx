@@ -63,12 +63,32 @@ export default function Post(props: PropsType) {
 }
 
 export const getStaticPaths = async () => {
-  const res = await httpRequest(CMS_URL, CMS_API_KEY);
+  // TODO : リファクタリング
+  const newPaths = [];
+  const res = await httpRequest(
+    `https://kdevlog.microcms.io/api/v1/posts?offset=0&limit=10`,
+    CMS_API_KEY,
+  );
   const contents = await res.contents;
   const paths = contents.map((content) => `${content.id}`);
-  const newPaths = [];
   for (let path of paths) {
     newPaths.push({ params: { id: path } });
+  }
+  const count = Math.floor(res.totalCount / 10);
+  if (count != 0) {
+    let offset = 10;
+    for (let i = 0; i < count; i++) {
+      let res = await httpRequest(
+        `https://kdevlog.microcms.io/api/v1/posts?offset=${offset}&limit=10`,
+        CMS_API_KEY,
+      );
+      let contents = await res.contents;
+      let paths = contents.map((content) => `${content.id}`);
+      for (let path of paths) {
+        newPaths.push({ params: { id: path } });
+      }
+      offset += 10;
+    }
   }
 
   return { paths: newPaths, fallback: false };
@@ -76,8 +96,6 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
-  console.log('id', id);
-
   const res = await httpRequest(
     `https://kdevlog.microcms.io/api/v1/posts/${id}`,
     CMS_API_KEY,
