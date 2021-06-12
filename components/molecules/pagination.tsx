@@ -40,7 +40,10 @@ const Pagination = ({ totalCount }) => {
       {prevPage()}
       <ul>
         {pagenationList.map((number, index) => (
-          <li key={index} className="mx-1.5 w-6 text-center hover:underline">
+          <li
+            key={index}
+            className="mx-1.5 w-6 inline-block text-center hover:underline"
+          >
             <Link href={`/posts/page/${number}`}>
               <a>{number}</a>
             </Link>
