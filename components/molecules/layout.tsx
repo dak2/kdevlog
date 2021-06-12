@@ -1,12 +1,14 @@
 import Head from 'next/head';
-
 import Link from 'next/link';
 import HeaderBar from './HeaderBar';
 import Footer from '../atoms/Footer';
+import { useRouter } from 'next/router';
 
 export const siteTitle = 'Kdevlog';
 
 export default function Layout({ children, home }) {
+  const router = useRouter();
+  const currentPageId = router.query.id ? Number(router.query.id) : '';
   return (
     <div className="max-w-4xl mx-auto">
       <Head>
@@ -23,7 +25,7 @@ export default function Layout({ children, home }) {
       </Head>
       <HeaderBar />
       <main>{children}</main>
-      {!home && (
+      {!home && currentPageId != 1 && (
         <div className="my-12">
           <Link href="/">
             <a>← Back to home</a>

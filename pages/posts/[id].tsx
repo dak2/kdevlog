@@ -25,7 +25,7 @@ const postDetail = (post: PostType) => {
         <title>{post.title}</title>
       </Head>
       <article>
-        <h1 className="text-3xl font-extrabold	tracking-tighter my-4">
+        <h1 className="text-3xl font-mono	font-extrabold	tracking-tighter my-4">
           {post.title}
         </h1>
         <div className="text-gray-400">
