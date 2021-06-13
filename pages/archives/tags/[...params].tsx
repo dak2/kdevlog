@@ -1,11 +1,11 @@
-import Layout, { siteTitle } from '../../../components/molecules/Layout';
+import Layout, { siteTitle } from '../../../components/molecules/layout';
 import { httpRequest } from '../../../lib/api';
 import Link from 'next/link';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../../components/atoms/FormatedDate';
-import TagIcon from '../../../components/atoms/TagIcon';
-import Pagination from '../../../components/molecules/Pagination';
+import { FormatedCreatedAt } from '../../../components/atoms/formatedDate';
+import TagIcon from '../../../components/atoms/tagIcon';
+import Pagination from '../../../components/molecules/pagination';
 import { PostType } from '../../../lib/type';
 
 type PropsType = {

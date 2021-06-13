@@ -1,12 +1,12 @@
-import TypeScript from './icons/TypescriptIcon';
-import React from './icons/ReactIcon';
-import JavaScript from './icons/JavascriptIcon';
-import Ruby from './icons/RubyIcon';
-import Go from './icons/GoIcon';
-import Rust from './icons/RustIcon';
-import RubyOnRails from './icons/RailsIcon';
-import AWS from './icons/AwsIcon';
-import Docker from './icons/DockerIcon';
+import TypeScript from './icons/typescript';
+import React from './icons/react';
+import JavaScript from './icons/javascript';
+import Ruby from './icons/ruby';
+import Go from './icons/go';
+import Rust from './icons/rust';
+import RubyOnRails from './icons/rails';
+import AWS from './icons/aws';
+import Docker from './icons/docker';
 
 type Props = {
   tagName: string;

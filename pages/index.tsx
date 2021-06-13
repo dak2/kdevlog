@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/molecules/Layout';
+import Layout, { siteTitle } from '../components/molecules/layout';
 import { httpRequest } from '../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
-import { FormatedCreatedAt } from '../components/atoms/FormatedDate';
-import Pagination from '../components/molecules/Pagination';
+import { FormatedCreatedAt } from '../components/atoms/formatedDate';
+import Pagination from '../components/molecules/pagination';
 import { PostType } from '../lib/type';
 
 type PropsType = {
