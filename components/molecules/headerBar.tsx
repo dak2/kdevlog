@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import GithubIcon from '../atoms/icons/Github';
+import GithubIcon from '../atoms/icons/GithubIcon';
 import ThemeChanger from '../atoms/ThemeChanger';
 
 const HeaderBar = () => {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { range, PER_PAGE } from '../../lib/const';
-import Left from '../atoms/icons/Left';
-import Right from '../atoms/icons/Right';
+import Left from '../atoms/icons/LeftIcon';
+import Right from '../atoms/icons/RightIcon';
 import { useRouter } from 'next/router';
 
 const Pagination = ({ totalCount }) => {
