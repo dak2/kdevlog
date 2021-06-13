@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from './HeaderBar';
+import Header from './headerBar';
 import Footer from '../atoms/FooterBar';
 import { useRouter } from 'next/router';
 
