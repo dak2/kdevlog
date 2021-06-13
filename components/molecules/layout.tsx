@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import HeaderBar from './HeaderBar';
+import Header from './Header';
 import Footer from '../atoms/Footer';
 import { useRouter } from 'next/router';
 
@@ -23,7 +23,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <HeaderBar />
+      <Header />
       <main>{children}</main>
       {!home && currentPageId != 1 && (
         <div className="my-12">
