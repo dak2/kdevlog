@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+@import './unreset.scss';
 
 html {
   background-color: #f3f4f6;
@@ -21,4 +22,3 @@ html {
 .hljs {
   @apply rounded-lg;
 }
-

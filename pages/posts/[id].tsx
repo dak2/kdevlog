@@ -21,6 +21,7 @@ const postDetail = (post: PostType) => {
     hljs.initHighlighting();
     hljs.initHighlighting.called = false;
   });
+  console.log('post', post.body);
   return (
     <Layout home={null}>
       <Head>
@@ -33,7 +34,10 @@ const postDetail = (post: PostType) => {
         <div className="text-gray-400 dark:text-gray-200">
           <FormatedCreatedAt dateString={post.createdAt} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: marked(post.body) }} />
+        <div
+          className="unreset"
+          dangerouslySetInnerHTML={{ __html: marked(post.body) }}
+        />
       </article>
     </Layout>
   );
