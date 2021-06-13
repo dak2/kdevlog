@@ -3,7 +3,7 @@ import { httpRequest } from '../../../lib/api';
 import Link from 'next/link';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../../components/atoms/formatedDate';
+import { FormatedCreatedAt } from '../../../components/atoms/date';
 import TagIcon from '../../../components/atoms/tagIcon';
 import Pagination from '../../../components/molecules/pagination';
 import { PostType } from '../../../lib/type';

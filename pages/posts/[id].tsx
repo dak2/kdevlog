@@ -2,7 +2,7 @@ import Layout from '../../components/molecules/layout';
 import { httpRequest } from '../../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../components/atoms/formatedDate';
+import { FormatedCreatedAt } from '../../components/atoms/date';
 import marked from 'marked';
 import hljs, { registLanguage } from '../../lib/myHighlight';
 import 'highlight.js/styles/ocean.css';
