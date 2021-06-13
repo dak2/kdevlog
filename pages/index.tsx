@@ -3,7 +3,7 @@ import Layout, { siteTitle } from '../components/molecules/Layout';
 import { httpRequest } from '../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
-import { FormatedCreatedAt } from '../components/atoms/Date';
+import { FormatedCreatedAt } from '../components/atoms/FormatedDate';
 import Pagination from '../components/molecules/Pagination';
 import { PostType } from '../lib/type';
 

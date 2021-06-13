@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../../components/molecules/Layout';
 import Pagination from '../../../components/molecules/Pagination';
-import { FormatedCreatedAt } from '../../../components/atoms/Date';
+import { FormatedCreatedAt } from '../../../components/atoms/FormatedDate';
 import { httpRequest } from '../../../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import { range, PER_PAGE } from '../../../lib/const';

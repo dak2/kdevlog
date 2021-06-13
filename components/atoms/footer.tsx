@@ -1,4 +1,4 @@
-import { FormatedToday } from './Date';
+import { FormatedToday } from './FormatedDate';
 
 const Footer = () => {
   return (
