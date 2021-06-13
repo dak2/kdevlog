@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ThemeChanger = () => {
+const ThemeChangeToggle = () => {
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     if (
@@ -77,4 +77,4 @@ const ThemeChanger = () => {
   );
 };
 
-export default ThemeChanger;
+export default ThemeChangeToggle;
