@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from './Header';
-import Footer from '../atoms/Footer';
+import Header from './HeaderBar';
+import Footer from '../atoms/FooterBar';
 import { useRouter } from 'next/router';
 
 export const siteTitle = 'Kdevlog';
