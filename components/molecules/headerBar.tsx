@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import GithubIcon from '../atoms/icons/github';
-import Toggle from '../atoms/themeChanger';
+import Toggle from '../atoms/ThemeChanger';
 
 const HeaderBar = () => {
   return (
