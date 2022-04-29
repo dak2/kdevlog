@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@types/highlight.js": "^10.1.0",
@@ -36,6 +37,7 @@
     "prettier": "^2.2.1",
     "sass": "^1.34.1",
     "stylelint-config-recommended": "^5.0.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "vercel": "^24.1.0"
   }
 }

@@ -1,0 +1,27 @@
+name: "Deploy"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  vercel:
+    runs-on: ubuntu-latest
+    name: "Deploy front-end"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - name: Recreate all posts
+        shell: bash
+        run: |
+          npm install
+          npm run build
+      - name: "Deploy to Vercel"
+        shell: bash
+        run: npm run deploy
