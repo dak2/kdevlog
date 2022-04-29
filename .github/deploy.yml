@@ -1,14 +1,19 @@
-name: "Deploy"
+name: 'Deploy'
 
 on:
   push:
+    branches:
+      - main
+  repository_dispatch:
+    types:
+      - update_post
     branches:
       - main
 
 jobs:
   vercel:
     runs-on: ubuntu-latest
-    name: "Deploy front-end"
+    name: 'Deploy front-end'
 
     steps:
       - name: Checkout
@@ -22,6 +27,6 @@ jobs:
         run: |
           npm install
           npm run build
-      - name: "Deploy to Vercel"
+      - name: 'Deploy to Vercel'
         shell: bash
         run: npm run deploy
