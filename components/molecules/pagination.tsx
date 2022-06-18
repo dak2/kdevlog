@@ -13,13 +13,13 @@ const Pagination = ({ totalCount }) => {
   const prevPage = () => {
     if (pagenationList.length <= 1) {
       return (
-          <div className='mt-1'>
+          <div style={{ marginTop: 5 }}>
             <GenericIcon iconName='left'/>
           </div>
         )
     } else {
       return (
-        <a href={`/posts/page/${prevPageId}`} className='mt-1'>
+        <a href={`/posts/page/${prevPageId}`} style={{ marginTop: 5 }}>
           <GenericIcon iconName='left'/>;
         </a>
       );
@@ -29,13 +29,13 @@ const Pagination = ({ totalCount }) => {
   const nextPage = () => {
     if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
       return (
-        <div className='mt-1'>
+        <div style={{ marginTop: 5 }}>
           <GenericIcon iconName='right'/>
         </div>
       )
     } else {
       return (
-        <a href={`/posts/page/${nextPageId}`} className='mt-1'>
+        <a href={`/posts/page/${nextPageId}`} style={{ marginTop: 5 }}>
           <GenericIcon iconName='right'/>;
         </a>
       );
