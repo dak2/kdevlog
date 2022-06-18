@@ -3,11 +3,12 @@ import { SiJavascript, SiRuby, SiRubyonrails, SiTypescript, SiDeno } from 'react
 
 type Props = {
   iconName: string;
+  styleName?: string;
 }
 
 const GenericIcon = (props: Props) => {
   const iconName = props.iconName;
-
+  const styleName = props.styleName;
   const icons = {
     'aws': <FaAws/>,
     'docker': <FaDocker/>,
@@ -24,7 +25,11 @@ const GenericIcon = (props: Props) => {
     'left': <FaChevronLeft/>,
   }
 
-  return icons[iconName]
+  return (
+    <div className={styleName}>
+      {icons[iconName]}
+    </div>
+  )
 }
 
 export default GenericIcon;
