@@ -1,4 +1,4 @@
-import { FaGithub, FaAws, FaDocker, FaChevronLeft, FaChevronRight, FaRust, FaNodeJs, FaReact } from 'react-icons/fa';
+import { FaGithub, FaAws, FaDocker, FaChevronLeft, FaChevronRight, FaRust, FaNodeJs, FaReact, FaBookOpen } from 'react-icons/fa';
 import { SiJavascript, SiRuby, SiRubyonrails, SiTypescript, SiDeno } from 'react-icons/si';
 
 type Props = {
@@ -23,6 +23,7 @@ const GenericIcon = (props: Props) => {
     'deno': <SiDeno/>,
     'right': <FaChevronRight/>,
     'left': <FaChevronLeft/>,
+    'book': <FaBookOpen/>,
   }
 
   return (
