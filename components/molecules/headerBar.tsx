@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import GithubIcon from '../atoms/icons/github';
+import GenericIcon from '../atoms/genericIcon';
 import Toggle from '../atoms/ThemeChanger';
 
 const HeaderBar = () => {
@@ -12,8 +12,8 @@ const HeaderBar = () => {
       </Link>
       <div className="flex ml-64">
         <Toggle />
-        <a href="https://github.com/dak2">
-          <GithubIcon />
+        <a href="https://github.com/dak2" className="text-2xl	ml-2.5">
+          <GenericIcon iconName="github" />
         </a>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { range, PER_PAGE } from '../../lib/const';
-import Left from '../atoms/icons/left';
-import Right from '../atoms/icons/right';
+import GenericIcon from '../atoms/genericIcon';
 import { useRouter } from 'next/router';
 
 const Pagination = ({ totalCount }) => {
@@ -13,11 +12,11 @@ const Pagination = ({ totalCount }) => {
 
   const prevPage = () => {
     if (pagenationList.length <= 1) {
-      return <Left />;
+      return <GenericIcon iconName='left' styleName='mt-1'/>;
     } else {
       return (
         <a href={`/posts/page/${prevPageId}`}>
-          <Left />
+          <GenericIcon iconName='left' styleName='mt-1'/>;
         </a>
       );
     }
@@ -25,11 +24,11 @@ const Pagination = ({ totalCount }) => {
 
   const nextPage = () => {
     if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
-      return <Right />;
+      return <GenericIcon iconName='right' styleName='mt-1'/>;
     } else {
       return (
         <a href={`/posts/page/${nextPageId}`}>
-          <Right />
+          <GenericIcon iconName='right' styleName='mt-1'/>;
         </a>
       );
     }

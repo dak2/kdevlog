@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
 import { FormatedCreatedAt } from '../../../components/atoms/date';
-import TagIcon from '../../../components/atoms/tagIcon';
+import GenericIcon from '../../../components/atoms/genericIcon';
 import Pagination from '../../../components/molecules/pagination';
 import { PostType } from '../../../lib/type';
 
@@ -21,7 +21,7 @@ const postLists = (props: PropsType) => {
         <title>{siteTitle}</title>
       </Head>
       <div className="flex mb-10">
-        <TagIcon tagName={props.tagName} />
+        {icon(props.tagName)}
         <h2 className="text-2xl ml-2 font-bold text-gray-500 dark:text-gray-200">
           {props.tagName}
         </h2>
@@ -69,6 +69,11 @@ const postLists = (props: PropsType) => {
   );
 };
 
+const icon = (tag: string) => {
+  if(tag) return <GenericIcon iconName={tag} styleName={'mt-2 text-2xl'} />
+  return null;
+};
+
 const noPosts = () => {
   return (
     <Layout home={true}>
@@ -106,7 +111,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const tag = toUpperCaseTag(context.params.params[0]);
+  const tag = context.params.params[0];
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
   const allPosts = await res.contents;
   const posts = groupedPostsByTag(allPosts, tag);
@@ -132,26 +137,4 @@ const groupedPostsByTag = (posts, tag_name) => {
   return posts.filter((post) => {
     return post.tags.some((tag) => tag.name === tag_name);
   });
-};
-
-const toUpperCaseTag = (tag: string) => {
-  if (tag.includes('rubyonrails')) {
-    return 'Ruby on Rails';
-  } else if (tag.includes('typescript')) {
-    return 'TypeScript';
-  } else if (tag.includes('javascript')) {
-    return 'JavaScript';
-  } else if (tag.includes('go')) {
-    return 'Go';
-  } else if (tag.includes('rust')) {
-    return 'Rust';
-  } else if (tag.includes('ruby')) {
-    return 'Ruby';
-  } else if (tag.includes('react')) {
-    return 'React';
-  } else if (tag.includes('aws')) {
-    return 'AWS';
-  } else if (tag.includes('docker')) {
-    return 'Docker';
-  }
 };
