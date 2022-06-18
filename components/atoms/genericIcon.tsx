@@ -24,11 +24,7 @@ const GenericIcon = (props: Props) => {
     'left': <FaChevronLeft/>,
   }
 
-  return (
-    <div className="w-8">
-      {icons[iconName]}
-    </div>
-  )
+  return icons[iconName]
 }
 
 export default GenericIcon;
