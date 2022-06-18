@@ -12,11 +12,15 @@ const Pagination = ({ totalCount }) => {
 
   const prevPage = () => {
     if (pagenationList.length <= 1) {
-      return <GenericIcon iconName='left' styleName='mt-1'/>;
+      return (
+          <div className='mt-1'>
+            <GenericIcon iconName='left'/>
+          </div>
+        )
     } else {
       return (
-        <a href={`/posts/page/${prevPageId}`}>
-          <GenericIcon iconName='left' styleName='mt-1'/>;
+        <a href={`/posts/page/${prevPageId}`} className='mt-1'>
+          <GenericIcon iconName='left'/>;
         </a>
       );
     }
@@ -24,11 +28,15 @@ const Pagination = ({ totalCount }) => {
 
   const nextPage = () => {
     if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
-      return <GenericIcon iconName='right' styleName='mt-1'/>;
+      return (
+        <div className='mt-1'>
+          <GenericIcon iconName='right'/>
+        </div>
+      )
     } else {
       return (
-        <a href={`/posts/page/${nextPageId}`}>
-          <GenericIcon iconName='right' styleName='mt-1'/>;
+        <a href={`/posts/page/${nextPageId}`} className='mt-1'>
+          <GenericIcon iconName='right'/>;
         </a>
       );
     }
