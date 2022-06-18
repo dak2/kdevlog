@@ -12,7 +12,7 @@ const HeaderBar = () => {
       </Link>
       <div className="flex ml-64">
         <Toggle />
-        <a href="https://github.com/dak2" className="text-2xl	ml-2.5">
+        <a href="https://github.com/dak2" className="text-2xl	ml-2">
           <GenericIcon iconName="github" />
         </a>
       </div>
