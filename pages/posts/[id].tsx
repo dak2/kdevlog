@@ -7,7 +7,7 @@ import marked from 'marked';
 import hljs, { registLanguage } from '../../lib/myHighlight';
 import 'highlight.js/styles/ocean.css';
 import { useEffect } from 'react';
-import { PostType } from '../../lib/type';
+import { PostType, TagType, LanguageTypes } from '../../lib/type';
 
 type PropsType = {
   post: PostType;
@@ -15,11 +15,11 @@ type PropsType = {
 
 const postDetail = (post: PostType) => {
   if (post.tags.length > 0) {
-    registLanguage(post.tags[0].name.toLowerCase().replace(/\s+/g, ''));
+    registLanguage(postLang(post.tags));
   }
   useEffect(() => {
-    hljs.initHighlighting();
-    hljs.initHighlighting.called = false;
+    hljs.highlightAll();
+    hljs.highlightAll.called = false;
   });
   return (
     <Layout home={null}>
@@ -40,6 +40,16 @@ const postDetail = (post: PostType) => {
       </article>
     </Layout>
   );
+};
+
+const postLang = (tags: TagType[]): string => {
+  let postLang = '';
+  const tagNames = tags.map(tag => tag.name);
+  for(const langType of LanguageTypes) {
+    postLang = tagNames.find(tag => tag === langType.lang)
+    if(postLang) break;
+  }
+  return postLang;
 };
 
 const noPost = () => {

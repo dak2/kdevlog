@@ -16,3 +16,12 @@ export type TagType = {
   revisedAt: string;
   name: string;
 };
+
+export const LanguageTypes = [
+  { lang: 'javascript' },
+  { lang: 'typescript' },
+  { lang: 'ruby' },
+  { lang: 'rust' },
+  { lang: 'deno' },
+  { lang: 'go' },
+]
