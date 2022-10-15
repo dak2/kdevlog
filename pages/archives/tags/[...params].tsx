@@ -49,7 +49,7 @@ const postLists = (props: PropsType) => {
                           },
                         }}
                       >
-                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md">
+                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md font-bold">
                           {tag.name}
                         </p>
                       </Link>
