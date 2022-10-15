@@ -2,9 +2,6 @@
   a {
     @apply text-blue-400;
   }
-  p {
-    @apply my-4;
-  }
 
   blockquote,
   figure {
@@ -16,27 +13,27 @@
   }
 
   h1 {
-    @apply text-4xl font-bold my-2;
+    @apply text-4xl font-bold mb-2 mt-9;
   }
 
   h2 {
-    @apply text-2xl font-bold my-3;
+    @apply text-2xl font-bold mb-2 mt-9;
   }
 
   h3 {
-    @apply text-lg font-bold my-4;
+    @apply text-lg font-bold mb-2 mt-9;
   }
 
   h4 {
-    @apply text-base font-bold my-5;
+    @apply text-base font-bold mb-2;
   }
 
   h5 {
-    @apply text-sm font-bold my-6;
+    @apply text-sm font-bold mb-2;
   }
 
   h6 {
-    @apply text-xs font-bold my-10;
+    @apply text-xs font-bold mb-2;
   }
 
   article,
@@ -86,7 +83,7 @@
 
   ul,
   menu {
-    @apply list-disc my-4 pl-10;
+    @apply list-disc my-1 pl-5;
   }
 
   li > p {
@@ -94,7 +91,7 @@
   }
 
   ol {
-    @apply list-decimal my-4 pl-10;
+    @apply list-decimal my-1 pl-5;
   }
 
   ul,
@@ -145,6 +142,6 @@
   }
 
   pre {
-    @apply my-4;
+    @apply my-2;
   }
 }

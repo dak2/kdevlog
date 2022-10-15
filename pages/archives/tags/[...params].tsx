@@ -28,7 +28,7 @@ const postLists = (props: PropsType) => {
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
-                <h2 className="cursor-pointer text-2xl mb-2 text-darkorange dark:text-yellow-300">
+                <h2 className="cursor-pointer text-2xl font-extrabold mb-2 text-darkorange dark:text-yellow-300">
                   <a>{title}</a>
                 </h2>
               </Link>
@@ -49,7 +49,7 @@ const postLists = (props: PropsType) => {
                           },
                         }}
                       >
-                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md">
+                        <p className="cursor-pointer p-1 text-sm mr-2 text-white bg-gray-500 rounded-md font-bold">
                           {tag.name}
                         </p>
                       </Link>

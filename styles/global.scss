@@ -22,3 +22,19 @@ html {
 .hljs {
   @apply rounded-lg;
 }
+
+code {
+  padding: 0.2em 0.4em;
+  background: #c7c9caee;
+  font-size: .85em;
+  color: crimson;
+  border-radius: 4px;
+  vertical-align: 0.08em;
+}
+
+blockquote {
+  padding: 0 1em;
+  color: #acaaa8ee;
+  border-left: 0.15em solid #979593ee;
+}
+
