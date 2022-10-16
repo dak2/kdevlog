@@ -3,7 +3,13 @@
     @apply text-blue-400;
   }
 
-  blockquote,
+  blockquote {
+    padding: 0 1em;
+    color: #acaaa8ee;
+    border-left: 0.11em solid #979593ee;
+    @apply my-2 mx-3
+  }
+
   figure {
     @apply my-4 mx-10;
   }
