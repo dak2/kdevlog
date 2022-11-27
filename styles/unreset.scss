@@ -4,10 +4,29 @@
   }
 
   blockquote {
+    code {
+      padding: initial;
+      background: initial;
+      font-size: 1em;
+      color: initial;
+      border-radius: initial;
+      vertical-align: initial;
+    }
     padding: 0 1em;
     color: #acaaa8ee;
     border-left: 0.11em solid #979593ee;
     @apply my-2 mx-3
+  }
+
+  code {
+    code {
+      padding: initial;
+      background: initial;
+      font-size: 1em;
+      color: initial;
+      border-radius: initial;
+      vertical-align: initial;
+    }
   }
 
   figure {
