@@ -10,7 +10,7 @@ export default function Layout({ children, home }) {
   const router = useRouter();
   const currentPageId = router.query.id ? Number(router.query.id) : '';
   return (
-    <div className="max-w-4xl mx-auto">
+    <div id="layout" className="max-w-4xl mx-auto">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content={siteTitle} />

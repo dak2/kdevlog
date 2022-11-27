@@ -22,7 +22,7 @@ const postLists = (props: PropsType) => {
       <ul>
         {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
           <li key={postIndex}>
-            <div className="mb-12">
+            <div id="post-container" className="mb-12">
               <Link href={`/posts/${id}`}>
                 <h2 className="cursor-pointer text-2xl mb-2 text-darkorange dark:text-yellow-300">
                   <a>{title}</a>
