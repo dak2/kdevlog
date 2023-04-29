@@ -20,7 +20,7 @@ const Pagination = ({ totalCount }) => {
     } else {
       return (
         <a href={`/posts/page/${prevPageId}`} style={{ marginTop: 5 }}>
-          <GenericIcon iconName='left'/>;
+          <GenericIcon iconName='left'/>
         </a>
       );
     }
@@ -36,7 +36,7 @@ const Pagination = ({ totalCount }) => {
     } else {
       return (
         <a href={`/posts/page/${nextPageId}`} style={{ marginTop: 5 }}>
-          <GenericIcon iconName='right'/>;
+          <GenericIcon iconName='right'/>
         </a>
       );
     }

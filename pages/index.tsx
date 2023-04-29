@@ -14,7 +14,7 @@ type PropsType = {
 
 const postLists = (props: PropsType) => {
   return (
-    <Layout home={true}>
+    <Layout home={true} children={undefined}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -23,8 +23,8 @@ const postLists = (props: PropsType) => {
           <li key={postIndex}>
             <div id="post-container" className="mb-12">
               <Link href={`/posts/${id}`}>
-                <h2 className="mb-2 text-2xl font-extrabold cursor-pointer">
-                  <a>{title}</a>
+                <h2 className="mb-2 text-2xl font-extrabold">
+                  <a className="cursor-pointer hover:underline">{title}</a>
                 </h2>
               </Link>
               <small className="text-gray-200">
@@ -44,8 +44,8 @@ const postLists = (props: PropsType) => {
                           },
                         }}
                       >
-                        <p className="p-1 mr-2 text-sm font-bold text-white bg-gray-200 cursor-pointer rounded-md">
-                          {tag.name}
+                        <p className="mr-2 text-sm font-bold cursor-pointer hover:underline">
+                          #{tag.name}
                         </p>
                       </Link>
                     </li>
@@ -63,7 +63,7 @@ const postLists = (props: PropsType) => {
 
 const noPosts = () => {
   return (
-    <Layout home={true}>
+    <Layout home={true} children={undefined}>
       <Head>
         <title>{siteTitle}</title>
       </Head>

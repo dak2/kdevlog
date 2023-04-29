@@ -22,7 +22,7 @@ const postDetail = (post: PostType) => {
     hljs.highlightAll.called = false;
   });
   return (
-    <Layout home={null}>
+    <Layout home={null} children={undefined}>
       <Head>
         <title>{post.title}</title>
       </Head>
@@ -53,7 +53,7 @@ const postLang = (tags: TagType[]): string => {
 };
 
 const noPost = () => {
-  <Layout home={null}>
+  <Layout home={null} children={undefined}>
     <h1 className="text-3xl font-extrabold tracking-tighter my-4">
       記事がありません。
     </h1>
