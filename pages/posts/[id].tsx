@@ -31,9 +31,7 @@ const postDetail = (post: PostType) => {
           {post.title}
         </h1>
         <div className="text-gray-400 dark:text-gray-200">
-          <p>
-            updated_at: <FormatedDate dateString={post.updatedAt} />
-          </p>
+          <FormatedDate dateString={post.updatedAt} />
         </div>
         <div
           className="unreset"

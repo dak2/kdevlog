@@ -2,7 +2,7 @@ import { parseISO, format } from 'date-fns';
 
 export function FormatedDate({ dateString }) {
   const date = parseISO(dateString);
-  return format(date, 'yyyy-MM-dd');
+  return <p>updated_at: {format(date, 'yyyy-MM-dd')}</p>;
 }
 
 export function FormatedToday({ date }) {
