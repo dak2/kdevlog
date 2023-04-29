@@ -1,6 +1,8 @@
 .unreset {
   a {
-    @apply text-blue-400;
+    @apply text-blue-400 hover:underline;
+    overflow-wrap: break-word;
+    word-break: break-all;
   }
 
   blockquote {
@@ -38,27 +40,27 @@
   }
 
   h1 {
-    @apply text-4xl font-bold mb-2 mt-9;
+    @apply text-4xl font-bold mb-4 border-b-2	mt-9;
   }
 
   h2 {
-    @apply text-2xl font-bold mb-2 mt-9;
+    @apply text-2xl font-bold mb-4 border-b-2	mt-9;
   }
 
   h3 {
-    @apply text-lg font-bold mb-2 mt-9;
+    @apply text-lg font-bold mb-4 mt-4;
   }
 
   h4 {
-    @apply text-base font-bold mb-2;
+    @apply text-base font-bold mb-4;
   }
 
   h5 {
-    @apply text-sm font-bold mb-2;
+    @apply text-sm font-bold mb-4;
   }
 
   h6 {
-    @apply text-xs font-bold mb-2;
+    @apply text-xs font-bold mb-4;
   }
 
   article,
@@ -168,5 +170,9 @@
 
   pre {
     @apply my-2;
+  }
+
+  br:after {
+    content: "\00a0";
   }
 }

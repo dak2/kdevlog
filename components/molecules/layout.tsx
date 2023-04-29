@@ -32,7 +32,7 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
-      <div className="border-b-2 mt-10"></div>
+      <div className="mt-10"></div>
       <Footer />
     </div>
   );
