@@ -1,6 +1,6 @@
 import { parseISO, format } from 'date-fns';
 
-export function FormatedCreatedAt({ dateString }) {
+export function FormatedDate({ dateString }) {
   const date = parseISO(dateString);
   return <p>{format(date, 'yyyy-MM-dd')}</p>;
 }

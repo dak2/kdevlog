@@ -2,14 +2,14 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Layout, { siteTitle } from '../../../components/molecules/layout';
 import Pagination from '../../../components/molecules/pagination';
-import { FormatedCreatedAt } from '../../../components/atoms/date';
+import { FormatedDate } from '../../../components/atoms/date';
 import { httpRequest } from '../../../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import { range, PER_PAGE } from '../../../lib/const';
 import { PostType } from '../../../lib/type';
 
 type PropsType = {
-  allPosts: PostType[];
+  posts: PostType[];
   totalCount: number;
 };
 
@@ -20,7 +20,7 @@ const postLists = (props: PropsType) => {
         <title>{siteTitle}</title>
       </Head>
       <ul>
-        {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
+        {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
           <li key={postIndex}>
             <div className="mb-12">
               <Link href={`/posts/${id}`}>
@@ -29,7 +29,7 @@ const postLists = (props: PropsType) => {
                 </h2>
               </Link>
               <small className="text-gray-500 dark:text-gray-200">
-                <FormatedCreatedAt dateString={createdAt} />
+                <FormatedDate dateString={updatedAt} />
               </small>
               <div>
                 <ul>
@@ -76,7 +76,7 @@ const noPosts = () => {
 };
 
 export default function PostsPageId(props: PropsType) {
-  if (props.allPosts.length > 0) {
+  if (props.posts.length > 0) {
     return postLists(props);
   } else {
     return noPosts;
@@ -99,10 +99,14 @@ export const getStaticProps = async (context) => {
     CMS_API_KEY,
   );
   const posts = await res;
+  const postsByNewestSorted = posts.contents.sort(
+    (a: { updatedAt: string }, b: { updatedAt: string }) =>
+      new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+  );
 
   return {
     props: {
-      allPosts: posts.contents,
+      posts: postsByNewestSorted,
       totalCount: posts.totalCount,
     },
   };
