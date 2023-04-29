@@ -16,7 +16,7 @@ type PropsType = {
 
 const postLists = (props: PropsType) => {
   return (
-    <Layout home={null} children={undefined}>
+    <Layout home={null}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -73,7 +73,7 @@ const icon = (tag: string) => {
 
 const noPosts = () => {
   return (
-    <Layout home={true} children={undefined}>
+    <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
