@@ -31,9 +31,7 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:tailwind/recommended",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
   "rules": {
     "react/prop-types": "off",
