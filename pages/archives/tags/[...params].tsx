@@ -3,13 +3,13 @@ import { httpRequest } from '../../../lib/api';
 import Link from 'next/link';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../../components/atoms/date';
+import { FormatedDate } from '../../../components/atoms/date';
 import GenericIcon from '../../../components/atoms/genericIcon';
 import Pagination from '../../../components/molecules/pagination';
 import { PostType } from '../../../lib/type';
 
 type PropsType = {
-  allPosts: PostType[];
+  posts: PostType[];
   tagName: string;
   totalCount: number;
 };
@@ -24,7 +24,7 @@ const postLists = (props: PropsType) => {
         {icon(props.tagName)}
       </div>
       <ul>
-        {props.allPosts.map(({ id, createdAt, title, tags }, postIndex) => (
+        {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
           <li key={postIndex}>
             <div id="post-container" className="mb-12">
               <Link href={`/posts/${id}`}>
@@ -33,7 +33,7 @@ const postLists = (props: PropsType) => {
                 </h2>
               </Link>
               <small className="text-gray-500 dark:text-gray-200">
-                <FormatedCreatedAt dateString={createdAt} />
+                  <FormatedDate dateString={updatedAt} />
               </small>
               <div>
                 <ul>
@@ -85,7 +85,7 @@ const noPosts = () => {
 };
 
 export default function Tags(props: PropsType) {
-  if (props.allPosts.length > 0) {
+  if (props.posts.length > 0) {
     return postLists(props);
   } else {
     return noPosts;
@@ -110,12 +110,16 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const tag = context.params.params[0];
   const res = await httpRequest(CMS_URL, CMS_API_KEY);
-  const allPosts = await res.contents;
-  const posts = groupedPostsByTag(allPosts, tag);
+  const posts = await res.contents;
+  const postsByTag = groupedPostsByTag(posts, tag);
+  const postsByNewestSorted = postsByTag.sort(
+    (a: { updatedAt: string }, b: { updatedAt: string }) =>
+      new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+  );
 
   return {
     props: {
-      allPosts: posts,
+      posts: postsByNewestSorted,
       tagName: tag,
       revalidate: 60,
       totalCount: res.totalCount,

@@ -2,7 +2,7 @@ import Layout from '../../components/molecules/layout';
 import { httpRequest } from '../../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../../lib/const';
 import Head from 'next/head';
-import { FormatedCreatedAt } from '../../components/atoms/date';
+import { FormatedDate } from '../../components/atoms/date';
 import marked from 'marked';
 import hljs, { registLanguage } from '../../lib/myHighlight';
 import 'highlight.js/styles/ocean.css';
@@ -31,7 +31,7 @@ const postDetail = (post: PostType) => {
           {post.title}
         </h1>
         <div className="text-gray-400 dark:text-gray-200">
-          <FormatedCreatedAt dateString={post.createdAt} />
+          <FormatedDate dateString={post.updatedAt} />
         </div>
         <div
           className="unreset"
