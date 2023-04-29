@@ -20,7 +20,7 @@ const Pagination = ({ totalCount }) => {
     } else {
       return (
         <a href={`/posts/page/${prevPageId}`} style={{ marginTop: 5 }}>
-          <GenericIcon iconName='left'/>;
+          <GenericIcon iconName='left'/>
         </a>
       );
     }
@@ -36,14 +36,14 @@ const Pagination = ({ totalCount }) => {
     } else {
       return (
         <a href={`/posts/page/${nextPageId}`} style={{ marginTop: 5 }}>
-          <GenericIcon iconName='right'/>;
+          <GenericIcon iconName='right'/>
         </a>
       );
     }
   };
 
   return (
-    <div className="flex justify-start text-gray-500 dark:text-gray-200">
+    <div className="flex justify-start text-gray-200">
       {prevPage()}
       <ul>
         {pagenationList.map((number, index) => (
