@@ -5,15 +5,4 @@ module.exports = {
     './public/**/*.html',
     './styles/*.scss',
   ],
-  plugins: [
-    function ({ addUtilities }) {
-      const extendUnderline = {
-        '.underline': {
-          textDecoration: 'underline',
-          'text-decoration-color': 'white',
-        },
-      };
-      addUtilities(extendUnderline);
-    },
-  ],
 };
