@@ -28,7 +28,9 @@ const postLists = (props: PropsType) => {
                 </h2>
               </Link>
               <small className="text-gray-500 dark:text-gray-200">
-                <FormatedDate dateString={updatedAt} />
+                <p>
+                  updated_at: <FormatedDate dateString={updatedAt} />
+                </p>
               </small>
               <div>
                 <ul>
