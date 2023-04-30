@@ -13,13 +13,13 @@ const Pagination = ({ totalCount }) => {
   const prevPage = () => {
     if (pagenationList.length <= 1) {
       return (
-          <div style={{ marginTop: 5 }}>
+          <div id="prev-page-icon" style={{ marginTop: 5 }}>
             <GenericIcon iconName='left'/>
           </div>
         )
     } else {
       return (
-        <a href={`/posts/page/${prevPageId}`} style={{ marginTop: 5 }}>
+        <a id="prev-page-icon" href={`/posts/page/${prevPageId}`} style={{ marginTop: 5 }}>
           <GenericIcon iconName='left'/>
         </a>
       );
@@ -29,13 +29,13 @@ const Pagination = ({ totalCount }) => {
   const nextPage = () => {
     if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
       return (
-        <div style={{ marginTop: 5 }}>
+        <div id="next-page-icon" style={{ marginTop: 5 }}>
           <GenericIcon iconName='right'/>
         </div>
       )
     } else {
       return (
-        <a href={`/posts/page/${nextPageId}`} style={{ marginTop: 5 }}>
+        <a id="next-page-icon" href={`/posts/page/${nextPageId}`} style={{ marginTop: 5 }}>
           <GenericIcon iconName='right'/>
         </a>
       );
@@ -43,11 +43,12 @@ const Pagination = ({ totalCount }) => {
   };
 
   return (
-    <div className="flex justify-start text-gray-200">
+    <div id="pagination" className="flex justify-start text-gray-200">
       {prevPage()}
       <ul>
         {pagenationList.map((number, index) => (
           <li
+            id="page-number"
             key={index}
             className="mx-1.5 w-6 inline-block text-center hover:underline"
           >
