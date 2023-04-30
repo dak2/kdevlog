@@ -15,7 +15,7 @@ html {
           margin-top: 150px;
           margin-bottom: 250px;
           h1 {
-            font-size: 15vh;
+            font-size: 30vh;
             margin-right: initial;
             padding-top: 40px;
           }
@@ -28,47 +28,48 @@ html {
           }
         }
         #tag-icon {
-          font-size: 8vh;
+          font-size: 23vh;
         }
         #post-container {
           #post-sub-container {
             margin-top: 150px;
             h2 {
-              font-size: 8vh;
-              line-height: 110px;
+              font-size: 26vh;
+              line-height: 220px;
             }
             #updated-at {
-              font-size: 6vh;
+              font-size: 12vh;
             }
             #tag {
               margin-top: 4vh;
-              font-size: 7vh;
+              font-size: 18vh;
             }
           }
         }
         #pagination {
           margin-top: 150px;
-          font-size: 6vh;
+          font-size: 20vh;
           #prev-page-icon {
-            padding-top: 1.5vh;
+            padding-top: 2vh;
           }
           #next-page-icon {
-            padding-top: 1.5vh;
+            padding-top: 2vh;
+            margin-left: 5vh;
           }
           #page-number {
-            margin-left: 5vh;
-            margin-right: 5vh;
+            margin-left: 10vh;
+            margin-right: 10vh;
           }
         }
         #footer {
           #copyright {
-            font-size: 6vh;
+            font-size: 15vh;
           }
           margin-bottom: 20vh;
         }
         #back-page-link {
           margin-bottom: 15vh;
-          font-size: 6vh;
+          font-size: 15vh;
         }
       }
     }
@@ -90,7 +91,7 @@ html {
           margin-top: 150px;
           margin-bottom: 250px;
           h1 {
-            font-size: 21vh;
+            font-size: 30vh;
             margin-right: initial;
             padding-top: 40px;
           }
@@ -102,45 +103,49 @@ html {
             }
           }
         }
+        #tag-icon {
+          font-size: 23vh;
+        }
         #post-container {
           #post-sub-container {
             margin-top: 150px;
             h2 {
-              font-size: 12vh;
-              line-height: 100px;
+              font-size: 26vh;
+              line-height: 220px;
             }
             #updated-at {
-              font-size: 9vh;
+              font-size: 12vh;
             }
             #tag {
               margin-top: 4vh;
-              font-size: 10vh;
+              font-size: 18vh;
             }
           }
         }
         #pagination {
           margin-top: 150px;
-          font-size: 9vh;
+          font-size: 20vh;
           #prev-page-icon {
-            padding-top: 1.5vh;
+            padding-top: 2vh;
           }
           #next-page-icon {
-            padding-top: 1.5vh;
+            padding-top: 2vh;
+            margin-left: 5vh;
           }
           #page-number {
-            margin-left: 5vh;
-            margin-right: 5vh;
+            margin-left: 10vh;
+            margin-right: 10vh;
           }
         }
         #footer {
           #copyright {
-            font-size: 8vh;
+            font-size: 15vh;
           }
           margin-bottom: 20vh;
         }
         #back-page-link {
           margin-bottom: 15vh;
-          font-size: 8vh;
+          font-size: 15vh;
         }
       }
     }
