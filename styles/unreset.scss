@@ -182,17 +182,17 @@
   @media screen and (max-width: 480px) {
     #post-title {
       margin-top: 30vh;
-      font-size: 30vh;
-      line-height: 250px;
+      font-size: 13vh;
+      line-height: 150px;
     }
     #updated-at {
       margin-bottom: 7vh;
-      font-size: 11vh;
+      font-size: 9vh;
     }
     .post-contents {
       p {
-        font-size: 18vh;
-        line-height: 20vh;
+        font-size: 9vh;
+        line-height: 15vh;
       }
 
       a {
@@ -241,17 +241,17 @@
 
       h2 {
         @apply font-bold mb-4 border-b-2 mt-9;
-        font-size: 22vh;
-        line-height: 250px;
+        font-size: 12vh;
+        line-height: 150px;
         margin-top: 20vh;
         margin-bottom: 6vh;
       }
 
       h3 {
         @apply text-lg font-bold;
-        font-size: 20vh;
+        font-size: 11vh;
         margin-top: 13vh;
-        line-height: 250px;
+        line-height: 150px;
       }
 
       h4 {
@@ -312,9 +312,9 @@
       }
 
       ul {
-        font-size: 18vh;
+        font-size: 9vh;
         margin-top: 6vh;
-        line-height: 20vh;
+        line-height: 15vh;
         menu {
           @apply list-disc pl-5;
         }
@@ -376,17 +376,17 @@
   @media screen and (max-width: 375px) {
     #post-title {
       margin-top: 30vh;
-      font-size: 30vh;
-      line-height: 250px;
+      font-size: 13vh;
+      line-height: 150px;
     }
     #updated-at {
       margin-bottom: 7vh;
-      font-size: 11vh;
+      font-size: 10vh;
     }
     .post-contents {
       p {
-        font-size: 18vh;
-        line-height: 20vh;
+        font-size: 10vh;
+        line-height: 17vh;
       }
 
       a {
@@ -435,7 +435,7 @@
 
       h2 {
         @apply font-bold mb-4 border-b-2 mt-9;
-        font-size: 22vh;
+        font-size: 12vh;
         line-height: 150px;
         margin-top: 20vh;
         margin-bottom: 6vh;
@@ -443,7 +443,7 @@
 
       h3 {
         @apply text-lg font-bold;
-        font-size: 20vh;
+        font-size: 11vh;
         margin-top: 13vh;
         line-height: 150px;
       }
@@ -506,9 +506,9 @@
       }
 
       ul {
-        font-size: 18vh;
+        font-size: 10vh;
         margin-top: 6vh;
-        line-height: 20vh;
+        line-height: 17vh;
         menu {
           @apply list-disc pl-5;
         }
