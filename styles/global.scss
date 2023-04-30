@@ -4,24 +4,70 @@
 @import './unreset.scss';
 
 html {
-  @media screen and (max-width: 768px) {
-    /* 768pxまでの幅の場合に適応される */
-    min-width: 1000px;
-    #_app {
-      min-height: 2000px;
-    }
-    #layout {
-      margin-top: 90px;
-    }
-    #post-container {
-      margin-bottom: 90px;
-    }
-  }
   @media screen and (max-width: 480px) {
     /* 480pxまでの幅の場合に適応される */
-    min-width: 1100px;
+    min-width: 1500px;
     #_app {
-      min-height: 2450px;
+      min-height: 2680px;
+      #layout {
+        max-width: 70rem;
+        #header {
+          margin-top: 150px;
+          margin-bottom: 100px;
+          h1 {
+            font-size: 21vh;
+            margin-right: initial;
+            padding-top: 40px;
+          }
+          #github-icon-container {
+            margin-left: auto;
+            #github-icon {
+              padding-top: 3vh;
+              font-size: 15vh;
+            }
+          }
+        }
+        #post-container {
+          #post-sub-container {
+            margin-top: 150px;
+            h2 {
+              font-size: 9.5vh;
+              line-height: 130px;
+            }
+            #updated-at {
+              font-size: 8vh;
+            }
+            #tag {
+              margin-top: 4vh;
+              font-size: 8vh;
+            }
+          }
+        }
+        #pagination {
+          margin-top: 150px;
+          font-size: 8vh;
+          #prev-page-icon {
+            padding-top: 1.5vh;
+          }
+          #next-page-icon {
+            padding-top: 1.5vh;
+          }
+          #page-number {
+            margin-left: 5vh;
+            margin-right: 5vh;
+          }
+        }
+        #footer {
+          #copyright {
+            font-size: 6vh;
+          }
+          margin-bottom: 20vh;
+        }
+      }
+    }
+    .github-icon {
+      width: 50px;
+      height: 50px;
     }
     #layout {
       margin-top: 90px;
@@ -30,11 +76,70 @@ html {
       margin-bottom: 90px;
     }
   }
-  @media screen and (max-width: 320px) {
-    /* 320pxまでの幅の場合に適応される */
-    min-width: 1000px;
+  @media screen and (max-width: 375px) {
+    /* 375pxまでの幅の場合に適応される */
+    min-width: 1500px;
     #_app {
-      min-height: 2000px;
+      min-height: 2680px;
+      #layout {
+        max-width: 70rem;
+        #header {
+          margin-top: 150px;
+          margin-bottom: 100px;
+          h1 {
+            font-size: 21vh;
+            margin-right: initial;
+            padding-top: 40px;
+          }
+          #github-icon-container {
+            margin-left: auto;
+            #github-icon {
+              padding-top: 3vh;
+              font-size: 15vh;
+            }
+          }
+        }
+        #post-container {
+          #post-sub-container {
+            margin-top: 150px;
+            h2 {
+              font-size: 12vh;
+              line-height: 100px;
+            }
+            #updated-at {
+              font-size: 8vh;
+            }
+            #tag {
+              margin-top: 4vh;
+              font-size: 8vh;
+            }
+          }
+        }
+        #pagination {
+          margin-top: 150px;
+          font-size: 8vh;
+          #prev-page-icon {
+            padding-top: 1.5vh;
+          }
+          #next-page-icon {
+            padding-top: 1.5vh;
+          }
+          #page-number {
+            margin-left: 5vh;
+            margin-right: 5vh;
+          }
+        }
+        #footer {
+          #copyright {
+            font-size: 6vh;
+          }
+          margin-bottom: 20vh;
+        }
+      }
+    }
+    .github-icon {
+      width: 50px;
+      height: 50px;
     }
     #layout {
       margin-top: 90px;

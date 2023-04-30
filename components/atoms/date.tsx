@@ -7,7 +7,7 @@ export function FormatedDate({ dateString }) {
 
 export function FormatedToday({ date }) {
   return (
-    <p className="inline-block text-xs">
+    <p id="copyright" className="inline-block text-xs">
       {`© ${format(date, 'yyyy')} Kdevlog.com`}
     </p>
   );
