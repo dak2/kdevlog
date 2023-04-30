@@ -20,54 +20,56 @@ const postLists = (props: PropsType) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div className="flex mb-10">
+      <div id="tag-icon" className="flex mb-10">
         {icon(props.tagName)}
       </div>
-      <ul>
-        {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
-          <li key={postIndex}>
-            <div id="post-container" className="mb-12">
-              <Link href={`/posts/${id}`}>
-                <h2 className="text-2xl font-extrabold mb-2">
-                  <a className="cursor-pointer hover:underline">{title}</a>
-                </h2>
-              </Link>
-              <small className="text-gray-200">
-                  <FormatedDate dateString={updatedAt} />
-              </small>
-              <div>
-                <ul>
-                  {tags.map((tag, tagIndex) => (
-                    <li key={tagIndex} className="inline-block">
-                      <Link
-                        href={{
-                          pathname: '/archives/tags/[params]',
-                          query: {
-                            params: `${tag.name
-                              .toLowerCase()
-                              .replace(/\s+/g, '')}`,
-                          },
-                        }}
-                      >
-                        <p className="mr-2 text-sm font-bold cursor-pointer hover:underline">
-                          #{tag.name}
-                        </p>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+      <div id="post-container">
+        <ul>
+          {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
+            <li key={postIndex}>
+              <div id="post-sub-container" className="mb-12">
+                <Link href={`/posts/${id}`}>
+                  <h2 className="text-2xl font-extrabold mb-2">
+                    <a className="cursor-pointer hover:underline">{title}</a>
+                  </h2>
+                </Link>
+                <small id="updated-at" className="text-gray-200">
+                    <FormatedDate dateString={updatedAt} />
+                </small>
+                <div>
+                  <ul>
+                    {tags.map((tag, tagIndex) => (
+                      <li key={tagIndex} className="inline-block">
+                        <Link
+                          href={{
+                            pathname: '/archives/tags/[params]',
+                            query: {
+                              params: `${tag.name
+                                .toLowerCase()
+                                .replace(/\s+/g, '')}`,
+                            },
+                          }}
+                        >
+                          <p id="tag" className="mr-2 text-sm font-bold cursor-pointer hover:underline">
+                            #{tag.name}
+                          </p>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <Pagination totalCount={props.totalCount} />
+            </li>
+          ))}
+        </ul>
+        <Pagination totalCount={props.totalCount} />
+      </div>
     </Layout>
   );
 };
 
 const icon = (tag: string) => {
-  if(tag) return <GenericIcon iconName={tag} styleName={'mt-2 text-2xl'} />
+  if(tag) return <GenericIcon iconName={tag} styleName={'mt-2'} />
   return null;
 };
 
