@@ -1,82 +1,68 @@
-.unreset {
-  a {
-    @apply text-blue-400 hover:underline;
-    overflow-wrap: break-word;
-    word-break: break-all;
-  }
+#post-container {
+  @media screen and (max-width: 1500px) {
+    .post-contents {
+      a {
+        @apply text-blue-400 hover:underline;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
 
-  blockquote {
-    code {
-      padding: initial;
-      background: initial;
-      font-size: 1em;
-      color: initial;
-      border-radius: initial;
-      vertical-align: initial;
-    }
-    padding: 0 1em;
-    color: #acaaa8ee;
-    border-left: 0.11em solid #979593ee;
-    @apply my-2 mx-3
-  }
+      blockquote {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+        padding: 0 1em;
+        color: #acaaa8ee;
+        border-left: 0.11em solid #979593ee;
+        @apply my-2 mx-3
+      }
 
-  code {
-    code {
-      padding: initial;
-      background: initial;
-      font-size: 1em;
-      color: initial;
-      border-radius: initial;
-      vertical-align: initial;
-    }
-  }
+      code {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+      }
 
-  figure {
-    @apply my-4 mx-10;
-  }
+      figure {
+        @apply my-4 mx-10;
+      }
 
-  hr {
-    @apply border;
-  }
+      hr {
+        @apply border;
+      }
 
-  h1 {
-    @apply text-4xl font-bold mb-4 border-b-2	mt-9;
-  }
-
-  h2 {
-    @apply text-2xl font-bold mb-4 border-b-2	mt-9;
-  }
-
-  h3 {
-    @apply text-lg font-bold mb-4 mt-4;
-  }
-
-  h4 {
-    @apply text-base font-bold mb-4;
-  }
-
-  h5 {
-    @apply text-sm font-bold mb-4;
-  }
-
-  h6 {
-    @apply text-xs font-bold mb-4;
-  }
-
-  article,
-  aside,
-  nav,
-  section {
-    h1 {
-      @apply text-2xl font-bold my-3;
-    }
-
-    article,
-    aside,
-    nav,
-    section {
       h1 {
-        @apply text-lg font-bold my-4;
+        @apply text-4xl font-bold mb-4 border-b-2	mt-9;
+      }
+
+      h2 {
+        @apply text-2xl font-bold mb-4 border-b-2	mt-9;
+      }
+
+      h3 {
+        @apply text-lg font-bold mb-4 mt-4;
+      }
+
+      h4 {
+        @apply text-base font-bold mb-4;
+      }
+
+      h5 {
+        @apply text-sm font-bold mb-4;
+      }
+
+      h6 {
+        @apply text-xs font-bold mb-4;
       }
 
       article,
@@ -84,7 +70,7 @@
       nav,
       section {
         h1 {
-          @apply text-base font-bold my-5;
+          @apply text-2xl font-bold my-3;
         }
 
         article,
@@ -92,7 +78,7 @@
         nav,
         section {
           h1 {
-            @apply text-sm font-bold my-6;
+            @apply text-lg font-bold my-4;
           }
 
           article,
@@ -100,79 +86,486 @@
           nav,
           section {
             h1 {
-              @apply text-xs font-bold my-10;
+              @apply text-base font-bold my-5;
+            }
+
+            article,
+            aside,
+            nav,
+            section {
+              h1 {
+                @apply text-sm font-bold my-6;
+              }
+
+              article,
+              aside,
+              nav,
+              section {
+                h1 {
+                  @apply text-xs font-bold my-10;
+                }
+              }
             }
           }
         }
       }
-    }
-  }
 
-  ul,
-  menu {
-    @apply list-disc my-1 pl-5;
-  }
+      ul,
+      menu {
+        @apply list-disc my-1 pl-5;
+      }
 
-  li > p {
-    @apply my-0;
-  }
+      li > p {
+        @apply my-0;
+      }
 
-  ol {
-    @apply list-decimal my-1 pl-5;
-  }
+      ol {
+        @apply list-decimal my-1 pl-5;
+      }
 
-  ul,
-  ol {
-    ul {
-      list-style-type: circle;
-    }
+      ul,
+      ol {
+        ul {
+          list-style-type: circle;
+        }
 
-    ul,
-    ol {
-      ul {
-        list-style-type: square;
+        ul,
+        ol {
+          ul {
+            list-style-type: square;
+          }
+        }
+      }
+
+      dd {
+        @apply pl-10;
+      }
+
+      dl {
+        @apply my-4;
+      }
+
+      ul,
+      ol,
+      menu,
+      dl {
+        ul,
+        ol,
+        menu,
+        dl {
+          margin: 0;
+        }
+      }
+
+      legend {
+        @apply py-0 px-1;
+      }
+
+      fieldset {
+        @apply my-0 mx-1 pt-0 px-1 pb-2;
+      }
+
+      b,
+      strong {
+        font-weight: bold;
+      }
+
+      pre {
+        @apply my-2;
+      }
+
+      br:after {
+        content: "\00a0";
       }
     }
   }
+  @media screen and (max-width: 480px) {
+    #post-title {
+      margin-top: 30vh;
+      font-size: 10vh;
+      line-height: 150px;
+    }
+    #updated-at {
+      margin-bottom: 7vh;
+      font-size: 7vh;
+    }
+    .post-contents {
+      p {
+        font-size: 6.5vh;
+        line-height: 11vh;
+      }
 
-  dd {
-    @apply pl-10;
-  }
+      a {
+        @apply text-blue-400 hover:underline;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
 
-  dl {
-    @apply my-4;
-  }
+      blockquote {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+        padding: 0 1em;
+        color: #acaaa8ee;
+        border-left: 0.11em solid #979593ee;
+        @apply my-2 mx-3
+      }
 
-  ul,
-  ol,
-  menu,
-  dl {
-    ul,
-    ol,
-    menu,
-    dl {
-      margin: 0;
+      code {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+      }
+
+      figure {
+        @apply my-4 mx-10;
+      }
+
+      hr {
+        @apply border;
+      }
+
+      h1 {
+        @apply font-bold mb-4 border-b-2 mt-9;
+      }
+
+      h2 {
+        @apply font-bold mb-4 border-b-2 mt-9;
+        font-size: 8vh;
+        line-height: 120px;
+        margin-top: 20vh;
+        margin-bottom: 6vh;
+      }
+
+      h3 {
+        @apply text-lg font-bold;
+        font-size: 7vh;
+        margin-top: 13vh;
+        line-height: 120px;
+      }
+
+      h4 {
+        @apply text-base font-bold mb-4;
+      }
+
+      h5 {
+        @apply text-sm font-bold mb-4;
+      }
+
+      h6 {
+        @apply text-xs font-bold mb-4;
+      }
+
+      article,
+      aside,
+      nav,
+      section {
+        h1 {
+          @apply text-2xl font-bold my-3;
+        }
+
+        article,
+        aside,
+        nav,
+        section {
+          h1 {
+            @apply text-lg font-bold my-4;
+          }
+
+          article,
+          aside,
+          nav,
+          section {
+            h1 {
+              @apply text-base font-bold my-5;
+            }
+
+            article,
+            aside,
+            nav,
+            section {
+              h1 {
+                @apply text-sm font-bold my-6;
+              }
+
+              article,
+              aside,
+              nav,
+              section {
+                h1 {
+                  @apply text-xs font-bold my-10;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ul {
+        font-size: 6.5vh;
+        margin-top: 6vh;
+        line-height: 10vh;
+        menu {
+          @apply list-disc pl-5;
+        }
+        li {
+          margin-left: 5vh;
+        }
+        ol {
+          ul {
+            list-style-type: circle;
+          }
+
+          ul,
+          ol {
+            ul {
+              list-style-type: square;
+            }
+          }
+        }
+      }
+
+      li > p {
+        @apply my-0;
+      }
+
+      ol {
+        @apply list-decimal pl-5;
+      }
+
+      dd {
+        @apply pl-10;
+      }
+
+      dl {
+        @apply my-4;
+      }
+
+      legend {
+        @apply py-0 px-1;
+      }
+
+      fieldset {
+        @apply my-0 mx-1 pt-0 px-1 pb-2;
+      }
+
+      b,
+      strong {
+        font-weight: bold;
+      }
+
+      pre {
+        @apply my-2;
+      }
+
+      br:after {
+        content: "\00a0";
+      }
     }
   }
+  @media screen and (max-width: 375px) {
+    #post-title {
+      margin-top: 30vh;
+      font-size: 14vh;
+      line-height: 120px;
+    }
+    #updated-at {
+      margin-bottom: 6vh;
+      font-size: 9vh;
+    }
+    .post-contents {
+      p {
+        font-size: 8vh;
+        line-height: 11vh;
+      }
 
-  legend {
-    @apply py-0 px-1;
-  }
+      a {
+        @apply text-blue-400 hover:underline;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
 
-  fieldset {
-    @apply my-0 mx-1 pt-0 px-1 pb-2;
-  }
+      blockquote {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+        padding: 0 1em;
+        color: #acaaa8ee;
+        border-left: 0.11em solid #979593ee;
+        @apply my-2 mx-3
+      }
 
-  b,
-  strong {
-    font-weight: bold;
-  }
+      code {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+      }
 
-  pre {
-    @apply my-2;
-  }
+      figure {
+        @apply my-4 mx-10;
+      }
 
-  br:after {
-    content: "\00a0";
+      hr {
+        @apply border;
+      }
+
+      h1 {
+        @apply font-bold mb-4 border-b-2 mt-9;
+      }
+
+      h2 {
+        @apply font-bold mb-4 border-b-2 mt-9;
+        font-size: 10vh;
+        line-height: 100px;
+        margin-top: 20vh;
+        margin-bottom: 6vh;
+      }
+
+      h3 {
+        @apply text-lg font-bold;
+        font-size: 9vh;
+        margin-top: 13vh;
+        line-height: 100px;
+      }
+
+      h4 {
+        @apply text-base font-bold mb-4;
+      }
+
+      h5 {
+        @apply text-sm font-bold mb-4;
+      }
+
+      h6 {
+        @apply text-xs font-bold mb-4;
+      }
+
+      article,
+      aside,
+      nav,
+      section {
+        h1 {
+          @apply text-2xl font-bold my-3;
+        }
+
+        article,
+        aside,
+        nav,
+        section {
+          h1 {
+            @apply text-lg font-bold my-4;
+          }
+
+          article,
+          aside,
+          nav,
+          section {
+            h1 {
+              @apply text-base font-bold my-5;
+            }
+
+            article,
+            aside,
+            nav,
+            section {
+              h1 {
+                @apply text-sm font-bold my-6;
+              }
+
+              article,
+              aside,
+              nav,
+              section {
+                h1 {
+                  @apply text-xs font-bold my-10;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ul {
+        font-size: 8vh;
+        margin-top: 7vh;
+        line-height: 11vh;
+        menu {
+          @apply list-disc pl-5;
+        }
+        li {
+          margin-left: 5vh;
+        }
+        ol {
+          ul {
+            list-style-type: circle;
+          }
+
+          ul,
+          ol {
+            ul {
+              list-style-type: square;
+            }
+          }
+        }
+      }
+
+      li > p {
+        @apply my-0;
+      }
+
+      ol {
+        @apply list-decimal pl-5;
+      }
+
+      dd {
+        @apply pl-10;
+      }
+
+      dl {
+        @apply my-4;
+      }
+
+      legend {
+        @apply py-0 px-1;
+      }
+
+      fieldset {
+        @apply my-0 mx-1 pt-0 px-1 pb-2;
+      }
+
+      b,
+      strong {
+        font-weight: bold;
+      }
+
+      pre {
+        @apply my-2;
+      }
+
+      br:after {
+        content: "\00a0";
+      }
+    }
   }
 }
+

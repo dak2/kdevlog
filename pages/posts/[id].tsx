@@ -26,15 +26,15 @@ const postDetail = (post: PostType) => {
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article>
-        <h1 className="text-3xl font-extrabold tracking-tighter my-4">
+      <article id="post-container">
+        <h1 id="post-title" className="text-3xl font-extrabold tracking-tighter my-4">
           {post.title}
         </h1>
-        <div className="text-gray-200">
+        <div id="updated-at" className="text-gray-200">
           <FormatedDate dateString={post.updatedAt} />
         </div>
         <div
-          className="unreset"
+          className="post-contents"
           dangerouslySetInnerHTML={{ __html: marked(post.body) }}
         />
       </article>

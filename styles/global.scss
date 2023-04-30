@@ -13,9 +13,9 @@ html {
         max-width: 70rem;
         #header {
           margin-top: 150px;
-          margin-bottom: 100px;
+          margin-bottom: 250px;
           h1 {
-            font-size: 21vh;
+            font-size: 15vh;
             margin-right: initial;
             padding-top: 40px;
           }
@@ -27,25 +27,28 @@ html {
             }
           }
         }
+        #tag-icon {
+          font-size: 8vh;
+        }
         #post-container {
           #post-sub-container {
             margin-top: 150px;
             h2 {
-              font-size: 9.5vh;
-              line-height: 130px;
+              font-size: 8vh;
+              line-height: 110px;
             }
             #updated-at {
-              font-size: 8vh;
+              font-size: 6vh;
             }
             #tag {
               margin-top: 4vh;
-              font-size: 8vh;
+              font-size: 7vh;
             }
           }
         }
         #pagination {
           margin-top: 150px;
-          font-size: 8vh;
+          font-size: 6vh;
           #prev-page-icon {
             padding-top: 1.5vh;
           }
@@ -63,11 +66,11 @@ html {
           }
           margin-bottom: 20vh;
         }
+        #back-page-link {
+          margin-bottom: 15vh;
+          font-size: 6vh;
+        }
       }
-    }
-    .github-icon {
-      width: 50px;
-      height: 50px;
     }
     #layout {
       margin-top: 90px;
@@ -85,7 +88,7 @@ html {
         max-width: 70rem;
         #header {
           margin-top: 150px;
-          margin-bottom: 100px;
+          margin-bottom: 250px;
           h1 {
             font-size: 21vh;
             margin-right: initial;
@@ -107,17 +110,17 @@ html {
               line-height: 100px;
             }
             #updated-at {
-              font-size: 8vh;
+              font-size: 9vh;
             }
             #tag {
               margin-top: 4vh;
-              font-size: 8vh;
+              font-size: 10vh;
             }
           }
         }
         #pagination {
           margin-top: 150px;
-          font-size: 8vh;
+          font-size: 9vh;
           #prev-page-icon {
             padding-top: 1.5vh;
           }
@@ -131,15 +134,15 @@ html {
         }
         #footer {
           #copyright {
-            font-size: 6vh;
+            font-size: 8vh;
           }
           margin-bottom: 20vh;
         }
+        #back-page-link {
+          margin-bottom: 15vh;
+          font-size: 8vh;
+        }
       }
-    }
-    .github-icon {
-      width: 50px;
-      height: 50px;
     }
     #layout {
       margin-top: 90px;
