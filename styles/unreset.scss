@@ -195,6 +195,14 @@
         line-height: 15vh;
       }
 
+      pre {
+        font-size: 9vh;
+      }
+
+      img {
+        width: 150vh;
+      }
+
       a {
         @apply text-blue-400 hover:underline;
         overflow-wrap: break-word;
@@ -387,6 +395,14 @@
       p {
         font-size: 10vh;
         line-height: 17vh;
+      }
+
+      pre {
+        font-size: 9vh;
+      }
+
+      img {
+        width: 150vh;
       }
 
       a {
