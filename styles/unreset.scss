@@ -54,7 +54,7 @@
       }
 
       h4 {
-        @apply text-base font-bold mb-4;
+        @apply text-base font-bold mb-2 mt-4;
       }
 
       h5 {
@@ -221,7 +221,7 @@
         padding: 0 1em;
         color: #acaaa8ee;
         border-left: 0.11em solid #979593ee;
-        @apply my-2 mx-3
+        font-size: 7.8vh;
       }
 
       code {
@@ -427,7 +427,7 @@
         padding: 0 1em;
         color: #acaaa8ee;
         border-left: 0.11em solid #979593ee;
-        @apply my-2 mx-3
+        font-size: 7.8vh;
       }
 
       code {
