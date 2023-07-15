@@ -3,9 +3,9 @@ import { httpRequest } from '../../lib/api';
 import { CMS_API_KEY } from '../../lib/const';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
-import marked from 'marked';
+import { marked } from 'marked';
 import hljs, { registLanguage } from '../../lib/myHighlight';
-import 'highlight.js/styles/ocean.css';
+import 'highlight.js/styles/base16/decaf.css';
 import { useEffect } from 'react';
 import { PostType, TagType, LanguageTypes } from '../../lib/type';
 
@@ -13,13 +13,17 @@ type PropsType = {
   post: PostType;
 };
 
+marked.setOptions({
+  mangle: false,
+  headerIds: false,
+})
+
 const PostDetail = (post: PostType) => {
   if (post.tags.length > 0) {
     registLanguage(postLang(post.tags));
   }
   useEffect(() => {
     hljs.highlightAll();
-    hljs.highlightAll.called = false;
   });
   return (
     <Layout home={null}>
