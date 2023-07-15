@@ -16,7 +16,7 @@ type PropsType = {
 marked.setOptions({
   mangle: false,
   headerIds: false,
-})
+});
 
 const PostDetail = (post: PostType) => {
   if (post.tags.length > 0) {
