@@ -9,8 +9,6 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "@types/highlight.js": "^10.1.0",
-    "@types/marked": "^2.0.2",
     "autoprefixer": "^10.2.5",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
@@ -29,6 +27,8 @@
   "devDependencies": {
     "@types/node": "^18.0.0",
     "@types/react": "^18.2.15",
+    "@types/marked": "^2.0.2",
+    "@types/highlight.js": "^10.1.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.45.0",
