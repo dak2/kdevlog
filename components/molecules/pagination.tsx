@@ -13,14 +13,18 @@ const Pagination = ({ totalCount }) => {
   const prevPage = () => {
     if (pagenationList.length <= 1) {
       return (
-          <div id="prev-page-icon" style={{ marginTop: 5 }}>
-            <GenericIcon iconName='left'/>
-          </div>
-        )
+        <div id="prev-page-icon" style={{ marginTop: 5 }}>
+          <GenericIcon iconName="left" />
+        </div>
+      );
     } else {
       return (
-        <a id="prev-page-icon" href={`/posts/page/${prevPageId}`} style={{ marginTop: 5 }}>
-          <GenericIcon iconName='left'/>
+        <a
+          id="prev-page-icon"
+          href={`/posts/page/${prevPageId}`}
+          style={{ marginTop: 5 }}
+        >
+          <GenericIcon iconName="left" />
         </a>
       );
     }
@@ -30,13 +34,17 @@ const Pagination = ({ totalCount }) => {
     if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
       return (
         <div id="next-page-icon" style={{ marginTop: 5 }}>
-          <GenericIcon iconName='right'/>
+          <GenericIcon iconName="right" />
         </div>
-      )
+      );
     } else {
       return (
-        <a id="next-page-icon" href={`/posts/page/${nextPageId}`} style={{ marginTop: 5 }}>
-          <GenericIcon iconName='right'/>
+        <a
+          id="next-page-icon"
+          href={`/posts/page/${nextPageId}`}
+          style={{ marginTop: 5 }}
+        >
+          <GenericIcon iconName="right" />
         </a>
       );
     }
@@ -50,10 +58,10 @@ const Pagination = ({ totalCount }) => {
           <li
             id="page-number"
             key={index}
-            className="mx-1.5 w-6 inline-block text-center hover:underline"
+            className="inline-block w-6 text-center mx-1.5 hover:underline"
           >
             <Link href={`/posts/page/${number}`}>
-              <a>{number}</a>
+              <p>{number}</p>
             </Link>
           </li>
         ))}

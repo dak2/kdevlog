@@ -28,7 +28,7 @@ export default function Layout({ children, home }) {
       {!home && currentPageId != 1 && (
         <div id="back-page-link" className="my-12">
           <Link href="/">
-            <a className="text-gray-200 hover:underline">← Back to home</a>
+            <p className="text-gray-200 hover:underline">← Back to home</p>
           </Link>
         </div>
       )}

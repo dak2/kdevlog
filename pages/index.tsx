@@ -25,7 +25,7 @@ const postLists = (props: PropsType) => {
               <div id="post-sub-container" className="mb-12">
                 <Link href={`/posts/${id}`}>
                   <h2 className="mb-2 text-2xl font-extrabold">
-                    <a className="cursor-pointer hover:underline">{title}</a>
+                    <p className="cursor-pointer hover:underline">{title}</p>
                   </h2>
                 </Link>
                 <small id="updated-at" className="text-gray-200">
@@ -45,7 +45,10 @@ const postLists = (props: PropsType) => {
                             },
                           }}
                         >
-                          <p id="tag" className="mr-2 text-sm font-bold cursor-pointer hover:underline">
+                          <p
+                            id="tag"
+                            className="mr-2 text-sm font-bold cursor-pointer hover:underline"
+                          >
                             #{tag.name}
                           </p>
                         </Link>

@@ -24,4 +24,4 @@ export const LanguageTypes = [
   { lang: 'rust' },
   { lang: 'deno' },
   { lang: 'go' },
-]
+];

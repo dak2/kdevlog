@@ -29,12 +29,12 @@ const postLists = (props: PropsType) => {
             <li key={postIndex}>
               <div id="post-sub-container" className="mb-12">
                 <Link href={`/posts/${id}`}>
-                  <h2 className="text-2xl font-extrabold mb-2">
-                    <a className="cursor-pointer hover:underline">{title}</a>
+                  <h2 className="mb-2 text-2xl font-extrabold">
+                    <p className="cursor-pointer hover:underline">{title}</p>
                   </h2>
                 </Link>
                 <small id="updated-at" className="text-gray-200">
-                    <FormatedDate dateString={updatedAt} />
+                  <FormatedDate dateString={updatedAt} />
                 </small>
                 <div>
                   <ul>
@@ -50,7 +50,10 @@ const postLists = (props: PropsType) => {
                             },
                           }}
                         >
-                          <p id="tag" className="mr-2 text-sm font-bold cursor-pointer hover:underline">
+                          <p
+                            id="tag"
+                            className="mr-2 text-sm font-bold cursor-pointer hover:underline"
+                          >
                             #{tag.name}
                           </p>
                         </Link>
@@ -69,7 +72,7 @@ const postLists = (props: PropsType) => {
 };
 
 const icon = (tag: string) => {
-  if(tag) return <GenericIcon iconName={tag} styleName={'mt-2'} />
+  if (tag) return <GenericIcon iconName={tag} styleName={'mt-2'} />;
   return null;
 };
 
@@ -79,8 +82,8 @@ const noPosts = () => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div className="grid justify-items-center pt-64">
-        <h1 className="text-5xl mb-10 font-bold">記事はありません</h1>
+      <div className="pt-64 grid justify-items-center">
+        <h1 className="mb-10 text-5xl font-bold">記事はありません</h1>
       </div>
     </Layout>
   );
@@ -102,7 +105,7 @@ export const getStaticPaths = async () => {
     tag.toLowerCase().replace(/\s+/g, ''),
   );
   const newPaths = [];
-  for (let tag of toLowerCaseTags) {
+  for (const tag of toLowerCaseTags) {
     newPaths.push({ params: { params: [tag] } });
   }
 
