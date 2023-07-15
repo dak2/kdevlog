@@ -1,6 +1,6 @@
 import Layout from '../../components/molecules/layout';
 import { httpRequest } from '../../lib/api';
-import { CMS_API_KEY, CMS_URL } from '../../lib/const';
+import { CMS_API_KEY } from '../../lib/const';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
 import marked from 'marked';
@@ -13,7 +13,7 @@ type PropsType = {
   post: PostType;
 };
 
-const postDetail = (post: PostType) => {
+const PostDetail = (post: PostType) => {
   if (post.tags.length > 0) {
     registLanguage(postLang(post.tags));
   }
@@ -27,7 +27,10 @@ const postDetail = (post: PostType) => {
         <title>{post.title}</title>
       </Head>
       <article id="post-container">
-        <h1 id="post-title" className="text-3xl font-extrabold tracking-tighter my-4">
+        <h1
+          id="post-title"
+          className="my-4 text-3xl font-extrabold tracking-tighter"
+        >
           {post.title}
         </h1>
         <div id="updated-at" className="text-gray-200">
@@ -44,17 +47,17 @@ const postDetail = (post: PostType) => {
 
 const postLang = (tags: TagType[]): string => {
   let postLang = '';
-  const tagNames = tags.map(tag => tag.name);
-  for(const langType of LanguageTypes) {
-    postLang = tagNames.find(tag => tag === langType.lang)
-    if(postLang) break;
+  const tagNames = tags.map((tag) => tag.name);
+  for (const langType of LanguageTypes) {
+    postLang = tagNames.find((tag) => tag === langType.lang);
+    if (postLang) break;
   }
   return postLang;
 };
 
 const noPost = () => {
   <Layout home={null}>
-    <h1 className="text-3xl font-extrabold tracking-tighter my-4">
+    <h1 className="my-4 text-3xl font-extrabold tracking-tighter">
       記事がありません。
     </h1>
   </Layout>;
@@ -69,7 +72,7 @@ marked.setOptions({
 export default function Post(props: PropsType) {
   const post = props.post;
   if (post) {
-    return postDetail(post);
+    return PostDetail(post);
   } else {
     return noPost;
   }
@@ -84,20 +87,20 @@ export const getStaticPaths = async () => {
   );
   const contents = await res.contents;
   const paths = contents.map((content) => `${content.id}`);
-  for (let path of paths) {
+  for (const path of paths) {
     newPaths.push({ params: { id: path } });
   }
   const count = Math.floor(res.totalCount / 10);
   if (count != 0) {
     let offset = 10;
     for (let i = 0; i < count; i++) {
-      let res = await httpRequest(
+      const res = await httpRequest(
         `https://kdevlog.microcms.io/api/v1/posts?offset=${offset}&limit=10`,
         CMS_API_KEY,
       );
-      let contents = await res.contents;
-      let paths = contents.map((content) => `${content.id}`);
-      for (let path of paths) {
+      const contents = await res.contents;
+      const paths = contents.map((content) => `${content.id}`);
+      for (const path of paths) {
         newPaths.push({ params: { id: path } });
       }
       offset += 10;
