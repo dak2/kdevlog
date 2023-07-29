@@ -1,20 +1,17 @@
 import Layout from '../../components/molecules/layout';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
-import { marked } from 'marked';
-import 'highlight.js/styles/base16/decaf.css';
+import ReactMarkdown from 'react-markdown';
 import { Post, MdPost } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
 import { PostNotFound } from '../../components/molecules/postNotFound';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import remarkGfm from 'remark-gfm';
 
 type Props = {
   post: MdPost;
 };
-
-marked.setOptions({
-  mangle: false,
-  headerIds: false,
-});
 
 const PostDetail = (post: MdPost) => {
   return (
@@ -32,20 +29,38 @@ const PostDetail = (post: MdPost) => {
         <div id="date" className="text-gray-200">
           <FormatedDate dateString={post.published_at} />
         </div>
-        <div
-          className="post-contents"
-          dangerouslySetInnerHTML={{ __html: marked(post.content) }}
-        />
+        <div className="post-contents">
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              code({ inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '');
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    {...props}
+                    style={tomorrow}
+                    language={match[1]}
+                    PreTag="div"
+                    showLineNumbers={true}
+                    wrapLongLines={true}
+                  >
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code {...props} className={className}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
+        </div>
       </article>
     </Layout>
   );
 };
-
-marked.setOptions({
-  gfm: true,
-  breaks: true,
-  silent: false,
-});
 
 export default function Post(props: Props) {
   const post = props.post;
