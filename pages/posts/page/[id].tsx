@@ -6,14 +6,14 @@ import { FormatedDate } from '../../../components/atoms/date';
 import { httpRequest } from '../../../lib/api';
 import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import { range, PER_PAGE } from '../../../lib/const';
-import { PostType } from '../../../lib/type';
+import { Post } from '../../../lib/type';
 
-type PropsType = {
-  posts: PostType[];
+type Props = {
+  posts: Post[];
   totalCount: number;
 };
 
-const postLists = (props: PropsType) => {
+const Posts = (props: Props) => {
   return (
     <Layout home={null}>
       <Head>
@@ -67,7 +67,7 @@ const postLists = (props: PropsType) => {
   );
 };
 
-const noPosts = () => {
+const PostsNotFound = () => {
   return (
     <Layout home={true}>
       <Head>
@@ -80,11 +80,11 @@ const noPosts = () => {
   );
 };
 
-export default function PostsPageId(props: PropsType) {
+export default function PostsPageId(props: Props) {
   if (props.posts.length > 0) {
-    return postLists(props);
+    return Posts(props);
   } else {
-    return noPosts;
+    return PostsNotFound;
   }
 }
 

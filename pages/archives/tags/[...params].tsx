@@ -6,15 +6,15 @@ import Head from 'next/head';
 import { FormatedDate } from '../../../components/atoms/date';
 import GenericIcon from '../../../components/atoms/genericIcon';
 import Pagination from '../../../components/molecules/pagination';
-import { PostType } from '../../../lib/type';
+import { Post } from '../../../lib/type';
 
-type PropsType = {
-  posts: PostType[];
+type Props = {
+  posts: Post[];
   tagName: string;
   totalCount: number;
 };
 
-const postLists = (props: PropsType) => {
+const Posts = (props: Props) => {
   return (
     <Layout home={null}>
       <Head>
@@ -76,7 +76,7 @@ const icon = (tag: string) => {
   return null;
 };
 
-const noPosts = () => {
+const PostsNotFound = () => {
   return (
     <Layout home={true}>
       <Head>
@@ -89,11 +89,11 @@ const noPosts = () => {
   );
 };
 
-export default function Tags(props: PropsType) {
+export default function Tags(props: Props) {
   if (props.posts.length > 0) {
-    return postLists(props);
+    return Posts(props);
   } else {
-    return noPosts;
+    return PostsNotFound;
   }
 }
 

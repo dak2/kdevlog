@@ -7,10 +7,10 @@ import { marked } from 'marked';
 import hljs, { registLanguage } from '../../lib/myHighlight';
 import 'highlight.js/styles/base16/decaf.css';
 import { useEffect } from 'react';
-import { PostType, TagType, LanguageTypes } from '../../lib/type';
+import { Post, Tag, LanguageTypes } from '../../lib/type';
 
-type PropsType = {
-  post: PostType;
+type Props = {
+  post: Post;
 };
 
 marked.setOptions({
@@ -18,7 +18,7 @@ marked.setOptions({
   headerIds: false,
 });
 
-const PostDetail = (post: PostType) => {
+const PostDetail = (post: Post) => {
   if (post.tags.length > 0) {
     registLanguage(postLang(post.tags));
   }
@@ -49,7 +49,7 @@ const PostDetail = (post: PostType) => {
   );
 };
 
-const postLang = (tags: TagType[]): string => {
+const postLang = (tags: Tag[]): string => {
   let postLang = '';
   const tagNames = tags.map((tag) => tag.name);
   for (const langType of LanguageTypes) {
@@ -73,7 +73,7 @@ marked.setOptions({
   silent: false,
 });
 
-export default function Post(props: PropsType) {
+export default function Post(props: Props) {
   const post = props.post;
   if (post) {
     return PostDetail(post);

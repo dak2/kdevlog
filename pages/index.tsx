@@ -5,14 +5,14 @@ import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
 import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
-import { PostType } from '../lib/type';
+import { Post } from '../lib/type';
 
-type PropsType = {
-  posts: PostType[];
+type Props = {
+  posts: Post[];
   totalCount: number;
 };
 
-const postLists = (props: PropsType) => {
+const Posts = (props: Props) => {
   return (
     <Layout home={true}>
       <Head>
@@ -66,7 +66,7 @@ const postLists = (props: PropsType) => {
   );
 };
 
-const noPosts = () => {
+const PostsNotFound = () => {
   return (
     <Layout home={true}>
       <Head>
@@ -79,11 +79,11 @@ const noPosts = () => {
   );
 };
 
-export default function Home(props: PropsType) {
+export default function Home(props: Props) {
   if (props.posts.length > 0) {
-    return postLists(props);
+    return Posts(props);
   } else {
-    return noPosts;
+    return PostsNotFound;
   }
 }
 

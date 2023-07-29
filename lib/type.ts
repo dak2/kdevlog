@@ -1,14 +1,14 @@
-export type PostType = {
+export type Post = {
   id: string;
   createdAt: string;
   updatedAt: string;
   revisedAt: string;
   title: string;
   body: string;
-  tags: TagType[];
+  tags: Tag[];
 };
 
-export type TagType = {
+export type Tag = {
   id: string;
   createdAt: string;
   updatedAt: string;
