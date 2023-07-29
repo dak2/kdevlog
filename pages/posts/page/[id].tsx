@@ -3,13 +3,12 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../../../components/molecules/layout';
 import Pagination from '../../../components/molecules/pagination';
 import { FormatedDate } from '../../../components/atoms/date';
-import { httpRequest } from '../../../lib/api';
-import { CMS_API_KEY, CMS_URL } from '../../../lib/const';
 import { range, PER_PAGE } from '../../../lib/const';
-import { Post } from '../../../lib/type';
+import { MdPost } from '../../../lib/type';
+import { getPostIds, getPostsData } from '../../../utils/functions';
 
 type Props = {
-  posts: Post[];
+  posts: MdPost[];
   totalCount: number;
 };
 
@@ -20,50 +19,58 @@ const Posts = (props: Props) => {
         <title>{siteTitle}</title>
       </Head>
       <div id="post-container">
-        <ul>
-          {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
-            <li key={postIndex}>
-              <div id="post-sub-container" className="mb-12">
-                <Link href={`/posts/${id}`}>
-                  <h2 className="mb-2 text-2xl font-extrabold">
-                    <p className="cursor-pointer hover:underline">{title}</p>
-                  </h2>
-                </Link>
-                <small id="updated-at" className="text-gray-200">
-                  <FormatedDate dateString={updatedAt} />
-                </small>
-                <div>
-                  <ul>
-                    {tags.map((tag, tagIndex) => (
-                      <li key={tagIndex} className="inline-block">
-                        <Link
-                          href={{
-                            pathname: '/archives/tags/[params]',
-                            query: {
-                              params: `${tag.name
-                                .toLowerCase()
-                                .replace(/\s+/g, '')}`,
-                            },
-                          }}
-                        >
-                          <p
-                            id="tag"
-                            className="mr-2 text-sm font-bold cursor-pointer rounded-md hover:underline"
-                          >
-                            #{tag.name}
-                          </p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {PostContent(props.posts)}
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
+  );
+};
+
+const PostContent = (posts: MdPost[]) => {
+  return (
+    <ul>
+      {posts.map(({ id, title, published_at, categories }, postIndex) => (
+        <li key={postIndex}>
+          <div id="post-sub-container" className="mb-12">
+            <Link href={`/posts/${id}`}>
+              <h2 className="mb-2 text-2xl font-extrabold">
+                <p className="cursor-pointer hover:underline">{title}</p>
+              </h2>
+            </Link>
+            <small id="date" className="text-gray-200">
+              <span>
+                <FormatedDate dateString={published_at} type={'published_at'} />
+              </span>
+            </small>
+            <div>
+              <ul>
+                {categories.split(',').map((category, index) => (
+                  <li key={index} className="inline-block">
+                    <Link
+                      href={{
+                        pathname: '/archives/categories/[params]',
+                        query: {
+                          params: `${category
+                            .toLowerCase()
+                            .replace(/\s+/g, '')}`,
+                        },
+                      }}
+                    >
+                      <p
+                        id="tag"
+                        className="mr-2 text-sm font-bold cursor-pointer hover:underline"
+                      >
+                        #{category}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 
@@ -89,8 +96,8 @@ export default function PostsPageId(props: Props) {
 }
 
 export const getStaticPaths = async () => {
-  const res = await httpRequest(CMS_URL, CMS_API_KEY);
-  const paths = range(1, Math.ceil(res.totalCount / PER_PAGE)).map(
+  const postIds = getPostIds();
+  const paths = range(1, Math.ceil(postIds.length / PER_PAGE)).map(
     (repo) => `/posts/page/${repo}`,
   );
 
@@ -98,21 +105,16 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await httpRequest(
-    `https://kdevlog.microcms.io/api/v1/posts?offset=${(id - 1) * 5}&limit=10`,
-    CMS_API_KEY,
-  );
-  const posts = await res;
-  const postsByNewestSorted = posts.contents.sort(
-    (a: { updatedAt: string }, b: { updatedAt: string }) =>
-      new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-  );
+  const pageNumber = context.params.id;
+  const offset = (pageNumber - 1) * 5;
+  const limit = PER_PAGE;
+  const posts = getPostsData();
+  const postsPerPage = posts.slice(offset, offset + limit);
 
   return {
     props: {
-      posts: postsByNewestSorted,
-      totalCount: posts.totalCount,
+      posts: postsPerPage,
+      totalCount: posts.length,
     },
   };
 };
