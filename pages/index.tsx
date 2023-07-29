@@ -4,9 +4,7 @@ import Link from 'next/link';
 import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
 import { MdPost } from '../lib/type';
-import { join } from 'path';
-import { readFileSync, readdirSync } from 'fs';
-import matter from 'gray-matter';
+import { getPostsData } from '../utils/functions';
 
 type Props = {
   posts: MdPost[];
@@ -97,7 +95,7 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps = async () => {
-  const posts = getPostData();
+  const posts = getPostsData();
 
   return {
     props: {
@@ -106,27 +104,4 @@ export const getStaticProps = async () => {
       totalCount: posts.length,
     },
   };
-};
-
-const getPostData = () => {
-  const postDirectory = join(process.cwd(), 'pages', 'contents');
-  const fileNames = readdirSync(postDirectory);
-  const posts: MdPost[] = fileNames.map((fileName) => {
-    const fullPath = join(postDirectory, fileName);
-    const fileContents = readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-
-    return {
-      id: fileName.replace(/\.md$/, ''),
-      title: data.title,
-      updated_at: data.updated_at,
-      published_at: data.published_at,
-      categories: data.categories,
-      content,
-    };
-  });
-
-  return posts.sort((a, b) => {
-    return a.published_at < b.published_at ? 1 : -1;
-  });
 };

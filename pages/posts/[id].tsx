@@ -6,9 +6,7 @@ import hljs from '../../lib/myHighlight';
 import 'highlight.js/styles/base16/decaf.css';
 import { useEffect } from 'react';
 import { Post, MdPost } from '../../lib/type';
-import { join } from 'path';
-import { readFileSync, readdirSync } from 'fs';
-import matter from 'gray-matter';
+import { getPostData, getPostIds } from '../../utils/functions';
 
 type Props = {
   post: MdPost;
@@ -80,34 +78,5 @@ export const getStaticProps = async (context) => {
       post: getPostData(context.params.id),
       revalidate: 60,
     },
-  };
-};
-
-const getPostIds = () => {
-  const postDirectory = join(process.cwd(), 'pages', 'contents');
-  const fileNames = readdirSync(postDirectory);
-
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
-};
-
-const getPostData = (fileName: string) => {
-  const postDirectory = join(process.cwd(), 'pages', 'contents');
-  const fullPath = join(postDirectory, `${fileName}.md`);
-  const fileContents = readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
-
-  return {
-    id: fileName,
-    title: data.title,
-    updated_at: data.updated_at,
-    published_at: data.published_at,
-    categories: data.categories,
-    content,
   };
 };
