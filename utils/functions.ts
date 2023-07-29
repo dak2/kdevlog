@@ -26,11 +26,12 @@ export const getPostsData = () => {
   });
 };
 
-// export const getPostsDataByCategory = (category: string) => {
-//   const posts = getPostsData();
-//   const filteredPosts = posts.filter((post) => {
-
-// }
+export const getPostsDataByCategory = (category: string) => {
+  const posts = getPostsData();
+  return posts.filter((post) => {
+    return post.categories.includes(category);
+  });
+};
 
 export const getPostData = (fileName: string) => {
   const postDirectory = join(process.cwd(), 'pages', 'contents');

@@ -12,13 +12,46 @@ export const range = (start, end) =>
   [...Array(end - start + 1)].map((_, i) => start + i);
 
 // regist language for apply hilightjs
-export const RegistLanguages = [
-  'ruby',
-  'javascript',
-  'typescript',
-  'go',
-  'rust',
-  'c',
-  'cpp',
-  'shell',
-];
+export const RegistLanguages = {
+  ruby: 'Ruby',
+  javascript: 'JavaScript',
+  typescript: 'TypeScript',
+  go: 'Go',
+  rust: 'Rust',
+  c: 'C',
+  cpp: 'CPP',
+  python: 'Python',
+  java: 'Java',
+  elixir: 'Elixir',
+  shell: 'Shell',
+};
+
+const flameWorks = {
+  rubyonrails: 'Ruby on Rails',
+  react: 'React',
+  nextjs: 'Next.js',
+  echo: 'Echo',
+};
+
+const infra = {
+  aws: 'AWS',
+  docker: 'Docker',
+  kubernetes: 'Kubernetes',
+  nginx: 'Nginx',
+  linux: 'Linux',
+};
+
+const others = {
+  github: 'GitHub',
+  vim: 'Vim',
+  vscode: 'VSCode',
+  nodejs: 'Node.js',
+  mysql: 'MySQL',
+};
+
+export const categories = {
+  ...RegistLanguages,
+  ...flameWorks,
+  ...infra,
+  ...others,
+};

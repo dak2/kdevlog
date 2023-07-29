@@ -34,7 +34,7 @@ const GenericIcon = (props: Props) => {
     nodejs: <FaNodeJs />,
     react: <FaReact />,
     ruby: <SiRuby />,
-    'ruby-on-rails': <SiRubyonrails />,
+    rubyonrails: <SiRubyonrails />,
     rust: <FaRust />,
     deno: <SiDeno />,
     right: <FaChevronRight />,
