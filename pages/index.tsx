@@ -5,6 +5,7 @@ import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
 import { MdPost } from '../lib/type';
 import { getPostsData } from '../utils/functions';
+import { PostNotFound } from '../components/molecules/postNotFound';
 
 type Props = {
   posts: MdPost[];
@@ -73,24 +74,11 @@ const PostContent = (posts: MdPost[]) => {
   );
 };
 
-const PostsNotFound = () => {
-  return (
-    <Layout home={true}>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <div className="pt-64 grid justify-items-center">
-        <h1 className="mb-10 text-5xl font-bold">記事はありません</h1>
-      </div>
-    </Layout>
-  );
-};
-
 export default function Home(props: Props) {
   if (props.posts.length > 0) {
     return Posts(props);
   } else {
-    return PostsNotFound;
+    return PostNotFound;
   }
 }
 

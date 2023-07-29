@@ -7,6 +7,7 @@ import 'highlight.js/styles/base16/decaf.css';
 import { useEffect } from 'react';
 import { Post, MdPost } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
+import { PostNotFound } from '../../components/molecules/postNotFound';
 
 type Props = {
   post: MdPost;
@@ -43,14 +44,6 @@ const PostDetail = (post: MdPost) => {
       </article>
     </Layout>
   );
-};
-
-const PostNotFound = () => {
-  <Layout home={null}>
-    <h1 className="my-4 text-3xl font-extrabold tracking-tighter">
-      記事がありません。
-    </h1>
-  </Layout>;
 };
 
 marked.setOptions({

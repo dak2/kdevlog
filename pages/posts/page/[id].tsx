@@ -6,6 +6,7 @@ import { FormatedDate } from '../../../components/atoms/date';
 import { range, PER_PAGE } from '../../../lib/const';
 import { MdPost } from '../../../lib/type';
 import { getPostIds, getPostsData } from '../../../utils/functions';
+import { PostNotFound } from '../../../components/molecules/postNotFound';
 
 type Props = {
   posts: MdPost[];
@@ -74,24 +75,11 @@ const PostContent = (posts: MdPost[]) => {
   );
 };
 
-const PostsNotFound = () => {
-  return (
-    <Layout home={true}>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <div className="pt-64 grid justify-items-center">
-        <h1 className="mb-10 text-5xl font-bold">記事はありません</h1>
-      </div>
-    </Layout>
-  );
-};
-
 export default function PostsPageId(props: Props) {
   if (props.posts.length > 0) {
     return Posts(props);
   } else {
-    return PostsNotFound;
+    return PostNotFound;
   }
 }
 
