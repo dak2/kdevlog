@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/molecules/layout';
-import { httpRequest } from '../lib/api';
-import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
 import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
-import { Post } from '../lib/type';
+import { MdPost, Post } from '../lib/type';
+import { join } from 'path';
+import { readFileSync, readdirSync } from 'fs';
+import matter from 'gray-matter';
 
 type Props = {
-  posts: Post[];
+  posts: MdPost[];
   totalCount: number;
 };
 
@@ -88,18 +89,35 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps = async () => {
-  const res = await httpRequest(CMS_URL, CMS_API_KEY);
-  const contents = await res.contents;
-  const postsByNewestSorted = contents.sort(
-    (a: { updatedAt: string }, b: { updatedAt: string }) =>
-      new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-  );
+  const posts = getPostData();
 
   return {
     props: {
-      posts: postsByNewestSorted,
+      posts,
       revalidate: 60,
-      totalCount: res.totalCount,
+      totalCount: posts.length,
     },
   };
+};
+
+const getPostData = () => {
+  const postDirectory = join(process.cwd(), 'pages', 'contents');
+  const fileNames = readdirSync(postDirectory);
+  const posts: MdPost[] = fileNames.map((fileName) => {
+    const fullPath = join(postDirectory, fileName);
+    const fileContents = readFileSync(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
+
+    return {
+      id: fileName.replace(/\.md$/, ''),
+      title: data.title,
+      date: data.date,
+      categories: data.categories,
+      content,
+    };
+  });
+
+  return posts.sort((a, b) => {
+    return a.date < b.date ? 1 : -1;
+  });
 };
