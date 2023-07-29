@@ -1,16 +1,17 @@
 import Layout from '../../components/molecules/layout';
-import { httpRequest } from '../../lib/api';
-import { CMS_API_KEY } from '../../lib/const';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
 import { marked } from 'marked';
-import hljs, { registLanguage } from '../../lib/myHighlight';
+import hljs from '../../lib/myHighlight';
 import 'highlight.js/styles/base16/decaf.css';
 import { useEffect } from 'react';
-import { Post, Tag, LanguageTypes } from '../../lib/type';
+import { Post, MdPost } from '../../lib/type';
+import { join } from 'path';
+import { readFileSync, readdirSync } from 'fs';
+import matter from 'gray-matter';
 
 type Props = {
-  post: Post;
+  post: MdPost;
 };
 
 marked.setOptions({
@@ -18,10 +19,7 @@ marked.setOptions({
   headerIds: false,
 });
 
-const PostDetail = (post: Post) => {
-  if (post.tags.length > 0) {
-    registLanguage(postLang(post.tags));
-  }
+const PostDetail = (post: MdPost) => {
   useEffect(() => {
     hljs.highlightAll();
   });
@@ -37,29 +35,19 @@ const PostDetail = (post: Post) => {
         >
           {post.title}
         </h1>
-        <div id="updated-at" className="text-gray-200">
-          <FormatedDate dateString={post.updatedAt} />
+        <div id="date" className="text-gray-200">
+          <FormatedDate dateString={post.published_at} />
         </div>
         <div
           className="post-contents"
-          dangerouslySetInnerHTML={{ __html: marked(post.body) }}
+          dangerouslySetInnerHTML={{ __html: marked(post.content) }}
         />
       </article>
     </Layout>
   );
 };
 
-const postLang = (tags: Tag[]): string => {
-  let postLang = '';
-  const tagNames = tags.map((tag) => tag.name);
-  for (const langType of LanguageTypes) {
-    postLang = tagNames.find((tag) => tag === langType.lang);
-    if (postLang) break;
-  }
-  return postLang;
-};
-
-const noPost = () => {
+const PostNotFound = () => {
   <Layout home={null}>
     <h1 className="my-4 text-3xl font-extrabold tracking-tighter">
       記事がありません。
@@ -78,54 +66,48 @@ export default function Post(props: Props) {
   if (post) {
     return PostDetail(post);
   } else {
-    return noPost;
+    return PostNotFound;
   }
 }
 
 export const getStaticPaths = async () => {
-  // TODO : リファクタリング
-  const newPaths = [];
-  const res = await httpRequest(
-    `https://kdevlog.microcms.io/api/v1/posts?offset=0&limit=10`,
-    CMS_API_KEY,
-  );
-  const contents = await res.contents;
-  const paths = contents.map((content) => `${content.id}`);
-  for (const path of paths) {
-    newPaths.push({ params: { id: path } });
-  }
-  const count = Math.floor(res.totalCount / 10);
-  if (count != 0) {
-    let offset = 10;
-    for (let i = 0; i < count; i++) {
-      const res = await httpRequest(
-        `https://kdevlog.microcms.io/api/v1/posts?offset=${offset}&limit=10`,
-        CMS_API_KEY,
-      );
-      const contents = await res.contents;
-      const paths = contents.map((content) => `${content.id}`);
-      for (const path of paths) {
-        newPaths.push({ params: { id: path } });
-      }
-      offset += 10;
-    }
-  }
-
-  return { paths: newPaths, fallback: false };
+  return { paths: getPostIds(), fallback: false };
 };
 
 export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await httpRequest(
-    `https://kdevlog.microcms.io/api/v1/posts/${id}`,
-    CMS_API_KEY,
-  );
-  const content = await res;
-
   return {
     props: {
-      post: content,
+      post: getPostData(context.params.id),
       revalidate: 60,
     },
+  };
+};
+
+const getPostIds = () => {
+  const postDirectory = join(process.cwd(), 'pages', 'contents');
+  const fileNames = readdirSync(postDirectory);
+
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ''),
+      },
+    };
+  });
+};
+
+const getPostData = (fileName: string) => {
+  const postDirectory = join(process.cwd(), 'pages', 'contents');
+  const fullPath = join(postDirectory, `${fileName}.md`);
+  const fileContents = readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+
+  return {
+    id: fileName,
+    title: data.title,
+    updated_at: data.updated_at,
+    published_at: data.published_at,
+    categories: data.categories,
+    content,
   };
 };
