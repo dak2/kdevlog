@@ -45,7 +45,7 @@ const PostContent = (posts: MdPost[]) => {
             </small>
             <div>
               <ul>
-                {categories.split(',').map((category, index) => (
+                {categories.map((category, index) => (
                   <li key={index} className="inline-block">
                     <Link
                       href={{

@@ -4,7 +4,7 @@ export type MdPost = {
   title: string;
   updated_at: string;
   published_at: string;
-  categories: string;
+  categories: string[];
   content: string;
 };
 

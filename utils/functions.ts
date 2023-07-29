@@ -16,7 +16,7 @@ export const getPostsData = () => {
       title: data.title,
       updated_at: data.updated_at,
       published_at: data.published_at,
-      categories: data.categories,
+      categories: (data.categories || '').split(','),
       content,
     };
   });
@@ -25,6 +25,12 @@ export const getPostsData = () => {
     return a.published_at < b.published_at ? 1 : -1;
   });
 };
+
+// export const getPostsDataByCategory = (category: string) => {
+//   const posts = getPostsData();
+//   const filteredPosts = posts.filter((post) => {
+
+// }
 
 export const getPostData = (fileName: string) => {
   const postDirectory = join(process.cwd(), 'pages', 'contents');
@@ -37,7 +43,7 @@ export const getPostData = (fileName: string) => {
     title: data.title,
     updated_at: data.updated_at,
     published_at: data.published_at,
-    categories: data.categories,
+    categories: (data.categories || '').split(','),
     content,
   };
 };
