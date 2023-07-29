@@ -30,7 +30,7 @@ const Posts = (props: Props) => {
 const PostContent = (posts: MdPost[]) => {
   return (
     <ul>
-      {posts.map(({ id, title, date, categories }, postIndex) => (
+      {posts.map(({ id, title, published_at, categories }, postIndex) => (
         <li key={postIndex}>
           <div id="post-sub-container" className="mb-12">
             <Link href={`/posts/${id}`}>
@@ -38,8 +38,10 @@ const PostContent = (posts: MdPost[]) => {
                 <p className="cursor-pointer hover:underline">{title}</p>
               </h2>
             </Link>
-            <small id="updated-at" className="text-gray-200">
-              <FormatedDate dateString={date} />
+            <small id="date" className="text-gray-200">
+              <span>
+                <FormatedDate dateString={published_at} type={'published_at'} />
+              </span>
             </small>
             <div>
               <ul>
@@ -117,13 +119,14 @@ const getPostData = () => {
     return {
       id: fileName.replace(/\.md$/, ''),
       title: data.title,
-      date: data.date,
+      updated_at: data.updated_at,
+      published_at: data.published_at,
       categories: data.categories,
       content,
     };
   });
 
   return posts.sort((a, b) => {
-    return a.date < b.date ? 1 : -1;
+    return a.published_at < b.published_at ? 1 : -1;
   });
 };

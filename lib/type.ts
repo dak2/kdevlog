@@ -2,7 +2,8 @@
 export type MdPost = {
   id: string;
   title: string;
-  date: string;
+  updated_at: string;
+  published_at: string;
   categories: string;
   content: string;
 };
