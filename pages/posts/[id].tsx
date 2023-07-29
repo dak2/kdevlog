@@ -2,9 +2,7 @@ import Layout from '../../components/molecules/layout';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
 import { marked } from 'marked';
-import hljs from '../../lib/myHighlight';
 import 'highlight.js/styles/base16/decaf.css';
-import { useEffect } from 'react';
 import { Post, MdPost } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
 import { PostNotFound } from '../../components/molecules/postNotFound';
@@ -19,9 +17,6 @@ marked.setOptions({
 });
 
 const PostDetail = (post: MdPost) => {
-  useEffect(() => {
-    hljs.highlightAll();
-  });
   return (
     <Layout home={null}>
       <Head>

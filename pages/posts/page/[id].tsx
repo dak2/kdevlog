@@ -3,9 +3,9 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../../../components/molecules/layout';
 import Pagination from '../../../components/molecules/pagination';
 import { FormatedDate } from '../../../components/atoms/date';
-import { range, PER_PAGE } from '../../../lib/const';
+import { PER_PAGE } from '../../../lib/const';
 import { MdPost } from '../../../lib/type';
-import { getPostIds, getPostsData } from '../../../utils/functions';
+import { getPostIds, getPostsData, range } from '../../../utils/functions';
 import { PostNotFound } from '../../../components/molecules/postNotFound';
 
 type Props = {
