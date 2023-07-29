@@ -60,7 +60,7 @@ const PostContent = (posts: MdPost[]) => {
                         id="tag"
                         className="mr-2 text-sm font-bold cursor-pointer hover:underline"
                       >
-                        #{category}
+                        {category ? `#${category}` : ''}
                       </p>
                     </Link>
                   </li>
