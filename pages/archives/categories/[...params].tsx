@@ -33,7 +33,6 @@ const Posts = (props: Props) => {
 };
 
 const CategoryIcon = (category: string) => {
-  console.log('category', category)
   if (category) return <GenericIcon iconName={category} styleName={'mt-2'} />;
   return null;
 };
