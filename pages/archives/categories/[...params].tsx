@@ -42,7 +42,7 @@ const Posts = (props: Props) => {
                       <li key={tagIndex} className="inline-block">
                         <Link
                           href={{
-                            pathname: '/archives/tags/[params]',
+                            pathname: '/archives/categories/[params]',
                             query: {
                               params: `${tag.name
                                 .toLowerCase()

@@ -1,3 +1,4 @@
+// TODO: change type name
 export type MdPost = {
   id: string;
   title: string;

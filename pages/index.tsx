@@ -3,7 +3,7 @@ import Layout, { siteTitle } from '../components/molecules/layout';
 import Link from 'next/link';
 import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
-import { MdPost, Post } from '../lib/type';
+import { MdPost } from '../lib/type';
 import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
@@ -20,50 +20,56 @@ const Posts = (props: Props) => {
         <title>{siteTitle}</title>
       </Head>
       <div id="post-container">
-        <ul>
-          {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
-            <li key={postIndex}>
-              <div id="post-sub-container" className="mb-12">
-                <Link href={`/posts/${id}`}>
-                  <h2 className="mb-2 text-2xl font-extrabold">
-                    <p className="cursor-pointer hover:underline">{title}</p>
-                  </h2>
-                </Link>
-                <small id="updated-at" className="text-gray-200">
-                  <FormatedDate dateString={updatedAt} />
-                </small>
-                <div>
-                  <ul>
-                    {tags.map((tag, tagIndex) => (
-                      <li key={tagIndex} className="inline-block">
-                        <Link
-                          href={{
-                            pathname: '/archives/tags/[params]',
-                            query: {
-                              params: `${tag.name
-                                .toLowerCase()
-                                .replace(/\s+/g, '')}`,
-                            },
-                          }}
-                        >
-                          <p
-                            id="tag"
-                            className="mr-2 text-sm font-bold cursor-pointer hover:underline"
-                          >
-                            #{tag.name}
-                          </p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {PostContent(props.posts)}
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
+  );
+};
+
+const PostContent = (posts: MdPost[]) => {
+  return (
+    <ul>
+      {posts.map(({ id, title, date, categories }, postIndex) => (
+        <li key={postIndex}>
+          <div id="post-sub-container" className="mb-12">
+            <Link href={`/posts/${id}`}>
+              <h2 className="mb-2 text-2xl font-extrabold">
+                <p className="cursor-pointer hover:underline">{title}</p>
+              </h2>
+            </Link>
+            <small id="updated-at" className="text-gray-200">
+              <FormatedDate dateString={date} />
+            </small>
+            <div>
+              <ul>
+                {categories.split(',').map((category, index) => (
+                  <li key={index} className="inline-block">
+                    <Link
+                      href={{
+                        pathname: '/archives/categories/[params]',
+                        query: {
+                          params: `${category
+                            .toLowerCase()
+                            .replace(/\s+/g, '')}`,
+                        },
+                      }}
+                    >
+                      <p
+                        id="tag"
+                        className="mr-2 text-sm font-bold cursor-pointer hover:underline"
+                      >
+                        #{category}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 
