@@ -27,7 +27,7 @@ const PostDetail = (post: MdPost) => {
           {post.title}
         </h1>
         <div id="date" className="text-gray-200">
-          <FormatedDate dateString={post.published_at} />
+          <FormatedDate dateString={post.published_at} type={'published_at'} />
         </div>
         <div className="post-contents">
           <ReactMarkdown
