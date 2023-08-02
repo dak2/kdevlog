@@ -6,7 +6,7 @@ import { Post, MdPost } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
 import { PostNotFound } from '../../components/molecules/postNotFound';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import remarkGfm from 'remark-gfm';
 
 type Props = {
@@ -38,7 +38,7 @@ const PostDetail = (post: MdPost) => {
                 return !inline && match ? (
                   <SyntaxHighlighter
                     {...props}
-                    style={tomorrow}
+                    style={vscDarkPlus}
                     language={match[1]}
                     PreTag="div"
                     showLineNumbers={true}

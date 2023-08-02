@@ -24,7 +24,6 @@
 
       code {
         padding: 0.2em 0.4em;
-        background-color: rgb(71 85 105);
         font-size: 0.85em;
         color: rgb(209 213 219);
         border-radius: 6px;
@@ -172,6 +171,9 @@
 
       pre {
         @apply my-2;
+        div {
+          border-radius: 10px;
+        }
       }
 
       br:after {
@@ -197,6 +199,9 @@
 
       pre {
         font-size: 9vh;
+        div {
+          border-radius: 10px;
+        }
       }
 
       img {
@@ -226,7 +231,6 @@
 
       code {
         padding: 0.2em 0.4em;
-        background-color: rgb(71 85 105);
         font-size: 0.85em;
         color: rgb(209 213 219);
         border-radius: 25px;
@@ -378,6 +382,9 @@
 
       pre {
         @apply my-2;
+        div {
+          border-radius: 10px;
+        }
       }
 
       br:after {
@@ -403,6 +410,9 @@
 
       pre {
         font-size: 9vh;
+        div {
+          border-radius: 10px;
+        }
       }
 
       img {
@@ -432,7 +442,6 @@
 
       code {
         padding: 0.2em 0.4em;
-        background-color: rgb(71 85 105);
         font-size: 0.85em;
         color: rgb(209 213 219);
         border-radius: 25px;
@@ -584,6 +593,9 @@
 
       pre {
         @apply my-2;
+        div {
+          border-radius: 10px;
+        }
       }
 
       br:after {
