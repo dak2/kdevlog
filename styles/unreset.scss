@@ -11,31 +11,6 @@
         line-height: 3.7vh;
       }
 
-      blockquote {
-        code {
-          padding: initial;
-          background: initial;
-          font-size: 1em;
-          color: initial;
-          border-radius: initial;
-          vertical-align: initial;
-        }
-        padding: 0 1em;
-        color: #acaaa8ee;
-        border-left: 0.11em solid #979593ee;
-        @apply my-2 mx-3
-      }
-
-      code {
-        padding: 0.2em 0.4em;
-        font-size: 0.85em;
-        color: rgb(209 213 219);
-        border-radius: 6px;
-        vertical-align: 0.08em;
-        overflow-wrap: break-word;
-        word-break: break-all;
-      }
-
       figure {
         @apply my-4 mx-10;
       }
@@ -223,31 +198,6 @@
         word-break: break-all;
       }
 
-      blockquote {
-        code {
-          padding: initial;
-          background: initial;
-          font-size: 1em;
-          color: initial;
-          border-radius: initial;
-          vertical-align: initial;
-        }
-        padding: 0 1em;
-        color: #acaaa8ee;
-        border-left: 0.11em solid #979593ee;
-        font-size: 7.8vh;
-      }
-
-      code {
-        padding: 0.2em 0.4em;
-        font-size: 0.85em;
-        color: rgb(209 213 219);
-        border-radius: 25px;
-        vertical-align: 0.08em;
-        overflow-wrap: break-word;
-        word-break: break-all;
-      }
-
       figure {
         @apply my-4 mx-10;
       }
@@ -392,7 +342,16 @@
       pre {
         @apply my-2;
         div {
-          border-radius: 10px;
+          border-radius: 30px !important;
+          code {
+            padding: 1.2em 1.2em !important;
+            font-size: 55px !important;
+            display: block !important;
+            width: 2200px !important;
+            span {
+              display: inline !important;
+            }
+          }
         }
       }
 
@@ -430,31 +389,6 @@
 
       a {
         @apply text-blue-400 hover:underline;
-        overflow-wrap: break-word;
-        word-break: break-all;
-      }
-
-      blockquote {
-        code {
-          padding: initial;
-          background: initial;
-          font-size: 1em;
-          color: initial;
-          border-radius: initial;
-          vertical-align: initial;
-        }
-        padding: 0 1em;
-        color: #acaaa8ee;
-        border-left: 0.11em solid #979593ee;
-        font-size: 7.8vh;
-      }
-
-      code {
-        padding: 0.2em 0.4em;
-        font-size: 0.85em;
-        color: rgb(209 213 219);
-        border-radius: 25px;
-        vertical-align: 0.08em;
         overflow-wrap: break-word;
         word-break: break-all;
       }
@@ -605,7 +539,16 @@
       pre {
         @apply my-2;
         div {
-          border-radius: 10px;
+          border-radius: 30px !important;
+        }
+        code {
+          padding: 1em 1.2em !important;
+          font-size: 55px !important;
+          display: block !important;
+          width: 2200px !important;
+          span {
+            display: inline !important;
+          }
         }
       }
 
