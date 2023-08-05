@@ -7,6 +7,32 @@
         word-break: break-all;
       }
 
+      blockquote {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+        padding: 0 1em;
+        color: #acaaa8ee;
+        border-left: 0.11em solid #979593ee;
+        @apply my-2 mx-3
+      }
+
+      code {
+        padding: 0.2em 0.4em;
+        background-color: rgb(71 85 105);
+        font-size: 0.85em;
+        color: rgb(209 213 219);
+        border-radius: 6px;
+        vertical-align: 0.08em;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
+
       p {
         line-height: 3.7vh;
       }
@@ -157,6 +183,9 @@
         @apply my-8;
         div {
           border-radius: 10px;
+          code {
+            background-color: initial;
+          }
         }
       }
 
@@ -194,6 +223,32 @@
 
       a {
         @apply text-blue-400 hover:underline;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
+
+      blockquote {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+        padding: 0 1em;
+        color: #acaaa8ee;
+        border-left: 0.11em solid #979593ee;
+        font-size: 7.8vh;
+      }
+
+      code {
+        padding: 0.2em 0.4em;
+        background-color: rgb(71 85 105);
+        font-size: 0.85em;
+        color: rgb(209 213 219);
+        border-radius: 25px;
+        vertical-align: 0.08em;
         overflow-wrap: break-word;
         word-break: break-all;
       }
@@ -288,7 +343,8 @@
 
       ul {
         font-size: 9vh;
-        margin-top: 6vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
         line-height: 15vh;
         menu {
           @apply list-disc pl-5;
@@ -341,6 +397,7 @@
 
       pre {
         @apply my-2;
+        margin: 1.2em 0 !important;
         div {
           border-radius: 30px !important;
           code {
@@ -348,6 +405,7 @@
             font-size: 55px !important;
             display: block !important;
             width: 2200px !important;
+            background-color: initial;
             span {
               display: inline !important;
             }
@@ -389,6 +447,32 @@
 
       a {
         @apply text-blue-400 hover:underline;
+        overflow-wrap: break-word;
+        word-break: break-all;
+      }
+
+      blockquote {
+        code {
+          padding: initial;
+          background: initial;
+          font-size: 1em;
+          color: initial;
+          border-radius: initial;
+          vertical-align: initial;
+        }
+        padding: 0 1em;
+        color: #acaaa8ee;
+        border-left: 0.11em solid #979593ee;
+        font-size: 7.8vh;
+      }
+
+      code {
+        padding: 0.2em 0.4em;
+        background-color: rgb(71 85 105);
+        font-size: 0.85em;
+        color: rgb(209 213 219);
+        border-radius: 25px;
+        vertical-align: 0.08em;
         overflow-wrap: break-word;
         word-break: break-all;
       }
@@ -483,8 +567,8 @@
 
       ul {
         font-size: 10vh;
-        margin-top: 8vh;
-        margin-bottom: 8vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
         line-height: 17vh;
         menu {
           @apply list-disc pl-5;
@@ -538,6 +622,7 @@
 
       pre {
         @apply my-2;
+        margin: 1.2em 0 !important;
         div {
           border-radius: 30px !important;
         }
@@ -546,6 +631,7 @@
           font-size: 55px !important;
           display: block !important;
           width: 2200px !important;
+          background-color: initial;
           span {
             display: inline !important;
           }
