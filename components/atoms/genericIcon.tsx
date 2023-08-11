@@ -18,6 +18,8 @@ import {
   SiDeno,
 } from 'react-icons/si';
 
+import { SiZenn } from '@icons-pack/react-simple-icons';
+
 type Props = {
   iconName: string;
   styleName?: string;
@@ -42,6 +44,7 @@ const GenericIcon = (props: Props) => {
     right: <FaChevronRight />,
     left: <FaChevronLeft />,
     book: <FaBookOpen />,
+    zenn: <SiZenn />,
   };
 
   return <div className={styleName}>{icons[iconName]}</div>;

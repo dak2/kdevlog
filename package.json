@@ -9,6 +9,7 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^8.0.1",
     "autoprefixer": "^10.2.5",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
