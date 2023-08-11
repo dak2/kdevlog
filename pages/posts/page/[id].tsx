@@ -4,12 +4,12 @@ import Layout, { siteTitle } from '../../../components/molecules/layout';
 import Pagination from '../../../components/molecules/pagination';
 import { FormatedDate } from '../../../components/atoms/date';
 import { PER_PAGE } from '../../../lib/const';
-import { MdPost } from '../../../lib/type';
-import { getPostIds, getPostsData, range } from '../../../utils/functions';
+import { Post } from '../../../lib/type';
+import { getPostIds, getPosts, range } from '../../../utils/functions';
 import { PostNotFound } from '../../../components/molecules/postNotFound';
 
 type Props = {
-  posts: MdPost[];
+  posts: Post[];
   totalCount: number;
 };
 
@@ -27,7 +27,7 @@ const Posts = (props: Props) => {
   );
 };
 
-const PostContent = (posts: MdPost[]) => {
+const PostContent = (posts: Post[]) => {
   return (
     <ul>
       {posts.map(({ id, title, published_at, categories }, postIndex) => (
@@ -94,9 +94,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const pageNumber = context.params.id;
-  const offset = (pageNumber - 1) * 5;
+  const offset = (pageNumber - 1) * PER_PAGE;
   const limit = PER_PAGE;
-  const posts = getPostsData();
+  const posts = getPosts();
   const postsPerPage = posts.slice(offset, offset + limit);
 
   return {

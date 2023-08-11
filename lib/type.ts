@@ -1,21 +1,11 @@
 // TODO: change type name
-export type MdPost = {
+export type Post = {
   id: string;
   title: string;
   updated_at: string;
   published_at: string;
   categories: string[];
   content: string;
-};
-
-export type Post = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  revisedAt: string;
-  title: string;
-  body: string;
-  tags: Tag[];
 };
 
 export type Tag = {
