@@ -7,6 +7,7 @@ import {
   FaRust,
   FaNodeJs,
   FaReact,
+  FaLinux,
   FaBookOpen,
 } from 'react-icons/fa';
 import {
@@ -37,6 +38,7 @@ const GenericIcon = (props: Props) => {
     rubyonrails: <SiRubyonrails />,
     rust: <FaRust />,
     deno: <SiDeno />,
+    linux: <FaLinux />,
     right: <FaChevronRight />,
     left: <FaChevronLeft />,
     book: <FaBookOpen />,
