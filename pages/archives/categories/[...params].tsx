@@ -5,12 +5,12 @@ import Head from 'next/head';
 import { FormatedDate } from '../../../components/atoms/date';
 import GenericIcon from '../../../components/atoms/genericIcon';
 import Pagination from '../../../components/molecules/pagination';
-import { MdPost } from '../../../lib/type';
+import { Post } from '../../../lib/type';
 import { PostNotFound } from '../../../components/molecules/postNotFound';
 import { getPostsDataByCategory } from '../../../utils/functions';
 
 type Props = {
-  posts: MdPost[];
+  posts: Post[];
   category: string;
   totalCount: number;
 };
@@ -37,7 +37,7 @@ const CategoryIcon = (category: string) => {
   return null;
 };
 
-const PostContent = (posts: MdPost[]) => {
+const PostContent = (posts: Post[]) => {
   return (
     <ul>
       {posts.map(({ id, title, published_at, categories }, postIndex) => (

@@ -3,12 +3,13 @@ import Layout, { siteTitle } from '../components/molecules/layout';
 import Link from 'next/link';
 import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
-import { MdPost } from '../lib/type';
-import { getPostsData } from '../utils/functions';
+import { Post } from '../lib/type';
+import { getPosts } from '../utils/functions';
 import { PostNotFound } from '../components/molecules/postNotFound';
+import { PER_PAGE } from '../lib/const';
 
 type Props = {
-  posts: MdPost[];
+  posts: Post[];
   totalCount: number;
 };
 
@@ -26,7 +27,7 @@ const Posts = (props: Props) => {
   );
 };
 
-const PostContent = (posts: MdPost[]) => {
+const PostContent = (posts: Post[]) => {
   return (
     <ul>
       {posts.map(({ id, title, published_at, categories }, postIndex) => (
@@ -83,11 +84,12 @@ export default function Home(props: Props) {
 }
 
 export const getStaticProps = async () => {
-  const posts = getPostsData();
+  const posts = getPosts();
+  const postsPerPage = posts.slice(0, PER_PAGE);
 
   return {
     props: {
-      posts,
+      posts: postsPerPage,
       revalidate: 60,
       totalCount: posts.length,
     },

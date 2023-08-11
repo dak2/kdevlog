@@ -9,13 +9,12 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^8.0.1",
     "autoprefixer": "^10.2.5",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.0",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
-    "highlight.js": "^11.8.0",
-    "marked": "^5.1.1",
     "next": "^13.4.10",
     "path": "^0.12.7",
     "postcss": "^8.2.14",
@@ -23,12 +22,11 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-markdown": "^8.0.7",
+    "react-syntax-highlighter": "^15.5.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@types/highlight.js": "^10.1.0",
-    "@types/marked": "^5.0.1",
     "@types/node": "^18.0.0",
     "@types/react": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
