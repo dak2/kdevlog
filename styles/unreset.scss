@@ -7,6 +7,11 @@
         word-break: break-all;
       }
 
+      img {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
       blockquote {
         code {
           padding: initial;
@@ -24,12 +29,17 @@
 
       code {
         padding: 0.2em 0.4em;
+        background-color: rgb(71 85 105);
         font-size: 0.85em;
         color: rgb(209 213 219);
         border-radius: 6px;
         vertical-align: 0.08em;
         overflow-wrap: break-word;
         word-break: break-all;
+      }
+
+      p {
+        line-height: 3.7vh;
       }
 
       figure {
@@ -49,7 +59,7 @@
       }
 
       h3 {
-        @apply text-lg font-bold mb-4 mt-4;
+        @apply text-lg font-bold mb-2 mt-5;
       }
 
       h4 {
@@ -175,9 +185,12 @@
       }
 
       pre {
-        @apply my-2;
+        @apply my-8;
         div {
           border-radius: 10px;
+          code {
+            background-color: initial;
+          }
         }
       }
 
@@ -199,7 +212,7 @@
     .post-contents {
       p {
         font-size: 9vh;
-        line-height: 15vh;
+        line-height: 15.5vh;
       }
 
       pre {
@@ -211,6 +224,8 @@
 
       img {
         width: 150vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
       }
 
       a {
@@ -236,6 +251,7 @@
 
       code {
         padding: 0.2em 0.4em;
+        background-color: rgb(71 85 105);
         font-size: 0.85em;
         color: rgb(209 213 219);
         border-radius: 25px;
@@ -333,8 +349,9 @@
       }
 
       ul {
-        font-size: 7.8vh;
-        margin-top: 6vh;
+        font-size: 9vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
         line-height: 15vh;
         menu {
           @apply list-disc pl-5;
@@ -387,8 +404,19 @@
 
       pre {
         @apply my-2;
+        margin: 1.2em 0 !important;
         div {
-          border-radius: 10px;
+          border-radius: 30px !important;
+          code {
+            padding: 1.2em 1.2em !important;
+            font-size: 55px !important;
+            display: block !important;
+            width: 2200px !important;
+            background-color: initial;
+            span {
+              display: inline !important;
+            }
+          }
         }
       }
 
@@ -422,6 +450,8 @@
 
       img {
         width: 150vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
       }
 
       a {
@@ -447,6 +477,7 @@
 
       code {
         padding: 0.2em 0.4em;
+        background-color: rgb(71 85 105);
         font-size: 0.85em;
         color: rgb(209 213 219);
         border-radius: 25px;
@@ -545,8 +576,8 @@
 
       ul {
         font-size: 10vh;
-        margin-top: 8vh;
-        margin-bottom: 8vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
         line-height: 17vh;
         menu {
           @apply list-disc pl-5;
@@ -600,8 +631,19 @@
 
       pre {
         @apply my-2;
+        margin: 1.2em 0 !important;
         div {
-          border-radius: 10px;
+          border-radius: 30px !important;
+        }
+        code {
+          padding: 1em 1.2em !important;
+          font-size: 55px !important;
+          display: block !important;
+          width: 2200px !important;
+          background-color: initial;
+          span {
+            display: inline !important;
+          }
         }
       }
 

@@ -2,7 +2,7 @@ import Layout from '../../components/molecules/layout';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
 import ReactMarkdown from 'react-markdown';
-import { Post, MdPost } from '../../lib/type';
+import { Post } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
 import { PostNotFound } from '../../components/molecules/postNotFound';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -10,10 +10,10 @@ import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import remarkGfm from 'remark-gfm';
 
 type Props = {
-  post: MdPost;
+  post: Post;
 };
 
-const PostDetail = (post: MdPost) => {
+const PostDetail = (post: Post) => {
   return (
     <Layout home={null}>
       <Head>
@@ -27,7 +27,7 @@ const PostDetail = (post: MdPost) => {
           {post.title}
         </h1>
         <div id="date" className="text-gray-200">
-          <FormatedDate dateString={post.published_at} />
+          <FormatedDate dateString={post.published_at} type={'published_at'} />
         </div>
         <div className="post-contents">
           <ReactMarkdown

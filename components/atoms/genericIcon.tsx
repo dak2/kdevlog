@@ -7,6 +7,7 @@ import {
   FaRust,
   FaNodeJs,
   FaReact,
+  FaLinux,
   FaBookOpen,
 } from 'react-icons/fa';
 import {
@@ -16,6 +17,8 @@ import {
   SiTypescript,
   SiDeno,
 } from 'react-icons/si';
+
+import { SiZenn } from '@icons-pack/react-simple-icons';
 
 type Props = {
   iconName: string;
@@ -37,9 +40,11 @@ const GenericIcon = (props: Props) => {
     rubyonrails: <SiRubyonrails />,
     rust: <FaRust />,
     deno: <SiDeno />,
+    linux: <FaLinux />,
     right: <FaChevronRight />,
     left: <FaChevronLeft />,
     book: <FaBookOpen />,
+    zenn: <SiZenn />,
   };
 
   return <div className={styleName}>{icons[iconName]}</div>;

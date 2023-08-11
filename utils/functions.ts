@@ -1,12 +1,13 @@
 import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
-import { MdPost } from '../lib/type';
+import { Post } from '../lib/type';
+import { PER_PAGE } from '../lib/const';
 
-export const getPostsData = () => {
+export const getPosts = (perPage?: number) => {
   const postDirectory = join(process.cwd(), 'pages', 'contents');
   const fileNames = readdirSync(postDirectory);
-  const posts: MdPost[] = fileNames.map((fileName) => {
+  const posts: Post[] = fileNames.map((fileName) => {
     const fullPath = join(postDirectory, fileName);
     const fileContents = readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
@@ -21,13 +22,15 @@ export const getPostsData = () => {
     };
   });
 
-  return posts.sort((a, b) => {
+  const sortedPosts = posts.sort((a, b) => {
     return a.published_at < b.published_at ? 1 : -1;
   });
+
+  return perPage ? sortedPosts.slice(0, perPage) : sortedPosts;
 };
 
 export const getPostsDataByCategory = (category: string) => {
-  const posts = getPostsData();
+  const posts = getPosts(PER_PAGE);
   return posts.filter((post) => {
     return post.categories.includes(category);
   });
