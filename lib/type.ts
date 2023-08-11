@@ -1,11 +1,11 @@
+// TODO: change type name
 export type Post = {
   id: string;
-  createdAt: string;
-  updatedAt: string;
-  revisedAt: string;
   title: string;
-  body: string;
-  tags: Tag[];
+  updated_at: string;
+  published_at: string;
+  categories: string[];
+  content: string;
 };
 
 export type Tag = {

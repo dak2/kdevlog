@@ -19,15 +19,14 @@ html {
             margin-right: initial;
             padding-top: 40px;
           }
-          #github-icon-container {
-            margin-left: auto;
+          #icon-container {
             #github-icon {
               padding-top: 3vh;
               font-size: 15vh;
             }
           }
         }
-        #tag-icon {
+        #category-icon {
           font-size: 20vh;
         }
         #post-container {
@@ -37,7 +36,7 @@ html {
               font-size: 13vh;
               line-height: 150px;
             }
-            #updated-at {
+            #date {
               font-size: 9vh;
             }
             #tag {
@@ -103,7 +102,7 @@ html {
             }
           }
         }
-        #tag-icon {
+        #category-icon {
           font-size: 10vh;
         }
         #post-container {
@@ -113,10 +112,10 @@ html {
               font-size: 13vh;
               line-height: 150px;
             }
-            #updated-at {
+            #date {
               font-size: 10vh;
             }
-            #tag {
+            #category {
               margin-top: 4vh;
               font-size: 12vh;
             }

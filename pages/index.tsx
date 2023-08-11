@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/molecules/layout';
-import { httpRequest } from '../lib/api';
-import { CMS_API_KEY, CMS_URL } from '../lib/const';
 import Link from 'next/link';
 import { FormatedDate } from '../components/atoms/date';
 import Pagination from '../components/molecules/pagination';
 import { Post } from '../lib/type';
+import { getPosts } from '../utils/functions';
+import { PostNotFound } from '../components/molecules/postNotFound';
+import { PER_PAGE } from '../lib/const';
 
 type Props = {
   posts: Post[];
@@ -19,63 +20,58 @@ const Posts = (props: Props) => {
         <title>{siteTitle}</title>
       </Head>
       <div id="post-container">
-        <ul>
-          {props.posts.map(({ id, updatedAt, title, tags }, postIndex) => (
-            <li key={postIndex}>
-              <div id="post-sub-container" className="mb-12">
-                <Link href={`/posts/${id}`}>
-                  <h2 className="mb-2 text-2xl font-extrabold">
-                    <p className="cursor-pointer hover:underline">{title}</p>
-                  </h2>
-                </Link>
-                <small id="updated-at" className="text-gray-200">
-                  <FormatedDate dateString={updatedAt} />
-                </small>
-                <div>
-                  <ul>
-                    {tags.map((tag, tagIndex) => (
-                      <li key={tagIndex} className="inline-block">
-                        <Link
-                          href={{
-                            pathname: '/archives/tags/[params]',
-                            query: {
-                              params: `${tag.name
-                                .toLowerCase()
-                                .replace(/\s+/g, '')}`,
-                            },
-                          }}
-                        >
-                          <p
-                            id="tag"
-                            className="mr-2 text-sm font-bold cursor-pointer hover:underline"
-                          >
-                            #{tag.name}
-                          </p>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {PostContent(props.posts)}
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
   );
 };
 
-const PostsNotFound = () => {
+const PostContent = (posts: Post[]) => {
   return (
-    <Layout home={true}>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <div className="pt-64 grid justify-items-center">
-        <h1 className="mb-10 text-5xl font-bold">記事はありません</h1>
-      </div>
-    </Layout>
+    <ul>
+      {posts.map(({ id, title, published_at, categories }, postIndex) => (
+        <li key={postIndex}>
+          <div id="post-sub-container" className="mb-12">
+            <Link href={`/posts/${id}`}>
+              <h2 className="mb-2 text-2xl font-extrabold">
+                <p className="cursor-pointer hover:underline">{title}</p>
+              </h2>
+            </Link>
+            <small id="date" className="text-gray-200">
+              <span>
+                <FormatedDate dateString={published_at} type={'published_at'} />
+              </span>
+            </small>
+            <div>
+              <ul>
+                {categories.map((category, index) => (
+                  <li key={index} className="inline-block">
+                    <Link
+                      href={{
+                        pathname: '/archives/categories/[params]',
+                        query: {
+                          params: `${category
+                            .toLowerCase()
+                            .replace(/\s+/g, '')}`,
+                        },
+                      }}
+                    >
+                      <p
+                        id="tag"
+                        className="mr-2 text-sm font-bold cursor-pointer hover:underline"
+                      >
+                        {category ? `#${category}` : ''}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 
@@ -83,23 +79,19 @@ export default function Home(props: Props) {
   if (props.posts.length > 0) {
     return Posts(props);
   } else {
-    return PostsNotFound;
+    return PostNotFound;
   }
 }
 
 export const getStaticProps = async () => {
-  const res = await httpRequest(CMS_URL, CMS_API_KEY);
-  const contents = await res.contents;
-  const postsByNewestSorted = contents.sort(
-    (a: { updatedAt: string }, b: { updatedAt: string }) =>
-      new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-  );
+  const posts = getPosts();
+  const postsPerPage = posts.slice(0, PER_PAGE);
 
   return {
     props: {
-      posts: postsByNewestSorted,
+      posts: postsPerPage,
       revalidate: 60,
-      totalCount: res.totalCount,
+      totalCount: posts.length,
     },
   };
 };

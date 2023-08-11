@@ -1,10 +1,8 @@
 import { parseISO, format } from 'date-fns';
 
-export function FormatedDate({ dateString }) {
+export function FormatedDate({ dateString, type = 'updated_at' }) {
   const date = parseISO(dateString);
-  return (
-    <p suppressHydrationWarning>updated_at: {format(date, 'yyyy-MM-dd')}</p>
-  );
+  return `${type}: ${format(date, 'yyyy-MM-dd')}`;
 }
 
 export function FormatedToday({ date }) {

@@ -1,15 +1,17 @@
-import Link from 'next/link';
-import Head from 'next/head';
 import Layout, { siteTitle } from '../../../components/molecules/layout';
-import Pagination from '../../../components/molecules/pagination';
+import Link from 'next/link';
+import { categories } from '../../../lib/const';
+import Head from 'next/head';
 import { FormatedDate } from '../../../components/atoms/date';
-import { PER_PAGE } from '../../../lib/const';
+import GenericIcon from '../../../components/atoms/genericIcon';
+import Pagination from '../../../components/molecules/pagination';
 import { Post } from '../../../lib/type';
-import { getPostIds, getPosts, range } from '../../../utils/functions';
 import { PostNotFound } from '../../../components/molecules/postNotFound';
+import { getPostsDataByCategory } from '../../../utils/functions';
 
 type Props = {
   posts: Post[];
+  category: string;
   totalCount: number;
 };
 
@@ -19,12 +21,20 @@ const Posts = (props: Props) => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      <div id="category-icon" className="flex mb-10">
+        {CategoryIcon(props.category)}
+      </div>
       <div id="post-container">
         {PostContent(props.posts)}
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
   );
+};
+
+const CategoryIcon = (category: string) => {
+  if (category) return <GenericIcon iconName={category} styleName={'mt-2'} />;
+  return null;
 };
 
 const PostContent = (posts: Post[]) => {
@@ -75,33 +85,31 @@ const PostContent = (posts: Post[]) => {
   );
 };
 
-export default function PostsPageId(props: Props) {
+export default function Categories(props: Props) {
   if (props.posts.length > 0) {
     return Posts(props);
   } else {
-    return PostNotFound;
+    return PostNotFound();
   }
 }
 
 export const getStaticPaths = async () => {
-  const postIds = getPostIds();
-  const paths = range(1, Math.ceil(postIds.length / PER_PAGE)).map(
-    (repo) => `/posts/page/${repo}`,
-  );
+  const paths = Object.keys(categories).map((category: string) => {
+    return { params: { params: [category] } };
+  });
 
   return { paths, fallback: false };
 };
 
 export const getStaticProps = async (context) => {
-  const pageNumber = context.params.id;
-  const offset = (pageNumber - 1) * PER_PAGE;
-  const limit = PER_PAGE;
-  const posts = getPosts();
-  const postsPerPage = posts.slice(offset, offset + limit);
+  const category = context.params.params[0];
+  const posts = getPostsDataByCategory(categories[category]);
 
   return {
     props: {
-      posts: postsPerPage,
+      posts,
+      category,
+      revalidate: 60,
       totalCount: posts.length,
     },
   };

@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { range, PER_PAGE } from '../../lib/const';
+import { PER_PAGE } from '../../lib/const';
 import GenericIcon from '../atoms/genericIcon';
 import { useRouter } from 'next/router';
+import { range } from '../../utils/functions';
 
 const Pagination = ({ totalCount }) => {
   const router = useRouter();
