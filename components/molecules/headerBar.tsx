@@ -10,24 +10,20 @@ const HeaderBar = () => {
         </h1>
       </Link>
       <div id="icon-container" className="flex ml-64">
-        <div id="github-icon-container">
-          <a
-            id="github-icon"
-            href="https://github.com/dak2"
-            className="ml-2 text-2xl"
-          >
-            <GenericIcon iconName="github" />
-          </a>
-        </div>
-        <div id="zenn-icon-container" className="ml-6">
-          <a
-            id="github-icon"
-            href="https://zenn.dev/daichikk"
-            className="ml-2 text-2xl"
-          >
-            <GenericIcon iconName="zenn" />
-          </a>
-        </div>
+        <a
+          id="github-icon"
+          href="https://github.com/dak2"
+          className="ml-2 text-2xl"
+        >
+          <GenericIcon iconName="github" />
+        </a>
+        <a
+          id="zenn-icon"
+          href="https://zenn.dev/daichikk"
+          className="ml-4 text-2xl"
+        >
+          <GenericIcon iconName="zenn" />
+        </a>
       </div>
     </div>
   );
