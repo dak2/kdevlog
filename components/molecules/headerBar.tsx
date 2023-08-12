@@ -17,11 +17,7 @@ const HeaderBar = () => {
         >
           <GenericIcon iconName="github" />
         </a>
-        <a
-          id="zenn-icon"
-          href="https://zenn.dev/daichikk"
-          className="ml-4 text-2xl"
-        >
+        <a id="zenn-icon" href="https://zenn.dev/daichikk" className="ml-8">
           <GenericIcon iconName="zenn" />
         </a>
       </div>

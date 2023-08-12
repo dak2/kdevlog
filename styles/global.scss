@@ -24,6 +24,15 @@ html {
               padding-top: 3vh;
               font-size: 15vh;
             }
+            #zenn-icon {
+              margin-top: 40px;
+              div {
+                svg {
+                  width: 110px !important;
+                  height: 110px !important;
+                }
+              }
+            }
           }
         }
         #category-icon {
@@ -94,11 +103,20 @@ html {
             margin-right: initial;
             padding-top: 40px;
           }
-          #github-icon-container {
+          #icon-container {
             margin-left: auto;
             #github-icon {
               padding-top: 3vh;
               font-size: 15vh;
+            }
+            #zenn-icon {
+              margin-top: 20px;
+              div {
+                svg {
+                  width: 100px !important;
+                  height: 100px !important;
+                }
+              }
             }
           }
         }
