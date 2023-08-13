@@ -1,3 +1,4 @@
+// TODO: ライブラリ統一
 import {
   FaGithub,
   FaAws,
@@ -17,7 +18,6 @@ import {
   SiTypescript,
   SiDeno,
 } from 'react-icons/si';
-
 import { SiZenn } from '@icons-pack/react-simple-icons';
 
 type Props = {
