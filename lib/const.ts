@@ -37,6 +37,7 @@ const others = {
   vscode: 'VSCode',
   nodejs: 'Node.js',
   mysql: 'MySQL',
+  book: 'Book',
 };
 
 export const categories = {

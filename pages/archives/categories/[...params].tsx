@@ -15,6 +15,8 @@ type Props = {
   totalCount: number;
 };
 
+const boldCategories = ['linux', 'rubyonrails'];
+
 const Posts = (props: Props) => {
   return (
     <Layout home={null}>
@@ -33,8 +35,9 @@ const Posts = (props: Props) => {
 };
 
 const CategoryIcon = (category: string) => {
-  if (category) return <GenericIcon iconName={category} styleName={'mt-2'} />;
-  return null;
+  if (!category) return null;
+  const styleName = boldCategories.includes(category) ? 'text-4xl' : 'text-lg';
+  return <GenericIcon iconName={category} styleName={styleName} />;
 };
 
 const PostContent = (posts: Post[]) => {
