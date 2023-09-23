@@ -15,7 +15,7 @@ type Props = {
   totalCount: number;
 };
 
-const boldCategories = ['linux', 'rubyonrails'];
+const boldCategories = ['linux', 'rubyonrails', 'mysql'];
 
 const Posts = (props: Props) => {
   return (

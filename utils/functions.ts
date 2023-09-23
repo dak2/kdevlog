@@ -2,7 +2,6 @@ import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
 import { Post } from '../lib/type';
-import { PER_PAGE } from '../lib/const';
 
 export const getPosts = (perPage?: number) => {
   const postDirectory = join(process.cwd(), 'pages', 'contents');
@@ -30,7 +29,7 @@ export const getPosts = (perPage?: number) => {
 };
 
 export const getPostsDataByCategory = (category: string) => {
-  const posts = getPosts(PER_PAGE);
+  const posts = getPosts();
   return posts.filter((post) => {
     return post.categories.includes(category);
   });

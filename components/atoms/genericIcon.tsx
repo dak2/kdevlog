@@ -10,6 +10,7 @@ import {
   FaReact,
   FaLinux,
   FaBookOpen,
+  FaDatabase,
 } from 'react-icons/fa';
 import {
   SiJavascript,
@@ -17,7 +18,9 @@ import {
   SiRubyonrails,
   SiTypescript,
   SiDeno,
+  SiMysql,
 } from 'react-icons/si';
+import { LuPencil } from 'react-icons/lu';
 import { SiZenn } from '@icons-pack/react-simple-icons';
 
 type Props = {
@@ -45,6 +48,9 @@ const GenericIcon = (props: Props) => {
     left: <FaChevronLeft />,
     book: <FaBookOpen />,
     zenn: <SiZenn />,
+    mysql: <SiMysql />,
+    database: <FaDatabase />,
+    poem: <LuPencil />,
   };
 
   return <div className={styleName}>{icons[iconName]}</div>;
