@@ -31,17 +31,27 @@ const infra = {
   linux: 'Linux',
 };
 
+const databases = {
+  database: 'Database',
+  mysql: 'MySQL',
+  postgresql: 'PostgreSQL',
+  redis: 'Redis',
+  mongodb: 'MongoDB',
+};
+
 const others = {
   github: 'GitHub',
   vim: 'Vim',
   vscode: 'VSCode',
   nodejs: 'Node.js',
-  mysql: 'MySQL',
+  book: 'Book',
+  poem: 'Poem',
 };
 
 export const categories = {
   ...RegistLanguages,
   ...flameWorks,
   ...infra,
+  ...databases,
   ...others,
 };

@@ -67,11 +67,11 @@
       }
 
       h5 {
-        @apply text-sm font-bold mb-4;
+        @apply text-sm font-bold mb-4 mt-4;
       }
 
       h6 {
-        @apply text-xs font-bold mb-4;
+        @apply text-xs font-bold mb-4 mt-4;
       }
 
       article,
@@ -185,7 +185,8 @@
       }
 
       pre {
-        @apply my-8;
+        margin-top: 1.2rem;
+        margin-bottom: 1.5rem;
         div {
           border-radius: 10px;
           code {
@@ -296,11 +297,19 @@
       }
 
       h5 {
-        @apply text-sm font-bold mb-4;
+        @apply font-bold;
+        font-size: 7.5vh;
+        margin-top: 8vh;
+        margin-bottom: 6vh;
+        line-height: 100px;
       }
 
       h6 {
-        @apply text-xs font-bold mb-4;
+        @apply font-bold;
+        font-size: 6.5vh;
+        margin-top: 8vh;
+        margin-bottom: 6vh;
+        line-height: 100px;
       }
 
       article,
@@ -522,11 +531,19 @@
       }
 
       h5 {
-        @apply text-sm font-bold mb-4;
+        @apply font-bold;
+        font-size: 7.5vh;
+        margin-top: 8vh;
+        margin-bottom: 6vh;
+        line-height: 100px;
       }
 
       h6 {
-        @apply text-xs font-bold mb-4;
+        @apply font-bold;
+        font-size: 6.5vh;
+        margin-top: 8vh;
+        margin-bottom: 6vh;
+        line-height: 100px;
       }
 
       article,
