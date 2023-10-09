@@ -1,5 +1,5 @@
 // posts per page
-export const PER_PAGE = 10;
+export const PER_PAGE = 5;
 
 // regist language for apply hilightjs
 export const RegistLanguages = {

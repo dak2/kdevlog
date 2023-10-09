@@ -4,6 +4,49 @@
 @import './unreset.scss';
 
 html {
+  @media screen and (max-width: 1500px) {
+    #layout {
+      min-height: 100vh;
+    }
+    .not-found-container {
+      min-height: 100vh;
+    }
+    #category-icon {
+      .rubyonrails {
+        font-size: 7vh;
+      }
+      .linux {
+        font-size: 7vh;
+      }
+      .mysql {
+        font-size: 7vh;
+      }
+      .database {
+        font-size: 4vh;
+      }
+      .aws {
+        font-size: 6vh;
+      }
+      .book {
+        font-size: 5vh;
+      }
+      .javascript {
+        font-size: 5vh;
+      }
+      .typescript {
+        font-size: 5vh;
+      }
+      .react {
+        font-size: 5vh;
+      }
+      .ruby: {
+        font-size: 6vh;
+      }
+      .poem {
+        font-size: 5vh;
+      }
+    }
+  }
   @media screen and (max-width: 480px) {
     /* 480pxまでの幅の場合に適応される */
     min-width: 1500px;
@@ -36,7 +79,39 @@ html {
           }
         }
         #category-icon {
-          font-size: 20vh;
+          .rubyonrails {
+            font-size: 25vh;
+          }
+          .linux {
+            font-size: 18vh;
+          }
+          .mysql {
+            font-size: 20vh;
+          }
+          .database {
+            font-size: 15vh;
+          }
+          .aws {
+            font-size: 17vh;
+          }
+          .book {
+            font-size: 15vh;
+          }
+          .javascript {
+            font-size: 15vh;
+          }
+          .typescript {
+            font-size: 15vh;
+          }
+          .react {
+            font-size: 15vh;
+          }
+          .ruby: {
+            font-size: 15vh;
+          }
+          .poem {
+            font-size: 15vh;
+          }
         }
         #post-container {
           #post-sub-container {
@@ -56,6 +131,7 @@ html {
         }
         #pagination {
           margin-top: 150px;
+          margin-bottom: 150px;
           font-size: 10vh;
           #prev-page-icon {
             padding-top: 2vh;
@@ -121,7 +197,39 @@ html {
           }
         }
         #category-icon {
-          font-size: 10vh;
+          .rubyonrails {
+            font-size: 25vh;
+          }
+          .linux {
+            font-size: 18vh;
+          }
+          .mysql {
+            font-size: 20vh;
+          }
+          .database {
+            font-size: 15vh;
+          }
+          .aws {
+            font-size: 17vh;
+          }
+          .book {
+            font-size: 15vh;
+          }
+          .javascript {
+            font-size: 15vh;
+          }
+          .typescript {
+            font-size: 15vh;
+          }
+          .react {
+            font-size: 15vh;
+          }
+          .ruby: {
+            font-size: 15vh;
+          }
+          .poem {
+            font-size: 15vh;
+          }
         }
         #post-container {
           #post-sub-container {
