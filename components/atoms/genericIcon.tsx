@@ -25,12 +25,10 @@ import { SiZenn } from '@icons-pack/react-simple-icons';
 
 type Props = {
   iconName: string;
-  styleName?: string;
 };
 
 const GenericIcon = (props: Props) => {
   const iconName = props.iconName;
-  const styleName = props.styleName;
   const icons = {
     aws: <FaAws />,
     docker: <FaDocker />,
@@ -53,7 +51,7 @@ const GenericIcon = (props: Props) => {
     poem: <LuPencil />,
   };
 
-  return <div className={styleName}>{icons[iconName]}</div>;
+  return <div className={iconName}>{icons[iconName]}</div>;
 };
 
 export default GenericIcon;
