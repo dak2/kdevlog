@@ -15,7 +15,6 @@ type Props = {
   totalCount: number;
 };
 
-
 const Posts = (props: Props) => {
   return (
     <Layout home={null}>
