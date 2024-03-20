@@ -46,6 +46,15 @@ html {
         font-size: 5vh;
       }
     }
+    #footer {
+      #copyright {
+        font-size: 2.2vh;
+      }
+      margin-bottom: 8vh;
+    }
+    #back-page-link {
+      font-size: 2.2vh;
+    }
   }
   @media screen and (max-width: 480px) {
     /* 480pxまでの幅の場合に適応される */
@@ -147,13 +156,13 @@ html {
         }
         #footer {
           #copyright {
-            font-size: 10vh;
+            font-size: 8vh;
           }
           margin-bottom: 20vh;
         }
         #back-page-link {
           margin-bottom: 15vh;
-          font-size: 10vh;
+          font-size: 8vh;
         }
       }
     }
@@ -264,13 +273,13 @@ html {
         }
         #footer {
           #copyright {
-            font-size: 10vh;
+            font-size: 9vh;
           }
           margin-bottom: 20vh;
         }
         #back-page-link {
           margin-bottom: 15vh;
-          font-size: 10vh;
+          font-size: 9vh;
         }
       }
     }

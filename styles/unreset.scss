@@ -39,7 +39,7 @@
       }
 
       p {
-        line-height: 3.7vh;
+        line-height: 4.2vh;
       }
 
       figure {
@@ -59,11 +59,11 @@
       }
 
       h3 {
-        @apply text-lg font-bold mb-2 mt-5;
+        @apply text-lg font-bold mb-4 border-b mt-8;
       }
 
       h4 {
-        @apply text-base font-bold mb-2 mt-4;
+        @apply text-base font-bold mb-3 mt-7;
       }
 
       h5 {
@@ -135,7 +135,7 @@
       ul {
         @apply my-4;
         li {
-          margin-top: 2px;
+          margin-top: 6px;
         }
       }
       ol {
@@ -204,7 +204,7 @@
     #post-title {
       margin-top: 30vh;
       font-size: 13vh;
-      line-height: 150px;
+      line-height: 160px;
     }
     #date {
       margin-bottom: 7vh;
@@ -212,8 +212,8 @@
     }
     .post-contents {
       p {
-        font-size: 9vh;
-        line-height: 15.5vh;
+        font-size: 7.5vh;
+        line-height: 16vh;
       }
 
       pre {
@@ -278,20 +278,21 @@
         font-size: 12vh;
         line-height: 150px;
         margin-top: 20vh;
-        margin-bottom: 6vh;
+        margin-bottom: 7vh;
       }
 
       h3 {
         @apply text-lg font-bold;
-        font-size: 11vh;
+        font-size: 10vh;
         margin-top: 13vh;
+        margin-bottom: 9vh;
         line-height: 150px;
       }
 
       h4 {
         @apply font-bold;
         font-size: 9vh;
-        margin-top: 10vh;
+        margin-top: 13vh;
         margin-bottom: 6vh;
         line-height: 100px;
       }
@@ -366,7 +367,7 @@
       }
 
       ul {
-        font-size: 9vh;
+        font-size: 7.5vh;
         margin-top: 10vh;
         margin-bottom: 10vh;
         line-height: 15vh;
@@ -454,7 +455,7 @@
     }
     .post-contents {
       p {
-        font-size: 10vh;
+        font-size: 8vh;
         line-height: 17vh;
       }
 
@@ -520,7 +521,7 @@
         font-size: 12vh;
         line-height: 150px;
         margin-top: 20vh;
-        margin-bottom: 6vh;
+        margin-bottom: 7vh;
       }
 
       h3 {
@@ -608,7 +609,7 @@
       }
 
       ul {
-        font-size: 10vh;
+        font-size: 8vh;
         margin-top: 10vh;
         margin-bottom: 10vh;
         line-height: 17vh;
