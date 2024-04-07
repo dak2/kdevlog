@@ -32,7 +32,7 @@ const PostContent = (posts: Post[]) => {
     <ul>
       {posts.map(({ id, title, published_at, categories }, postIndex) => (
         <li key={postIndex}>
-          <div id="post-sub-container" className="mb-12">
+          <div id="post-sub-container">
             <Link href={`/posts/${id}`}>
               <h2 className="mb-2 text-2xl font-extrabold">
                 <p className="cursor-pointer hover:underline">{title}</p>
