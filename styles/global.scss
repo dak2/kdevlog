@@ -5,6 +5,9 @@
 
 html {
   @media screen and (max-width: 1500px) {
+    #post-sub-container {
+      margin-bottom: 45px;
+    }
     #layout {
       min-height: 100vh;
     }
@@ -58,6 +61,9 @@ html {
   }
   @media screen and (max-width: 480px) {
     /* 480pxまでの幅の場合に適応される */
+    #post-sub-container {
+      margin-bottom: 250px;
+    }
     min-width: 1500px;
     #_app {
       min-height: 2680px;
