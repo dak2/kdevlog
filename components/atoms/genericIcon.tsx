@@ -45,7 +45,7 @@ const GenericIcon = (props: Props) => {
     right: <FaChevronRight />,
     left: <FaChevronLeft />,
     book: <FaBookOpen />,
-    zenn: <SiZenn />,
+    zenn: <SiZenn className={iconName} />,
     mysql: <SiMysql />,
     database: <FaDatabase />,
     poem: <LuPencil />,
