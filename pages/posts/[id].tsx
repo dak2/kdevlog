@@ -2,7 +2,7 @@ import Layout from '../../components/molecules/layout';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
 import ReactMarkdown from 'react-markdown';
-import { Post } from '../../lib/type';
+import type { Post } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
 import { PostNotFound } from '../../components/molecules/postNotFound';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
