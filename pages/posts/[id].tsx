@@ -2,7 +2,7 @@ import Layout from '../../components/molecules/layout';
 import Head from 'next/head';
 import { FormatedDate } from '../../components/atoms/date';
 import ReactMarkdown from 'react-markdown';
-import { Post } from '../../lib/type';
+import type { Post } from '../../lib/type';
 import { getPostData, getPostIds } from '../../utils/functions';
 import { PostNotFound } from '../../components/molecules/postNotFound';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -33,9 +33,9 @@ const PostDetail = (post: Post) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ inline, className, children, ...props }) {
+              code({ className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || '');
-                return !inline && match ? (
+                return match ? (
                   <SyntaxHighlighter
                     {...props}
                     style={vscDarkPlus}
