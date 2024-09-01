@@ -33,9 +33,9 @@ const PostDetail = (post: Post) => {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
-              code({ inline, className, children, ...props }) {
+              code({ className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || '');
-                return !inline && match ? (
+                return match ? (
                   <SyntaxHighlighter
                     {...props}
                     style={vscDarkPlus}
