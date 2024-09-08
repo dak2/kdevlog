@@ -5,4 +5,4 @@ module.exports = {
     './public/**/*.html',
     './styles/*.scss',
   ],
-};
+}

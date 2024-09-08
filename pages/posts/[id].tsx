@@ -1,17 +1,17 @@
-import Layout from '../../components/molecules/layout';
-import Head from 'next/head';
-import { FormatedDate } from '../../components/atoms/date';
-import ReactMarkdown from 'react-markdown';
-import type { Post } from '../../lib/type';
-import { getPostData, getPostIds } from '../../utils/functions';
-import { PostNotFound } from '../../components/molecules/postNotFound';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import remarkGfm from 'remark-gfm';
+import Head from 'next/head'
+import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import remarkGfm from 'remark-gfm'
+import { FormatedDate } from '../../components/atoms/date'
+import Layout from '../../components/molecules/layout'
+import { PostNotFound } from '../../components/molecules/postNotFound'
+import type { Post } from '../../lib/type'
+import { getPostData, getPostIds } from '../../utils/functions'
 
 type Props = {
-  post: Post;
-};
+  post: Post
+}
 
 const PostDetail = (post: Post) => {
   return (
@@ -34,7 +34,7 @@ const PostDetail = (post: Post) => {
             remarkPlugins={[remarkGfm]}
             components={{
               code({ className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || '');
+                const match = /language-(\w+)/.exec(className || '')
                 return match ? (
                   <SyntaxHighlighter
                     {...props}
@@ -50,7 +50,7 @@ const PostDetail = (post: Post) => {
                   <code {...props} className={className}>
                     {children}
                   </code>
-                );
+                )
               },
             }}
           >
@@ -59,21 +59,21 @@ const PostDetail = (post: Post) => {
         </div>
       </article>
     </Layout>
-  );
-};
+  )
+}
 
 export default function Post(props: Props) {
-  const post = props.post;
+  const post = props.post
   if (post) {
-    return PostDetail(post);
+    return PostDetail(post)
   } else {
-    return PostNotFound;
+    return PostNotFound
   }
 }
 
 export const getStaticPaths = async () => {
-  return { paths: getPostIds(), fallback: false };
-};
+  return { paths: getPostIds(), fallback: false }
+}
 
 export const getStaticProps = async (context) => {
   return {
@@ -81,5 +81,5 @@ export const getStaticProps = async (context) => {
       post: getPostData(context.params.id),
       revalidate: 60,
     },
-  };
-};
+  }
+}

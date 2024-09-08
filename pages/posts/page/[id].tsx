@@ -1,17 +1,17 @@
-import Link from 'next/link';
-import Head from 'next/head';
-import Layout, { siteTitle } from '../../../components/molecules/layout';
-import Pagination from '../../../components/molecules/pagination';
-import { FormatedDate } from '../../../components/atoms/date';
-import { PER_PAGE } from '../../../lib/const';
-import { Post } from '../../../lib/type';
-import { getPostIds, getPosts, range } from '../../../utils/functions';
-import { PostNotFound } from '../../../components/molecules/postNotFound';
+import Head from 'next/head'
+import Link from 'next/link'
+import { FormatedDate } from '../../../components/atoms/date'
+import Layout, { siteTitle } from '../../../components/molecules/layout'
+import Pagination from '../../../components/molecules/pagination'
+import { PostNotFound } from '../../../components/molecules/postNotFound'
+import { PER_PAGE } from '../../../lib/const'
+import { Post } from '../../../lib/type'
+import { getPostIds, getPosts, range } from '../../../utils/functions'
 
 type Props = {
-  posts: Post[];
-  totalCount: number;
-};
+  posts: Post[]
+  totalCount: number
+}
 
 const Posts = (props: Props) => {
   return (
@@ -24,8 +24,8 @@ const Posts = (props: Props) => {
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 const PostContent = (posts: Post[]) => {
   return (
@@ -72,37 +72,37 @@ const PostContent = (posts: Post[]) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
 export default function PostsPageId(props: Props) {
   if (props.posts.length > 0) {
-    return Posts(props);
+    return Posts(props)
   } else {
-    return PostNotFound;
+    return PostNotFound
   }
 }
 
 export const getStaticPaths = async () => {
-  const postIds = getPostIds();
+  const postIds = getPostIds()
   const paths = range(1, Math.ceil(postIds.length / PER_PAGE)).map(
     (repo) => `/posts/page/${repo}`,
-  );
+  )
 
-  return { paths, fallback: false };
-};
+  return { paths, fallback: false }
+}
 
 export const getStaticProps = async (context) => {
-  const pageNumber = context.params.id;
-  const offset = (pageNumber - 1) * PER_PAGE;
-  const limit = PER_PAGE;
-  const posts = getPosts();
-  const postsPerPage = posts.slice(offset, offset + limit);
+  const pageNumber = context.params.id
+  const offset = (pageNumber - 1) * PER_PAGE
+  const limit = PER_PAGE
+  const posts = getPosts()
+  const postsPerPage = posts.slice(offset, offset + limit)
 
   return {
     props: {
       posts: postsPerPage,
       totalCount: posts.length,
     },
-  };
-};
+  }
+}

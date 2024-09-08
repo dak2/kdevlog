@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import GenericIcon from '../atoms/genericIcon';
+import Link from 'next/link'
+import GenericIcon from '../atoms/genericIcon'
 
 const HeaderBar = () => {
   return (
@@ -22,7 +22,7 @@ const HeaderBar = () => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderBar;
+export default HeaderBar

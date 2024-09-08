@@ -1,5 +1,5 @@
 // posts per page
-export const PER_PAGE = 5;
+export const PER_PAGE = 5
 
 // regist language for apply hilightjs
 export const RegistLanguages = {
@@ -14,14 +14,14 @@ export const RegistLanguages = {
   java: 'Java',
   elixir: 'Elixir',
   shell: 'Shell',
-};
+}
 
 const flameWorks = {
   rubyonrails: 'Ruby on Rails',
   react: 'React',
   nextjs: 'Next.js',
   echo: 'Echo',
-};
+}
 
 const infra = {
   aws: 'AWS',
@@ -29,7 +29,7 @@ const infra = {
   kubernetes: 'Kubernetes',
   nginx: 'Nginx',
   linux: 'Linux',
-};
+}
 
 const databases = {
   database: 'Database',
@@ -37,7 +37,7 @@ const databases = {
   postgresql: 'PostgreSQL',
   redis: 'Redis',
   mongodb: 'MongoDB',
-};
+}
 
 const others = {
   github: 'GitHub',
@@ -46,7 +46,7 @@ const others = {
   nodejs: 'Node.js',
   book: 'Book',
   poem: 'Poem',
-};
+}
 
 export const categories = {
   ...RegistLanguages,
@@ -54,4 +54,4 @@ export const categories = {
   ...infra,
   ...databases,
   ...others,
-};
+}

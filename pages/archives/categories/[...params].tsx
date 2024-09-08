@@ -1,19 +1,19 @@
-import Layout, { siteTitle } from '../../../components/molecules/layout';
-import Link from 'next/link';
-import { categories } from '../../../lib/const';
-import Head from 'next/head';
-import { FormatedDate } from '../../../components/atoms/date';
-import GenericIcon from '../../../components/atoms/genericIcon';
-import Pagination from '../../../components/molecules/pagination';
-import { Post } from '../../../lib/type';
-import { PostNotFound } from '../../../components/molecules/postNotFound';
-import { getPostsDataByCategory } from '../../../utils/functions';
+import Head from 'next/head'
+import Link from 'next/link'
+import { FormatedDate } from '../../../components/atoms/date'
+import GenericIcon from '../../../components/atoms/genericIcon'
+import Layout, { siteTitle } from '../../../components/molecules/layout'
+import Pagination from '../../../components/molecules/pagination'
+import { PostNotFound } from '../../../components/molecules/postNotFound'
+import { categories } from '../../../lib/const'
+import { Post } from '../../../lib/type'
+import { getPostsDataByCategory } from '../../../utils/functions'
 
 type Props = {
-  posts: Post[];
-  category: string;
-  totalCount: number;
-};
+  posts: Post[]
+  category: string
+  totalCount: number
+}
 
 const Posts = (props: Props) => {
   return (
@@ -29,13 +29,13 @@ const Posts = (props: Props) => {
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 const CategoryIcon = (category: string) => {
-  if (!category) return null;
-  return <GenericIcon iconName={category} />;
-};
+  if (!category) return null
+  return <GenericIcon iconName={category} />
+}
 
 const PostContent = (posts: Post[]) => {
   return (
@@ -82,28 +82,28 @@ const PostContent = (posts: Post[]) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
 export default function Categories(props: Props) {
   if (props.posts.length > 0) {
-    return Posts(props);
+    return Posts(props)
   } else {
-    return PostNotFound();
+    return PostNotFound()
   }
 }
 
 export const getStaticPaths = async () => {
   const paths = Object.keys(categories).map((category: string) => {
-    return { params: { params: [category] } };
-  });
+    return { params: { params: [category] } }
+  })
 
-  return { paths, fallback: false };
-};
+  return { paths, fallback: false }
+}
 
 export const getStaticProps = async (context) => {
-  const category = context.params.params[0];
-  const posts = getPostsDataByCategory(categories[category]);
+  const category = context.params.params[0]
+  const posts = getPostsDataByCategory(categories[category])
 
   return {
     props: {
@@ -112,5 +112,5 @@ export const getStaticProps = async (context) => {
       revalidate: 60,
       totalCount: posts.length,
     },
-  };
-};
+  }
+}
