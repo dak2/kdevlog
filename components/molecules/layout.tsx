@@ -1,14 +1,14 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Header from './headerBar';
-import Footer from '../atoms/footerBar';
-import { useRouter } from 'next/router';
+import Head from 'next/head'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Footer from '../atoms/footerBar'
+import Header from './headerBar'
 
-export const siteTitle = 'Kdevlog';
+export const siteTitle = 'Kdevlog'
 
 export default function Layout({ children, home }) {
-  const router = useRouter();
-  const currentPageId = router.query.id ? Number(router.query.id) : '';
+  const router = useRouter()
+  const currentPageId = router.query.id ? Number(router.query.id) : ''
   return (
     <div id="layout" className="max-w-4xl mx-auto">
       <Head>
@@ -35,5 +35,5 @@ export default function Layout({ children, home }) {
       <div className="mt-10"></div>
       <Footer />
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import { parseISO, format } from 'date-fns';
+import { format, parseISO } from 'date-fns'
 
 export function FormatedDate({ dateString, type = 'updated_at' }) {
-  const date = parseISO(dateString);
-  return `${type}: ${format(date, 'yyyy-MM-dd')}`;
+  const date = parseISO(dateString)
+  return `${type}: ${format(date, 'yyyy-MM-dd')}`
 }
 
 export function FormatedToday({ date }) {
@@ -10,5 +10,5 @@ export function FormatedToday({ date }) {
     <p suppressHydrationWarning id="copyright" className="inline-block text-xs">
       {`© ${format(date, 'yyyy')} Kdevlog.com`}
     </p>
-  );
+  )
 }

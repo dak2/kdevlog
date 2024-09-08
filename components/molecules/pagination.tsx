@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import { PER_PAGE } from '../../lib/const';
-import GenericIcon from '../atoms/genericIcon';
-import { useRouter } from 'next/router';
-import { range } from '../../utils/functions';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { PER_PAGE } from '../../lib/const'
+import { range } from '../../utils/functions'
+import GenericIcon from '../atoms/genericIcon'
 
 const Pagination = ({ totalCount }) => {
-  const router = useRouter();
-  const currentPageId = router.query.id ? Number(router.query.id) : '';
-  const prevPageId = currentPageId ? currentPageId - 1 : '';
-  const nextPageId = currentPageId ? currentPageId + 1 : '';
-  const pagenationList = range(1, Math.ceil(totalCount / PER_PAGE));
+  const router = useRouter()
+  const currentPageId = router.query.id ? Number(router.query.id) : ''
+  const prevPageId = currentPageId ? currentPageId - 1 : ''
+  const nextPageId = currentPageId ? currentPageId + 1 : ''
+  const pagenationList = range(1, Math.ceil(totalCount / PER_PAGE))
 
   const prevPage = () => {
     if (pagenationList.length <= 1) {
@@ -17,7 +17,7 @@ const Pagination = ({ totalCount }) => {
         <div id="prev-page-icon" style={{ marginTop: 5 }}>
           <GenericIcon iconName="left" />
         </div>
-      );
+      )
     } else {
       return (
         <a
@@ -27,9 +27,9 @@ const Pagination = ({ totalCount }) => {
         >
           <GenericIcon iconName="left" />
         </a>
-      );
+      )
     }
-  };
+  }
 
   const nextPage = () => {
     if (pagenationList.length <= 1 || pagenationList.length === currentPageId) {
@@ -37,7 +37,7 @@ const Pagination = ({ totalCount }) => {
         <div id="next-page-icon" style={{ marginTop: 5 }}>
           <GenericIcon iconName="right" />
         </div>
-      );
+      )
     } else {
       return (
         <a
@@ -47,9 +47,9 @@ const Pagination = ({ totalCount }) => {
         >
           <GenericIcon iconName="right" />
         </a>
-      );
+      )
     }
-  };
+  }
 
   return (
     <div id="pagination" className="flex justify-start text-gray-200">
@@ -69,7 +69,7 @@ const Pagination = ({ totalCount }) => {
       </ul>
       {nextPage()}
     </div>
-  );
-};
+  )
+}
 
-export default Pagination;
+export default Pagination

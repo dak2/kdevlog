@@ -1,34 +1,34 @@
+import { SiZenn } from '@icons-pack/react-simple-icons'
 // TODO: ライブラリ統一
 import {
-  FaGithub,
   FaAws,
-  FaDocker,
+  FaBookOpen,
   FaChevronLeft,
   FaChevronRight,
-  FaRust,
+  FaDatabase,
+  FaDocker,
+  FaGithub,
+  FaLinux,
   FaNodeJs,
   FaReact,
-  FaLinux,
-  FaBookOpen,
-  FaDatabase,
-} from 'react-icons/fa';
+  FaRust,
+} from 'react-icons/fa'
+import { LuPencil } from 'react-icons/lu'
 import {
+  SiDeno,
   SiJavascript,
+  SiMysql,
   SiRuby,
   SiRubyonrails,
   SiTypescript,
-  SiDeno,
-  SiMysql,
-} from 'react-icons/si';
-import { LuPencil } from 'react-icons/lu';
-import { SiZenn } from '@icons-pack/react-simple-icons';
+} from 'react-icons/si'
 
 type Props = {
-  iconName: string;
-};
+  iconName: string
+}
 
 const GenericIcon = (props: Props) => {
-  const iconName = props.iconName;
+  const iconName = props.iconName
   const icons = {
     aws: <FaAws />,
     docker: <FaDocker />,
@@ -49,9 +49,9 @@ const GenericIcon = (props: Props) => {
     mysql: <SiMysql />,
     database: <FaDatabase />,
     poem: <LuPencil />,
-  };
+  }
 
-  return <div className={iconName}>{icons[iconName]}</div>;
-};
+  return <div className={iconName}>{icons[iconName]}</div>
+}
 
-export default GenericIcon;
+export default GenericIcon

@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from './layout';
+import Head from 'next/head'
+import Layout, { siteTitle } from './layout'
 
 export const PostNotFound = () => {
   return (
@@ -11,5 +11,5 @@ export const PostNotFound = () => {
         <h1 className="mb-10 text-5xl font-bold">記事はありません</h1>
       </div>
     </Layout>
-  );
-};
+  )
+}
