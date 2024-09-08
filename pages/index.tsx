@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/molecules/layout';
-import Link from 'next/link';
-import { FormatedDate } from '../components/atoms/date';
-import Pagination from '../components/molecules/pagination';
-import { Post } from '../lib/type';
-import { getPosts } from '../utils/functions';
-import { PostNotFound } from '../components/molecules/postNotFound';
-import { PER_PAGE } from '../lib/const';
+import Head from 'next/head'
+import Link from 'next/link'
+import { FormatedDate } from '../components/atoms/date'
+import Layout, { siteTitle } from '../components/molecules/layout'
+import Pagination from '../components/molecules/pagination'
+import { PostNotFound } from '../components/molecules/postNotFound'
+import { PER_PAGE } from '../lib/const'
+import { Post } from '../lib/type'
+import { getPosts } from '../utils/functions'
 
 type Props = {
-  posts: Post[];
-  totalCount: number;
-};
+  posts: Post[]
+  totalCount: number
+}
 
 const Posts = (props: Props) => {
   return (
@@ -24,8 +24,8 @@ const Posts = (props: Props) => {
         <Pagination totalCount={props.totalCount} />
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 const PostContent = (posts: Post[]) => {
   return (
@@ -72,20 +72,20 @@ const PostContent = (posts: Post[]) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
 export default function Home(props: Props) {
   if (props.posts.length > 0) {
-    return Posts(props);
+    return Posts(props)
   } else {
-    return PostNotFound;
+    return PostNotFound
   }
 }
 
 export const getStaticProps = async () => {
-  const posts = getPosts();
-  const postsPerPage = posts.slice(0, PER_PAGE);
+  const posts = getPosts()
+  const postsPerPage = posts.slice(0, PER_PAGE)
 
   return {
     props: {
@@ -93,5 +93,5 @@ export const getStaticProps = async () => {
       revalidate: 60,
       totalCount: posts.length,
     },
-  };
-};
+  }
+}
