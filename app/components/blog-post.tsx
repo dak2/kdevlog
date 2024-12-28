@@ -1,12 +1,14 @@
 import { Post } from '../../lib/blog'
-import { CiCalendar } from "react-icons/ci";
+import { CiCalendar } from 'react-icons/ci'
 import Link from 'next/link'
 
 export default function BlogPost({ post }: { post: Post }) {
   return (
     <article className="mb-8">
       <Link href={`/blog/${post.slug}`}>
-        <h2 className="text-xl font-bold mb-2 hover:text-gray-300">{post.title}</h2>
+        <h2 className="text-xl font-bold mb-2 hover:text-gray-300">
+          {post.title}
+        </h2>
       </Link>
       <p className="text-gray-400 mb-2">{post.excerpt}</p>
       <div className="flex items-center text-sm text-gray-500 mb-2">
@@ -23,4 +25,3 @@ export default function BlogPost({ post }: { post: Post }) {
     </article>
   )
 }
-

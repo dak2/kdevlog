@@ -1,4 +1,4 @@
-import { Post } from "./type"
+import { Post } from './type'
 import { readFileSync, readdirSync } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
@@ -28,20 +28,23 @@ export const getPosts = (perPage?: number) => {
   return perPage ? sortedPosts.slice(0, perPage) : sortedPosts
 }
 
-export function getBlogPosts(page: number = 1, perPage: number = 4): { posts: Post[], totalPages: number } {
+export function getBlogPosts(
+  page: number = 1,
+  perPage: number = 4,
+): { posts: Post[]; totalPages: number } {
   const blogPosts = getPosts()
   const startIndex = (page - 1) * perPage
   const endIndex = startIndex + perPage
   const paginatedPosts = blogPosts.slice(startIndex, endIndex)
   const totalPages = Math.ceil(blogPosts.length / perPage)
-  
+
   return {
     posts: paginatedPosts,
-    totalPages
+    totalPages,
   }
 }
 
 export function getBlogPostBySlug(slug: string): Post | undefined {
   const blogPosts = getPosts()
-  return blogPosts.find(post => post.slug === slug)
+  return blogPosts.find((post) => post.slug === slug)
 }

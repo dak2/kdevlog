@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import BlogPost from './components/blog-post'
@@ -13,7 +13,9 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const pageParam = searchParams?.get('page') ? parseInt(searchParams.get('page')!, 10) : 1
+      const pageParam = searchParams?.get('page')
+        ? parseInt(searchParams.get('page')!, 10)
+        : 1
       setPage(pageParam)
       const res = await fetch(`/api/fetchPosts?page=${pageParam}`)
       const data = await res.json()
