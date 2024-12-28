@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "lint": "npx @biomejs/biome format --write"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^10.2.0",

@@ -1,304 +1,108 @@
 @import 'tailwindcss/base.css';
 @import 'tailwindcss/components.css';
 @import 'tailwindcss/utilities.css';
-@import './unreset.scss';
 
-html {
-  @media screen and (max-width: 1500px) {
-    #post-sub-container {
-      margin-bottom: 45px;
-    }
-    #layout {
-      min-height: 100vh;
-    }
-    .not-found-container {
-      min-height: 100vh;
-    }
-    #category-icon {
-      .rubyonrails {
-        font-size: 7vh;
-      }
-      .linux {
-        font-size: 7vh;
-      }
-      .mysql {
-        font-size: 7vh;
-      }
-      .database {
-        font-size: 4vh;
-      }
-      .aws {
-        font-size: 6vh;
-      }
-      .book {
-        font-size: 5vh;
-      }
-      .javascript {
-        font-size: 5vh;
-      }
-      .typescript {
-        font-size: 5vh;
-      }
-      .react {
-        font-size: 5vh;
-      }
-      .ruby: {
-        font-size: 6vh;
-      }
-      .poem {
-        font-size: 5vh;
-      }
-    }
-    #footer {
-      #copyright {
-        font-size: 2.2vh;
-      }
-      margin-bottom: 8vh;
-    }
-    #back-page-link {
-      font-size: 2.2vh;
-    }
-  }
-  @media screen and (max-width: 480px) {
-    /* 480pxまでの幅の場合に適応される */
-    #post-sub-container {
-      margin-bottom: 250px;
-    }
-    min-width: 1500px;
-    #_app {
-      min-height: 2680px;
-      #layout {
-        max-width: 75.5rem;
-        #header {
-          margin-top: 150px;
-          margin-bottom: 250px;
-          h1 {
-            font-size: 20vh;
-            margin-right: initial;
-            padding-top: 40px;
-          }
-          #icon-container {
-            #github-icon {
-              padding-top: 3vh;
-              font-size: 15vh;
-            }
-            #zenn-icon {
-              margin-top: 36px;
-              div {
-                svg {
-                  width: 100px !important;
-                  height: 100px !important;
-                }
-              }
-            }
-          }
-        }
-        #category-icon {
-          .rubyonrails {
-            font-size: 25vh;
-          }
-          .linux {
-            font-size: 18vh;
-          }
-          .mysql {
-            font-size: 20vh;
-          }
-          .database {
-            font-size: 15vh;
-          }
-          .aws {
-            font-size: 17vh;
-          }
-          .book {
-            font-size: 15vh;
-          }
-          .javascript {
-            font-size: 15vh;
-          }
-          .typescript {
-            font-size: 15vh;
-          }
-          .react {
-            font-size: 15vh;
-          }
-          .ruby: {
-            font-size: 15vh;
-          }
-          .poem {
-            font-size: 15vh;
-          }
-        }
-        #post-container {
-          #post-sub-container {
-            margin-top: 150px;
-            h2 {
-              font-size: 13vh;
-              line-height: 150px;
-            }
-            #date {
-              font-size: 9vh;
-            }
-            #tag {
-              margin-top: 4vh;
-              font-size: 10vh;
-            }
-          }
-        }
-        #pagination {
-          margin-top: 150px;
-          margin-bottom: 150px;
-          font-size: 10vh;
-          #prev-page-icon {
-            padding-top: 2vh;
-          }
-          #next-page-icon {
-            padding-top: 2vh;
-            margin-left: 5vh;
-          }
-          #page-number {
-            margin-left: 10vh;
-            margin-right: 10vh;
-          }
-        }
-        #footer {
-          #copyright {
-            font-size: 8vh;
-          }
-          margin-bottom: 20vh;
-        }
-        #back-page-link {
-          margin-bottom: 15vh;
-          font-size: 8vh;
-        }
-      }
-    }
-    #layout {
-      margin-top: 90px;
-    }
-    #post-container {
-      margin-bottom: 90px;
-    }
-  }
-  @media screen and (max-width: 375px) {
-    /* 375pxまでの幅の場合に適応される */
-    min-width: 1500px;
-    #_app {
-      min-height: 2680px;
-      #layout {
-        max-width: 75.5rem;
-        #header {
-          margin-top: 150px;
-          margin-bottom: 250px;
-          h1 {
-            font-size: 20vh;
-            margin-right: initial;
-            padding-top: 40px;
-          }
-          #icon-container {
-            margin-left: auto;
-            #github-icon {
-              padding-top: 3vh;
-              font-size: 15vh;
-            }
-            #zenn-icon {
-              margin-top: 20px;
-              div {
-                svg {
-                  width: 100px !important;
-                  height: 100px !important;
-                }
-              }
-            }
-          }
-        }
-        #category-icon {
-          .rubyonrails {
-            font-size: 25vh;
-          }
-          .linux {
-            font-size: 18vh;
-          }
-          .mysql {
-            font-size: 20vh;
-          }
-          .database {
-            font-size: 15vh;
-          }
-          .aws {
-            font-size: 17vh;
-          }
-          .book {
-            font-size: 15vh;
-          }
-          .javascript {
-            font-size: 15vh;
-          }
-          .typescript {
-            font-size: 15vh;
-          }
-          .react {
-            font-size: 15vh;
-          }
-          .ruby: {
-            font-size: 15vh;
-          }
-          .poem {
-            font-size: 15vh;
-          }
-        }
-        #post-container {
-          #post-sub-container {
-            margin-top: 150px;
-            h2 {
-              font-size: 13vh;
-              line-height: 150px;
-            }
-            #date {
-              font-size: 10vh;
-            }
-            #category {
-              margin-top: 4vh;
-              font-size: 12vh;
-            }
-          }
-        }
-        #pagination {
-          margin-top: 150px;
-          font-size: 10vh;
-          #prev-page-icon {
-            padding-top: 2vh;
-          }
-          #next-page-icon {
-            padding-top: 2vh;
-            margin-left: 5vh;
-          }
-          #page-number {
-            margin-left: 10vh;
-            margin-right: 10vh;
-          }
-        }
-        #footer {
-          #copyright {
-            font-size: 9vh;
-          }
-          margin-bottom: 20vh;
-        }
-        #back-page-link {
-          margin-bottom: 15vh;
-          font-size: 9vh;
-        }
-      }
-    }
-    #layout {
-      margin-top: 90px;
-    }
-    #post-container {
-      margin-bottom: 90px;
-    }
-  }
+.markdown {
+  @apply text-gray-100 leading-normal break-words;
 }
 
-.hljs {
-  @apply rounded-lg;
+.markdown > * + * {
+  @apply mt-0 mb-4;
 }
 
+.markdown p {
+  @apply leading-8;
+}
+
+.markdown li + li {
+  @apply mt-1;
+}
+
+.markdown li > p + p {
+  @apply mt-6;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown a {
+  @apply text-blue-600 font-semibold;
+}
+
+.markdown strong a {
+  @apply font-bold;
+}
+
+.markdown h1 {
+  @apply leading-tight border-b text-4xl font-semibold mb-4 mt-11 pb-2;
+}
+
+.markdown h2 {
+  @apply leading-tight border-b text-2xl font-semibold mb-4 mt-11 pb-2;
+}
+
+.markdown h3 {
+  @apply leading-snug text-lg font-semibold mb-4 mt-10;
+}
+
+.markdown h4 {
+  @apply leading-none text-base font-semibold mb-4 mt-10;
+}
+
+.markdown h5 {
+  @apply leading-tight text-sm font-semibold mb-4 mt-10;
+}
+
+.markdown h6 {
+  @apply leading-tight text-sm font-semibold text-gray-600 mb-4 mt-10;
+}
+
+.markdown blockquote {
+  @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-400;
+}
+
+.markdown code {
+  @apply font-mono text-sm inline bg-gray-700 rounded px-1.5 py-0.5 mx-0.5;
+}
+
+.markdown pre {
+  @apply my-8;
+}
+
+.markdown pre div {
+  @apply rounded p-4;
+}
+
+.markdown pre code {
+  @apply block bg-transparent p-0 overflow-visible rounded-none;
+}
+
+.markdown ul {
+  @apply text-base pl-8 list-disc;
+}
+
+.markdown ol {
+  @apply text-base pl-8 list-decimal;
+}
+
+.markdown kbd {
+  @apply text-xs inline-block rounded border px-1 py-5 align-middle font-normal font-mono shadow;
+}
+
+.markdown table {
+  @apply text-base border-gray-600;
+}
+
+.markdown th {
+  @apply border py-1 px-3;
+}
+
+.markdown td {
+  @apply border py-1 px-3;
+}
+
+/* Override pygments style background color. */
+.markdown .highlight pre {
+  @apply bg-gray-100 !important;
+}
