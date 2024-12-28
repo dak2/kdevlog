@@ -17,7 +17,7 @@ export default function Home() {
         ? parseInt(searchParams.get('page')!, 10)
         : 1
       setPage(pageParam)
-      const res = await fetch(`/api/fetchPosts?page=${pageParam}`)
+      const res = await fetch(`/api/posts?page=${pageParam}`)
       const data = await res.json()
       setPosts(data.posts)
       setTotalPages(data.totalPages)

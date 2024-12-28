@@ -1,15 +1,32 @@
+"use client"
+import { useEffect, useState } from 'react'
+import { useParams } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { getBlogPostBySlug } from '../../../lib/blog'
 import { CiCalendar } from 'react-icons/ci'
 import remarkGfm from 'remark-gfm'
+import { Post } from '../../../lib/type'
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getBlogPostBySlug(params.slug)
+export default function BlogPostPage() {
+  const params = useParams<{ slug: string}>()
+  const slug = params?.slug
+  const [post, setPost] = useState<Post>()
+
+  useEffect(() => {
+    if (slug) {
+      const fetchPost = async () => {
+        const res = await fetch(`/api/posts/${slug}`)
+        const data = await res.json()
+        setPost(data)
+      }
+
+      fetchPost()
+    }
+  }, [slug])
 
   if (!post) {
-    return <div>Post not found</div>
+    return <div>Loading...</div>
   }
 
   return (
@@ -21,18 +38,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {new Date(post.date).toLocaleDateString()}
         </time>
       </div>
-      <div className="flex flex-wrap gap-2 mb-8">
-        {post.categories.map((category) => (
-          <span
-            key={category}
-            className="bg-indigo-900 text-indigo-200 px-2 py-1 rounded-full text-xs"
-          >
-            #{category}
-          </span>
-        ))}
-      </div>
-      <div className="prose prose-invert max-w-none">
-        <ReactMarkdown
+      <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
             code({ className, children, ...props }) {
@@ -58,7 +64,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         >
           {post.content}
         </ReactMarkdown>
-      </div>
     </article>
   )
 }
