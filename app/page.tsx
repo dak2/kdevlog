@@ -1,11 +1,24 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Post } from '../lib/type'
 import BlogPost from './components/blog-post'
 import Pagination from './components/pagination'
 
-export default function Home() {
+function BlogContent({ page, posts, totalPages }) {
+  return (
+    <div>
+      <div>
+        {posts.map((post) => (
+          <BlogPost key={post.slug} post={post} />
+        ))}
+      </div>
+      <Pagination currentPage={page} totalPages={totalPages} />
+    </div>
+  )
+}
+
+function BlogContentWrapper() {
   const searchParams = useSearchParams()
   const [page, setPage] = useState(1)
   const [posts, setPosts] = useState<Post[]>([])
@@ -26,14 +39,13 @@ export default function Home() {
     fetchData()
   }, [searchParams])
 
+  return <BlogContent page={page} posts={posts} totalPages={totalPages} />
+}
+
+export default function Home() {
   return (
-    <div>
-      <div>
-        {posts.map((post) => (
-          <BlogPost key={post.slug} post={post} />
-        ))}
-      </div>
-      <Pagination currentPage={page} totalPages={totalPages} />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <BlogContentWrapper />
+    </Suspense>
   )
 }
