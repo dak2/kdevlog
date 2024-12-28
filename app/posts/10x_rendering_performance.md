@@ -48,8 +48,6 @@ Promise.all([promise1, promise2, promise3]).then((val) => { ... })
 
 これによりセレクトボックスの選択肢が揃うまで、他の要素の設定（テキストボックス入力など）をしておける状態に持っていける。
 
-&nbsp;
-
 また、特定件数だけ取得して残りはページネーションを用意することで、大量にレコード取得してGraphQLのクエリが何回も発行されることを避けるようにする。（元々全件取得するために無限ローディングしていた）
 
 まとめると、遅延ローディング + デマンドフェッチ。
@@ -80,13 +78,11 @@ Promise.all([promise1, promise2, promise3]).then((val) => { ... })
 
 上述した通りうまく作成できなかったので、他のライブラリで実現できないかを調査した。
 
-調査したところ、[react-select-async-pagenate](https://www.npmjs.com/package/react-select-async-paginate)が利用できそうだった。
+調査したところ、[react-select-async-pagenate](https://www.npmjs.com/package/react-select-async-paginate) が利用できそうだった。
 
 しかし、リリースノートやタグが切られておらず、破壊的な変更がサイレントで入ってくるリスクがあったので採用できず。
 
 そのため、同ライブラリのコードの中身を引っ張ってきて自前で実装する決断をした。
-
-&nbsp;
 
 https://github.com/vtaits/react-select-async-paginate/blob/52f2e2f0fe99f57bb8536b202ecda409a558b9a5/src/index.jsx
 

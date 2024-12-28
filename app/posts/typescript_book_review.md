@@ -39,7 +39,7 @@ JSに存在しないenumを表現するためにIIFE(即時実行関数)を含�
 
 ただ外部APIとのやり取りでnullが渡ってくるのはあると思うので、そこの考慮が必要そう。
 
-[Null 合体演算子 (??)&nbsp;]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator") と [論理 OR 演算子 (||)&nbsp;]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_OR") の違いを知った。 **||** はnullやundefinedだけでなく空文字や0、falseなども \"ない\"と評価して右辺値を返すが、**??** はnull orundefinedの場合のみ右辺値を返す。
+[Null 合体演算子 (??)]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator") と [論理 OR 演算子 (||)]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_OR") の違いを知った。 **||** はnullやundefinedだけでなく空文字や0、falseなども \"ない\"と評価して右辺値を返すが、**??** はnull orundefinedの場合のみ右辺値を返す。
 
 
 ES2021の新機能として [||=(論理和代入)]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment")[ \*\*\*\*]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment")や[**&&=**]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment")[(論理積代入)]("https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment")演算子もある。

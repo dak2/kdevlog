@@ -39,31 +39,32 @@ export default function BlogPostPage() {
         </time>
       </div>
       <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            code({ className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || '')
-              return match ? (
-                <SyntaxHighlighter
-                  {...props}
-                  style={vscDarkPlus}
-                  language={match[1]}
-                  PreTag="div"
-                  showLineNumbers={true}
-                  wrapLongLines={true}
-                >
-                  {String(children).replace(/\n$/, '')}
-                </SyntaxHighlighter>
-              ) : (
-                <code {...props} className={className}>
-                  {children}
-                </code>
-              )
-            },
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
+        remarkPlugins={[remarkGfm]}
+        components={{
+          code({ className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '')
+            return match ? (
+              <SyntaxHighlighter
+                {...props}
+                style={vscDarkPlus}
+                language={match[1]}
+                PreTag="div"
+                showLineNumbers={true}
+                wrapLongLines={true}
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
+            ) : (
+              <code {...props} className={className}>
+                {children}
+              </code>
+            )
+          },
+        }}
+        className='markdown'
+      >
+        {post.content}
+      </ReactMarkdown>
     </article>
   )
 }

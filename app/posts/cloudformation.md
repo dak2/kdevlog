@@ -43,7 +43,7 @@ categories: 'AWS'
 
 `ChatGPT`やサンプルテンプレートを参照してリソースを定義し、公式docを見ながら正しいこと確認する流れで進めた。
 
-&nbsp;
+
 
 `ChatGPT`が出力したリソース例だと割とエラーになるケースが多く、公式docをベースにしつつエラーが起きた場合だけ、`ChatGPT`に聞きつつ進めるという形に落ち着いた。
 
@@ -59,7 +59,7 @@ refs. [https://docs.aws.amazon.com/ja_jp/AWSCloudformation/latest/UserGuide/quic
 
 そのため、`RDS`と`ECS`は別々でリソース作成するように進め方を変更した。
 
-&nbsp;
+
 
 まず、`RDS`単体のリソース単体で作成できることを確認し、その後`ECS`単体のリソース作成を確認。
 
@@ -86,7 +86,7 @@ refs. [https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/CHAP_Storage
 
 最初は、AWS管理の `AmazonECSTaskExecutionRolePolicy`を付与すればすんなりいけるのかなと思っていたが、中身を見てみると `CloudWatch Logs` のWrite、`ECR` のReadしか許可されていなかった。
 
-&nbsp;
+
 
 そのため、追加で`RDS`や`S3`、`Systems Manager`などのリソースにアクセスできるようにポリシーを付与した。
 
@@ -102,7 +102,7 @@ Network vpc-xxxxxxxx has some mapped public address(es). Please unmap those publ
 
 どうやら、スタックを作り替える際に`VPC`からパブリックIPをアンマッピングする前に`Internet Gateway`をデタッチしようとしているよう。
 
-&nbsp;
+
 
 下記の記事でも同じエラーに遭遇していた。
 
@@ -110,7 +110,7 @@ Network vpc-xxxxxxxx has some mapped public address(es). Please unmap those publ
 
 refs. [https://hyp0th3rmi4.medium.com/aws-Cloudformation-adventures-part1-build-your-own-vpc-d3f6d990d1fd](https://hyp0th3rmi4.medium.com/aws-Cloudformation-adventures-part1-build-your-own-vpc-d3f6d990d1fd)
 
-&nbsp;
+
 
 この作業を通じて `NAT Gateway`の存在を知った。
 
@@ -124,7 +124,7 @@ refs. [https://hyp0th3rmi4.medium.com/aws-Cloudformation-adventures-part1-build-
 
 そのため、本番環境用に`Dockerfile`を作り直してビルドした上で利用した。
 
-&nbsp;
+
 
 その際にやったことをリストにまとめると下記のようになる。
 
@@ -141,7 +141,7 @@ refs. [https://hyp0th3rmi4.medium.com/aws-Cloudformation-adventures-part1-build-
 
 プライベートリポジトリだから漏洩リスクが低いことと、スピード感を優先した結果、そういう構成になっていた。
 
-&nbsp;
+
 
 ただ、`Dockerfile`のイメージに環境変数を含めるのはリスクなので、`Systems Manager`のパラメータストアに格納した環境変数を利用するようにした。
 
@@ -157,11 +157,11 @@ refs. [https://hyp0th3rmi4.medium.com/aws-Cloudformation-adventures-part1-build-
 
 環境変数をパラメータストアから注入する形にすると、事前にローカルでイメージビルドする際に`precompile`でこける。(`AWS_ACCESS_KEY_ID`がないため)
 
-&nbsp;
+
 
 そもそも本番環境で`S3`にアクセスさせるために、`AWS_ACCESS_KEY_ID`など必要ではなく、ECSタスク実行ロールに`S3`へのアクセスポリシーを付与すれば良いというレビューをいただいた。
 
-&nbsp;
+
 
 そのため、ローカル環境なら`AWS_ACCESS_KEY_ID`を環境変数として利用し、本番環境ではポリシー付与することで該当の環境変数を不要にした。
 
@@ -173,13 +173,13 @@ refs. [https://hyp0th3rmi4.medium.com/aws-Cloudformation-adventures-part1-build-
 
 refs. [https://docs.docker.com/engine/reference/builder/#run---mounttypesecret](https://docs.docker.com/engine/reference/builder/#run---mounttypesecret)
 
-&nbsp;
+
 
 しかし、`RoR`の下記issueを確認したところ、そもそもビルドステップ時において本物の`SECRET_KEY_BASE`を渡す必要がないとのことで、`dummy`の値を渡すように変更した。（buildのコマンドも短くなってスッキリする）
 
 refs. [https://github.com/rails/rails/issues/32947#issuecomment-470380517](https://github.com/rails/rails/issues/32947#issuecomment-470380517)
 
-&nbsp;
+
 
 また、ビルド時に`production`という変数を渡せば`precompile`するし、そうでなければしないようにすることで、ローカル環境と本番環境で`Dockerfile`を併用できるようにした。
 
@@ -209,15 +209,15 @@ refs. [https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/userguide/task_definit
 
 ヘルスチェックのエンドポイントがなかったのでコケ続けていたため、`ELB`のタイムアウト設定を追加(`HealthCheckIntervalSeconds`など)して、専用のエンドポイントを設定したところ、ヘルスチェックに成功した。
 
-&nbsp;
+
 
 また、`ActionView::Template::Error (The asset "application.css" is not present in the asset pipeline.)`エラーが出たので、`RAILS_SERVE_STATIC_FILES`の環境変数を正しく設定した。
 
-&nbsp;
+
 
 さらに、コンテナ側では80番ポートを開けているのに、`Rails`サーバー起動時に3000番ポートで動かしてしまいエラーが出たので、ポートを80番で起動させるように修正した。(ローカルのやつそのままコピペしてた)
 
-&nbsp;
+
 
 加えて、`RDS`起動後に`ECS`を立ち上げるように`DependsOn`で立ち上げ順序の指定を行うなどした。
 
@@ -255,7 +255,7 @@ refs. [https://qiita.com/NaokiIshimura/items/654f1f82adb039f1ad47](https://qiita
 $ aws ecs update-service --region region-name --cluster cluster-name --service service-name --enable-execute-command
 ```
 
-&nbsp;
+
 
 上記のコマンドで`ECS`クラスター内のサービスでコマンド実行を可能にする。
 
@@ -263,7 +263,7 @@ $ aws ecs update-service --region region-name --cluster cluster-name --service s
 $ aws ecs describe-services --cluster cluster-name --services service-name | jq '.services[].enableExecuteCommand'
 ```
 
-&nbsp;
+
 
 上記のコマンドでクラスター内のサービスでコマンド実行が可能状態かどうか確認。
 
@@ -271,7 +271,7 @@ $ aws ecs describe-services --cluster cluster-name --services service-name | jq 
 $ aws ecs update-service --force-new-deployment --service service-name --cluster cluster-name
 ```
 
-&nbsp;
+
 
 上記のコマンドでクラスター内のサービスで強制デプロイをかけることで、コマンド実行可能なタスクが作成される。
 
@@ -298,7 +298,7 @@ $ docker build -t image-name:version -f Dockerfile . --build-arg RAILS_ENV=produ
 
 `RAILS_ENV`の引数を渡したら`precompile`が走るようになっている。
 
-&nbsp;
+
 
 ```plaintext
 $ docker tag image-name:version *******.dkr.ecr.ap-northeast-1.amazonaws.com/repository-name:version
@@ -314,7 +314,7 @@ $ aws ecr get-login-password --region resion-name | docker login --username user
 
 `ECR`にログイン
 
-&nbsp;
+
 
 ```plaintext
 $ docker push **********.dkr.ecr.resion-name.amazonaws.com/repository-name:version
@@ -330,7 +330,7 @@ $ aws ecs register-task-definition --family family_name --cli-input-json "$(aws 
 
 `jq`を使って`describe-task-definition`で取得したタスク定義から不要なものを取り除いた上で新規のタスクを登録している。
 
-&nbsp;
+
 
 下記の記事にもあるように、`describe-task-definition`で取得したタスク定義の`JSON`はそのままだと登録できず、不要な項目を省いて登録する必要がある。
 
@@ -352,13 +352,13 @@ $ aws ecs update-service --cluster cluster-name --service service-name --task-de
 
 社内の既存アプリケーションのインフラはコード化されておらず、今回のアプリケーション作成を通じて`IaC`の基盤を構築できたということも一つ成果として挙げられる。
 
-&nbsp;
+
 
 インフラ構築は経験したことがなかったので、最初はリソースの調査をしつつ、1つ1つ定義していった。
 
 `stack`の作成・更新を通じてエラーが出てそれを直すという繰り返しで、エラー駆動で進めていた。
 
-&nbsp;
+
 
 エラーの原因がよく分からないとなった時は、どこのリソースまで定義したらエラーになるんだっけ等、問題の分割ができるのも新しい発見だった。
 

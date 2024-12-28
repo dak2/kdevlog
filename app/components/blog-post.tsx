@@ -1,4 +1,4 @@
-import { Post } from '../../lib/blog'
+import { Post } from '../../lib/type'
 import { CiCalendar } from 'react-icons/ci'
 import Link from 'next/link'
 
@@ -6,7 +6,7 @@ export default function BlogPost({ post }: { post: Post }) {
   return (
     <article className="mb-8">
       <Link href={`/blog/${post.slug}`}>
-        <h2 className="text-xl font-bold mb-2 hover:text-gray-300">
+        <h2 className="text-xl font-bold mb-2 hover:text-gray-400">
           {post.title}
         </h2>
       </Link>
