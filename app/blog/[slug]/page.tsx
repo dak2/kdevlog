@@ -1,15 +1,15 @@
-"use client"
-import { useEffect, useState } from 'react'
+'use client'
 import { useParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { CiCalendar } from 'react-icons/ci'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { CiCalendar } from 'react-icons/ci'
 import remarkGfm from 'remark-gfm'
 import { Post } from '../../../lib/type'
 
 export default function BlogPostPage() {
-  const params = useParams<{ slug: string}>()
+  const params = useParams<{ slug: string }>()
   const slug = params?.slug
   const [post, setPost] = useState<Post>()
 
@@ -61,7 +61,7 @@ export default function BlogPostPage() {
             )
           },
         }}
-        className='markdown'
+        className="markdown"
       >
         {post.content}
       </ReactMarkdown>

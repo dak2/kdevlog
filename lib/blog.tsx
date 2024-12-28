@@ -1,7 +1,7 @@
-import { Post } from './type'
 import { readFileSync, readdirSync } from 'fs'
 import { join } from 'path'
 import matter from 'gray-matter'
+import { Post } from './type'
 
 export const getPosts = (perPage?: number) => {
   const postDirectory = join(process.cwd(), 'app', 'posts')

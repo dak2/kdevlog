@@ -1,5 +1,5 @@
+import { SiX, SiZenn } from '@icons-pack/react-simple-icons'
 import { FaGithub } from 'react-icons/fa'
-import { SiZenn, SiX } from '@icons-pack/react-simple-icons'
 
 import Link from 'next/link'
 

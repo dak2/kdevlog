@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { Post } from '../lib/type'
 import BlogPost from './components/blog-post'
 import Pagination from './components/pagination'
-import { Post } from '../lib/type'
 
 export default function Home() {
   const searchParams = useSearchParams()

@@ -1,6 +1,6 @@
-import { Post } from '../../lib/type'
-import { CiCalendar } from 'react-icons/ci'
 import Link from 'next/link'
+import { CiCalendar } from 'react-icons/ci'
+import { Post } from '../../lib/type'
 
 export default function BlogPost({ post }: { post: Post }) {
   return (
