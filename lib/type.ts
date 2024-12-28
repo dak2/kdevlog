@@ -1,27 +1,8 @@
-// TODO: change type name
-export type Post = {
-  id: string
+export interface Post {
+  slug: string
   title: string
-  updated_at: string
-  published_at: string
-  categories: string[]
+  date: string
+  excerpt: string
   content: string
+  categories: string[]
 }
-
-export type Tag = {
-  id: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-  name: string
-}
-
-export const LanguageTypes = [
-  { lang: 'javascript' },
-  { lang: 'typescript' },
-  { lang: 'ruby' },
-  { lang: 'rust' },
-  { lang: 'deno' },
-  { lang: 'go' },
-]

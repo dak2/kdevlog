@@ -1,8 +1,9 @@
 module.exports = {
-  purge: [
-    './components/**/*.tsx',
-    './pages/**/*.tsx',
-    './public/**/*.html',
-    './styles/*.scss',
-  ],
+  purge: {
+    enable: true,
+    content: [
+      'styles/**/*.css',
+      'app/**/*.tsx',
+    ]
+  },
 }
