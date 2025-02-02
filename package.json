@@ -10,7 +10,7 @@
     "lint": "npx @biomejs/biome format --write"
   },
   "dependencies": {
-    "@icons-pack/react-simple-icons": "^10.2.0",
+    "@icons-pack/react-simple-icons": "^11.2.0",
     "autoprefixer": "^10.4.20",
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
