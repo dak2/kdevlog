@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-2xl">
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
+        <h2 className="text-xl font-semibold mb-4">SNS</h2>
         <div className="flex space-x-4">
           <Link
             href="https://github.com/dak2"
