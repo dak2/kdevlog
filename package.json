@@ -35,6 +35,6 @@
     "sass": "^1.83.4",
     "stylelint-config-recommended": "^15.0.0",
     "typescript": "^5.8.2",
-    "vercel": "^40.1.0"
+    "vercel": "^41.4.1"
   }
 }
