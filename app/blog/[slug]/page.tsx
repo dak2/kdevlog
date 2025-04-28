@@ -9,12 +9,6 @@ import { getBlogPostBySlug, getPosts } from '../../../lib/blog'
 export const dynamic = 'force-static'
 export const revalidate = false
 
-interface BlogPostPageProps {
-  params: {
-    slug: string
-  }
-}
-
 export async function generateStaticParams() {
   const posts = getPosts()
 
@@ -23,9 +17,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({
-  params,
-}: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }): Promise<Metadata> {
   const pageParams = await params
   const post = getBlogPostBySlug(pageParams.slug)
 
@@ -37,7 +29,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params }) {
   const pageParams = await params
   const post = getBlogPostBySlug(pageParams.slug)
 

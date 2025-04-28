@@ -27,7 +27,7 @@
 }
 
 .markdown a {
-  @apply text-blue-600 font-semibold;
+  @apply text-indigo-400 hover:text-indigo-300 font-semibold;
 }
 
 .markdown strong a {
