@@ -21,7 +21,7 @@ export default async function BlogPostPage({ params }) {
   const post = getBlogPostBySlug(pageParams.slug)
 
   if (!post) {
-    return <div>Post not found</div>
+    return <div>Page Not Found</div>
   }
 
   return (

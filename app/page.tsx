@@ -2,12 +2,18 @@ import { getBlogPosts } from '../lib/blog'
 import BlogPost from './components/blog-post'
 import Pagination from './components/pagination'
 
-export const dynamic = 'force-static'
-export const revalidate = false
+export function generateStaticParams() {
+  const { totalPages } = getBlogPosts()
 
-export default function Home({ searchParams }) {
-  const page = searchParams?.page ? parseInt(searchParams.page, 10) : 1
-  const { posts, totalPages } = getBlogPosts(page)
+  return Array.from({ length: totalPages }, (_, i) => ({
+    searchParams: i === 0 ? {} : { page: (i + 1).toString() },
+  }))
+}
+
+export default async function Home({ searchParams }) {
+  const params = await searchParams
+  const currentPage = params.page ? parseInt(params.page, 10) : 1
+  const { posts, totalPages } = getBlogPosts(currentPage)
 
   return (
     <div>
@@ -16,7 +22,7 @@ export default function Home({ searchParams }) {
           <BlogPost key={post.slug} post={post} />
         ))}
       </div>
-      <Pagination currentPage={page} totalPages={totalPages} />
+      <Pagination currentPage={currentPage} totalPages={totalPages} />
     </div>
   )
 }

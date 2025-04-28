@@ -1,7 +1,6 @@
 import { SiX, SiZenn } from '@icons-pack/react-simple-icons'
-import { FaGithub } from 'react-icons/fa'
-
 import Link from 'next/link'
+import { FaGithub } from 'react-icons/fa'
 
 export const dynamic = 'force-static'
 export const revalidate = false
