@@ -1,4 +1,5 @@
 import '../styles/global.scss'
+import { Analytics } from '@vercel/analytics/react'
 import { Inter } from 'next/font/google'
 import Header from './components/header'
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <footer className="text-center py-4 text-sm text-gray-400">
           © {new Date().getFullYear()} Kdevlog. All rights reserved.
         </footer>
+        <Analytics />
       </body>
     </html>
   )
