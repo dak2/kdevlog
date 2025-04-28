@@ -17,7 +17,7 @@ export default function Pagination({
     <div className="flex justify-center items-center space-x-4">
       {prevPage && (
         <Link
-          href={`/?page=${prevPage}`}
+          href={prevPage === 1 ? '/' : `/?page=${prevPage}`}
           className="flex items-center text-indigo-400 hover:text-indigo-300"
         >
           <FaChevronLeft size={20} />
