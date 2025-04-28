@@ -3,6 +3,9 @@ import { FaGithub } from 'react-icons/fa'
 
 import Link from 'next/link'
 
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export default function About() {
   return (
     <div className="max-w-2xl">
