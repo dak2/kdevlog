@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { CiCalendar } from 'react-icons/ci'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -14,6 +15,18 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.slug,
   }))
+}
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const pageParams = await params
+  const post = getBlogPostBySlug(pageParams.slug)
+
+  return {
+    openGraph: {
+      title: post?.title || 'Default Title',
+      description: post?.excerpt || 'Default Description',
+    },
+  }
 }
 
 export default async function BlogPostPage({ params }) {

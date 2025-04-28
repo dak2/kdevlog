@@ -6,8 +6,19 @@ import Header from './components/header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Kdevlog',
-  description: 'A personal tech blog',
+  openGraph: {
+    title: 'kdevlog',
+    description: 'Technology, development, and more.',
+    url: 'https://kdevlog.com',
+    siteName: 'kdevlog',
+    images: [
+      {
+        url: 'https://img.icons8.com/ios/250/000000/edit.png',
+        width: 100,
+        height: 50,
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
@@ -21,7 +32,7 @@ export default function RootLayout({
         <Header />
         <main className="container mx-auto px-4 py-8">{children}</main>
         <footer className="text-center py-4 text-sm text-gray-400">
-          © {new Date().getFullYear()} Kdevlog. All rights reserved.
+          © {new Date().getFullYear()} kdevlog. All rights reserved.
         </footer>
         <Analytics />
       </body>
