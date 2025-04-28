@@ -6,7 +6,7 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center">
           <Link href="/" className="text-xl font-bold mr-8">
-            Kdevlog
+            kdevlog
           </Link>
           <nav>
             <ul className="flex space-x-4">
