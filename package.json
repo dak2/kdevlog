@@ -34,7 +34,7 @@
     "@types/react": "^19.0.10",
     "lefthook": "^1.11.3",
     "sass": "^1.83.4",
-    "stylelint-config-recommended": "^15.0.0",
+    "stylelint-config-recommended": "^16.0.0",
     "typescript": "^5.8.2",
     "vercel": "^41.4.1"
   }
