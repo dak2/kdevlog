@@ -7,11 +7,11 @@
 }
 
 .markdown > * + * {
-  @apply mt-0 mb-4;
+  @apply mt-0 mb-3;
 }
 
 .markdown p {
-  @apply leading-8;
+  @apply leading-7;
 }
 
 .markdown li + li {
@@ -43,11 +43,11 @@
 }
 
 .markdown h3 {
-  @apply leading-snug text-lg font-semibold mb-4 mt-10;
+  @apply leading-snug text-lg font-semibold mb-3 mt-8;
 }
 
 .markdown h4 {
-  @apply leading-none text-base font-semibold mb-4 mt-10;
+  @apply leading-none text-base font-semibold mb-4 mt-8;
 }
 
 .markdown h5 {

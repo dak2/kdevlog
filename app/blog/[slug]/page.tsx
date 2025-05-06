@@ -42,9 +42,7 @@ export default async function BlogPostPage({ params }) {
       <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
       <div className="flex items-center text-sm text-gray-500 mb-4">
         <CiCalendar size={16} className="mr-2" />
-        <time dateTime={post.date}>
-          {new Date(post.date).toLocaleDateString()}
-        </time>
+        <time dateTime={post.date}>{post.date}</time>
       </div>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}

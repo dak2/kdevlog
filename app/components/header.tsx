@@ -8,15 +8,6 @@ export default function Header() {
           <Link href="/" className="text-xl font-bold mr-8">
             kdevlog
           </Link>
-          <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <Link href="/about" className="hover:text-gray-400">
-                  About
-                </Link>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
     </header>
