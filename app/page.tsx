@@ -1,6 +1,7 @@
 import { SiX, SiZenn } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import { LuNotebookPen } from "react-icons/lu";
 import { getBlogPosts } from "../lib/blog";
 import BlogPost from "./components/blog-post";
 import Pagination from "./components/pagination";
@@ -64,6 +65,13 @@ export default async function Home({ searchParams }) {
 								>
 									<SiX size={20} className="mr-3" />
 									<span>X (Twitter)</span>
+								</Link>
+								<Link
+									href="https://scrapbox.io/dawt2h-55188069/"
+									className="flex items-center text-gray-300 hover:text-white transition-colors"
+								>
+									<LuNotebookPen size={20} className="mr-3" />
+									<span>Cosense</span>
 								</Link>
 							</div>
 						</div>
