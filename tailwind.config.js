@@ -1,6 +1,3 @@
 module.exports = {
-	purge: {
-		enable: true,
-		content: ["styles/**/*.css", "app/**/*.tsx"],
-	},
+	content: ["./app/**/*.{js,ts,jsx,tsx}", "./styles/**/*.{css,scss}"],
 };
