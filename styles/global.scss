@@ -1,6 +1,4 @@
-@import 'tailwindcss/base.css';
-@import 'tailwindcss/components.css';
-@import 'tailwindcss/utilities.css';
+@use "tailwindcss";
 
 .markdown {
   @apply text-gray-100 leading-normal break-words;
@@ -104,5 +102,5 @@
 
 /* Override pygments style background color. */
 .markdown .highlight pre {
-  @apply bg-gray-100 !important;
+  background-color: rgb(243 244 246) !important;
 }
