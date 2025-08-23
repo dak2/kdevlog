@@ -33,7 +33,7 @@
 		"@biomejs/biome": "^2.2.0",
 		"@types/node": "^24.2.1",
 		"@types/react": "^19.0.10",
-		"lefthook": "^1.11.3",
+		"lefthook": "^1.12.3",
 		"sass": "^1.83.4",
 		"stylelint-config-recommended": "^16.0.0",
 		"typescript": "^5.8.3",
