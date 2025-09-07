@@ -36,7 +36,7 @@
 		"lefthook": "^1.12.3",
 		"sass": "^1.83.4",
 		"stylelint-config-recommended": "^16.0.0",
-		"typescript": "^5.8.3",
+		"typescript": "^5.9.2",
 		"vercel": "^41.4.1"
 	}
 }
