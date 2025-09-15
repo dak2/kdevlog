@@ -27,7 +27,7 @@
 		"react-markdown": "^9.0.3",
 		"react-syntax-highlighter": "^15.6.1",
 		"remark-gfm": "^4.0.1",
-		"tailwindcss": "^4.1.12"
+		"tailwindcss": "^4.1.13"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.2.0",
