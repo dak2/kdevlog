@@ -34,9 +34,9 @@ Ruby を使って開発をしていると、IRB やオープンクラスなど�
 
 パタン・ランゲージのフォース、アジャイルソフトウェア開発宣言など存在は知っているが、ちゃんと理解してなかったなと思ったので見てみよう。
 
-[パタン・ランゲージ](https://www.amazon.co.jp/%E3%83%91%E3%82%BF%E3%83%B3%E3%83%BB%E3%83%A9%E3%83%B3%E3%82%B2%E3%83%BC%E3%82%B8%E2%80%95%E7%92%B0%E5%A2%83%E8%A8%AD%E8%A8%88%E3%81%AE%E6%89%8B%E5%BC%95-%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%88%E3%83%95%E3%82%A1%E3%83%BC%E3%83%BB%E3%82%A2%E3%83%AC%E3%82%B0%E3%82%B6%E3%83%B3%E3%83%80%E3%83%BC/dp/4306041719)
+https://amzn.asia/d/74EZUFK
 
-[アジャイルソフトウェア開発宣言](https://agilemanifesto.org/iso/ja/manifesto.html)
+https://agilemanifesto.org/iso/ja/manifesto.html
 
 ### 入門 FormObject
 
@@ -175,7 +175,9 @@ https://speakerdeck.com/ohbarye/5-years-fintech-rails-retrospective
 
 事業の性質を踏まえたアーキテクチャ設計は参考になるなと思いました。1開発者としてはモジュール周りの話はちょっと気になるな。
 
-[Vanilla Rails is plenty](https://dev.37signals.com/vanilla-rails-is-plenty/) 読んでみよう。
+Vanilla Rails is plenty 読んでみよう。
+
+https://dev.37signals.com/vanilla-rails-is-plenty/ 
 
 ### Rails アプリケーション開発者のためのブックガイド
 
@@ -235,7 +237,7 @@ joker さんにセッション良かったですと伝えられたことや、ko
 
 https://x.com/masaya_dev/status/1971939062237089983
 
-2日目は、90分でビール飲み放題の箱に行きました。
+2日目は、kudou さんの座標を見つけて、90分でビール飲み放題の箱に行きました。
 
 その際に marco から直接 Herb の話を聞けたのは良かったです。セッション聞きに行ってなかったんですが、2次会の場で聞けるとは思ってなかったです。
 
