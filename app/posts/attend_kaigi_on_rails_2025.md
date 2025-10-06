@@ -233,6 +233,8 @@ https://x.com/_dak2_/status/1971582174269968410
 
 1日目は2次会で、koic さんや joker さんたちとお酒を飲みました。
 
+https://x.com/koic/status/1971566671212187856
+
 joker さんにセッション良かったですと伝えられたことや、koic さんに mcp の ruby-sdk に関する話ができて良かったです。
 
 https://x.com/masaya_dev/status/1971939062237089983
